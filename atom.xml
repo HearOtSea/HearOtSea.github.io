@@ -4,7 +4,7 @@
   <title><![CDATA[]]></title>
   <link href="https://github.com/HearOtSea/HearOtSea.github.io.git/atom.xml" rel="self"/>
   <link href="https://github.com/HearOtSea/HearOtSea.github.io.git/"/>
-  <updated>2018-02-24T15:15:16+08:00</updated>
+  <updated>2018-02-24T15:22:58+08:00</updated>
   <id>https://github.com/HearOtSea/HearOtSea.github.io.git/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -439,164 +439,69 @@ date: 2018.02.12</p>
     <content type="html"><![CDATA[
 <hr/>
 
-<p>layout: post<br/>
-title: &quot;项目中会用到的知识&quot;<br/>
-date: 2018.02.12</p>
-
 <h2 id="toc_0">tag: iOS 总结</h2>
 
-<h1 id="toc_1">本文转自简书，仅供学习</h1>
-
-<h2 id="toc_2">【百度】（二面挂）</h2>
-
-<h3 id="toc_3">一面：</h3>
-
 <ul>
-<li><p>1.说下线程和进程的区别</p></li>
-<li><p>2.如何保证线程安全</p></li>
-<li><p>3.写个算法，输出2~100的素数（然后问你怎么优化，还可以怎么优化，然后还可以怎样优化.....）</p></li>
-<li><p>4.了解哪些设计模式</p></li>
-<li><p>5.MVC设计模式的思想是什么？在项目中的运用，然后对比MVVM设计模式</p></li>
-<li><p>6.堆和栈的区别，工程项目中的哪些数据是储存在堆哪些在栈中</p></li>
-<li><p>7.iOS中的NSCopying协议，copy,MutableCopy的区别</p></li>
-<li><p>8.解释属性修饰关键词的作用（weak,strong,copy,readOnly,assgin,nonatomic等）</p></li>
-<li><p>9.最近看过哪些书？目录结构是怎样的？哪部分内容印象最深？了解过作者吗？</p></li>
-<li><p>10.你还有什么问题问我？</p></li>
+<li>
+<a href="#toc_0">tag: iOS 总结</a>
+</li>
 </ul>
+</li>
+<li>
+<a href="#toc_1">本文转自简书，仅供学习</a>
+<ul>
+<li>
+<a href="#toc_2">【百度】（二面挂）</a>
+<ul>
+<li>
+<a href="#toc_3">一面：</a>
+</li>
+<li>
+<a href="#toc_4">二面：</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_5">【京东】（二面莫名其妙挂）</a>
+<ul>
+<li>
+<a href="#toc_6">一面：</a>
+</li>
+<li>
+<a href="#toc_7">二面：</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_8">【同花顺】</a>
+<ul>
+<li>
+<a href="#toc_9">一面：（问的太基础）</a>
+</li>
+<li>
+<a href="#toc_10">二面：</a>
+</li>
+<li>
+<a href="#toc_11">三面：（因为薪资没谈拢加了一次技术面）</a>
+</li>
+<li>
+<a href="#toc_12">四面：</a>
+<ul>
+<li>
+<ul>
+<li>
+<a href="#toc_13">综上所述：秋招的一线互联网公司基本上看中学习能力和刻苦勤奋程度。比如百词斩给出的招聘要求就是精通数据结构和算法，没有实际开发经验的都可以。所以要想去大厂基础是必不可少的，而且必须深入学习。</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
 
 <span id="more"></span><!-- more -->
-
-<h3 id="toc_4">二面：</h3>
-
-<ul>
-<li><p>1.写二叉树的先序遍历，然后用非递归写</p></li>
-<li><p>2.写快排，并分析原理</p></li>
-<li><p>3.http协议</p></li>
-<li><p>4.http为什么底层是tcp不是udp ?</p></li>
-<li><p>5.tcp是基于流式传输的，怎么设计协议，进行协议的解析？</p></li>
-<li><p>6.tcp为什么要进行三次握手？不是2次，4次？</p></li>
-<li><p>7.抓包工具的原理是啥？</p></li>
-<li><p>8.socket异常断开时，设计一个合理的重连机制。</p></li>
-<li><p>9.内存管理</p></li>
-<li><p>10.iOS开发中用过哪些测试性能的工具</p></li>
-<li><p>11.instruments它为什么能检测内存泄漏</p></li>
-<li><p>12.做过的项目有什么技术难点（我说的难点在面试官看来都不是难点）？</p></li>
-<li><p>13.在10亿个数中如何快速找到最大的前100个数？</p></li>
-<li><p>14.你有什么创新能力？</p></li>
-<li><p>15.你还有什么问题问我？</p></li>
-</ul>
-
-<p>总结：偏向基础，问题逐步深入。</p>
-
-<h2 id="toc_5">【京东】（二面莫名其妙挂）</h2>
-
-<h3 id="toc_6">一面：</h3>
-
-<ul>
-<li><p>1.解释属性修饰关键词的作用（weak,strong,copy,readOnly,assgin,nonatomic等）</p></li>
-<li><p>2.项目中用过哪些设计模式</p></li>
-<li><p>3.结合响应者链条和设计模式，解释事件怎样传递和处理</p></li>
-<li><p>4.blcok，NSNotification，delegate，Observer比较</p></li>
-<li><p>5.block为什么会导致循环引用</p></li>
-<li><p>6.为什么想来京东</p></li>
-<li><p>7.聊人生</p></li>
-</ul>
-
-<h3 id="toc_7">二面：</h3>
-
-<ul>
-<li><p>（项目：因为实习的公司用的SDK组件化的开发模式，拿出来作品一边演示他一边提问，1-6点都是对于我的SDK项目提问）</p></li>
-<li><p>1.为什么需要组件化？</p></li>
-<li><p>2.tableView的性能优化</p></li>
-<li><p>3.SDK的接口设计过程（一般设计为进入业务线提供一个注册方法，在需要的时候使用代理回调。向SDK里传递数据一般用单利模式，开出相应的方法）</p></li>
-<li><p>4.cocoaPods的实现思路，为什么没有使用cocoaPods管理自己的SDK</p></li>
-<li><p>5.项目中缓存SDK采用的策略（我们项目主要借鉴了YYCache，采用lru算法，使用sqlite）</p></li>
-<li><p>6.相对复杂业务交互的处理，采用的设计模式（单利模式配合模板方法模式实现）</p></li>
-<li><p>7.AFN实现思路，对源码的理解程度</p></li>
-<li><p>8.项目中如何保证数据的安全性</p></li>
-<li><p>9.runtime在奇葩需求当中的运用（比如产品要求5和6上面显示不同的字体大小，可以用runtime的交换方法）</p></li>
-<li><p>9.快排的原理</p></li>
-<li><p>10.C语言中strlen和sizeof的区别</p></li>
-<li><p>11.职业规划（开始聊人生）</p></li>
-<li><p>总结：偏向项目，主要考察对业务的处理熟练度。（这是我最拿手的，二面差不多聊了1个多小时，没有答不上来问题，走的时候我跟面试官都很开心，晚上回去一看官网状态为未通过，伤心极了）</p></li>
-</ul>
-
-<h2 id="toc_8">【同花顺】</h2>
-
-<h3 id="toc_9">一面：（问的太基础）</h3>
-
-<ul>
-<li><p>1.对于面向对象的理解</p></li>
-<li><p>2.内存管理</p></li>
-<li><p>3.多线程</p></li>
-<li><p>4.保证线程安全的方式（加锁和GCD栅栏，队列组相关知识）</p></li>
-<li><p>5.KVC和KVO的使用和注意事项</p></li>
-<li><p>6.推送的原理</p></li>
-<li><p>7.tableViewCell的自适应如何实现，如何保证性能</p></li>
-<li><p>8.堆和栈的区别</p></li>
-</ul>
-
-<h3 id="toc_10">二面：</h3>
-
-<ul>
-<li><p>1.SDWebImage的底层实现（我只答到了没有沙盒的时如何实现）</p></li>
-<li><p>2.简述下runLoop（问了应用程序在不同条件下各个线程runLoop所处模式）</p></li>
-<li><p>3.一个页面可以由几个控制器共同管理吗</p></li>
-<li><p>4.http和socket的区别</p></li>
-<li><p>5.什么时候用集合(NSSet)</p></li>
-<li><p>6.项目上线或者版本迭代，有过被拒吗？是什么原因？怎么解决？</p></li>
-<li><p>7.转场动画相关操作</p></li>
-<li><p>8.绘图相关知识(coreGraphics框架的使用)</p></li>
-<li><p>9.数据持久化</p></li>
-<li><p>10.xib和代码适配界面有什么不一样</p></li>
-<li><p>11.项目中遇到的问题，如何解决（我从所做的项目的框架搭建，模块分布，设计类图，开发，自测，上线一直扯）</p></li>
-<li><p>12.最早什么时候能够来实习（感觉他们很缺人，但是我问了下他们部门都有30多个iOS开发者！！）</p></li>
-</ul>
-
-<h3 id="toc_11">三面：（因为薪资没谈拢加了一次技术面）</h3>
-
-<ul>
-<li><p>1.assgin和weak的区别，代理为什么用assgin</p></li>
-<li><p>2.类方法：load 和 initialize 有什么区别，一般怎么用它们</p></li>
-<li><p>3.OC语言的动态机制的理解（开始浅谈runtime）</p></li>
-<li><p>4.设计模式：代理和观察者模式的对比，单利模式的使用注意点</p></li>
-<li><p>5.如何设计网络请求框架（我按照AFN的理解去解释了一波）</p></li>
-<li><p>6.响应者链条</p></li>
-<li><p>7.iPhone自带的AssistiveTouch你如何实现</p></li>
-<li><p>8.App包的大小受哪些影响</p></li>
-<li><p>9.关于debug和release</p></li>
-<li><p>10.view的生命周期</p></li>
-</ul>
-
-<h3 id="toc_12">四面：</h3>
-
-<ul>
-<li><p>（HR面，基本上是闲扯，想着反正拿到offer也不得去，我问他的问题都比他问我的还要多。。。基本上也记不住了）</p></li>
-<li><p>1.说出你的三个缺点和优点</p></li>
-<li><p>2.为什么选择同花顺</p></li>
-<li><p>3.说出你在大学期间干过的最牛逼的一件事</p></li>
-<li><p>4.对于我们企业文化的理解（我把我实习公司的企业文化吹嘘了一遍，发现这几点基本上放在任何私企都好使：客户至上，团队合作，诚信正直，务实创新）</p></li>
-<li><p>总结：技术面非常偏向项目，感觉前面两个面试官比较水。</p></li>
-</ul>
-
-<h5 id="toc_13">综上所述：秋招的一线互联网公司基本上看中学习能力和刻苦勤奋程度。比如百词斩给出的招聘要求就是精通数据结构和算法，没有实际开发经验的都可以。所以要想去大厂基础是必不可少的，而且必须深入学习。</h5>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[2018-02-12-项目中会用到的知识]]></title>
-    <link href="https://github.com/HearOtSea/HearOtSea.github.io.git/15179689057067.html"/>
-    <updated>2018-02-07T10:01:45+08:00</updated>
-    <id>https://github.com/HearOtSea/HearOtSea.github.io.git/15179689057067.html</id>
-    <content type="html"><![CDATA[
-<hr/>
-
-<p>layout: post<br/>
-title: &quot;项目中会用到的知识&quot;<br/>
-date: 2018.02.07</p>
-
-<h2 id="toc_0">tag: iOS 面试题</h2>
 
 <h1 id="toc_1">本文转自简书，仅供学习</h1>
 
@@ -617,7 +522,7 @@ date: 2018.02.07</p>
 <li><p>10.你还有什么问题问我？</p></li>
 </ul>
 
-<span id="more"></span><!-- more -->
+<!-- more -->
 
 <h3 id="toc_4">二面：</h3>
 
@@ -3276,6 +3181,64 @@ date: 2018.1.22</p>
 </ul>
 
 <h2 id="toc_3">关于工作上的总结可以先记录下来，等有空闲就详细且系统的学习</h2>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[2018.01.22 - 工作清单]]></title>
+    <link href="https://github.com/HearOtSea/HearOtSea.github.io.git/15165828267998.html"/>
+    <updated>2018-01-22T09:00:26+08:00</updated>
+    <id>https://github.com/HearOtSea/HearOtSea.github.io.git/15165828267998.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">工作清单</h2>
+
+<ul>
+<li>我玩接入 <strong>adjust</strong> SDK</li>
+</ul>
+
+<h2 id="toc_1">生活清单</h2>
+
+<table>
+<thead>
+<tr>
+<th>需要做的事</th>
+<th>时间预算</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>下班吃饭</td>
+<td>18：00 - 18：30</td>
+</tr>
+<tr>
+<td>坐车回奥山</td>
+<td>18：30 - 19：00</td>
+</tr>
+<tr>
+<td>带人吃鸡</td>
+<td>19：00 - 21：00</td>
+</tr>
+<tr>
+<td>健身</td>
+<td>21：00 - 22：00</td>
+</tr>
+<tr>
+<td>整理房间</td>
+<td>22：00 - 22：30</td>
+</tr>
+<tr>
+<td>洗衣</td>
+<td>22：05 - 23：00</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>风衣干洗 </li>
+<li>理发 1h</li>
+</ul>
 
 ]]></content>
   </entry>
