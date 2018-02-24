@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  --- - 
+  2018-02-23-内购 - 
   
   </title>
   
@@ -103,7 +103,7 @@
       <div class="markdown-body article-wrap">
        <div class="article">
           
-          <h1>---</h1>
+          <h1>2018-02-23-内购</h1>
      
         <div class="read-more clearfix">
           <span class="date">2018/2/23</span>
@@ -123,64 +123,59 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <h2 id="toc_0">tag: iOS 总结</h2>
-
-<ul>
+      <ul>
 <li>
-<a href="#toc_0">tag: iOS 总结</a>
+<a href="#toc_0">1. 导入 <StoreKit/StoreKit.h></a>
 </li>
 <li>
-<a href="#toc_1">1. 导入 <StoreKit/StoreKit.h></a>
+<a href="#toc_1">2. 遵循 SKProductsRequestDelegate, SKPaymentTransactionObserver 协议</a>
 </li>
 <li>
-<a href="#toc_2">2. 遵循 SKProductsRequestDelegate, SKPaymentTransactionObserver 协议</a>
+<a href="#toc_2">3. 设置商品 ID</a>
 </li>
 <li>
-<a href="#toc_3">3. 设置商品 ID</a>
+<a href="#toc_3">添加观察者</a>
 </li>
 <li>
-<a href="#toc_4">添加观察者</a>
+<a href="#toc_4">移除观察者</a>
 </li>
 <li>
-<a href="#toc_5">移除观察者</a>
+<a href="#toc_5">设置 UI</a>
 </li>
 <li>
-<a href="#toc_6">设置 UI</a>
+<a href="#toc_6">测试内购</a>
 </li>
 <li>
-<a href="#toc_7">测试内购</a>
+<a href="#toc_7">请求所有的商品 ID</a>
 </li>
 <li>
-<a href="#toc_8">请求所有的商品 ID</a>
+<a href="#toc_8">苹果那边的内购监听</a>
 </li>
 <li>
-<a href="#toc_9">苹果那边的内购监听</a>
+<a href="#toc_9">内购代码调用</a>
 </li>
 <li>
-<a href="#toc_10">内购代码调用</a>
+<a href="#toc_10">实现观察者监听付钱的代理方法，只要交易发生变化就会走下面的方法</a>
 </li>
 <li>
-<a href="#toc_11">实现观察者监听付钱的代理方法，只要交易发生变化就会走下面的方法</a>
+<a href="#toc_11">苹果内购支付成功</a>
 </li>
 <li>
-<a href="#toc_12">苹果内购支付成功</a>
+<a href="#toc_12">生成订单参数</a>
 </li>
 <li>
-<a href="#toc_13">生成订单参数</a>
-</li>
-<li>
-<a href="#toc_14">客户端验证购买凭据</a>
+<a href="#toc_13">客户端验证购买凭据</a>
 </li>
 </ul>
 
 
 <span id="more"></span><!-- more -->
 
-<h2 id="toc_1">1. 导入 <StoreKit/StoreKit.h></h2>
+<h2 id="toc_0">1. 导入 <StoreKit/StoreKit.h></h2>
 
-<h2 id="toc_2">2. 遵循 SKProductsRequestDelegate, SKPaymentTransactionObserver 协议</h2>
+<h2 id="toc_1">2. 遵循 SKProductsRequestDelegate, SKPaymentTransactionObserver 协议</h2>
 
-<h2 id="toc_3">3. 设置商品 ID</h2>
+<h2 id="toc_2">3. 设置商品 ID</h2>
 
 <pre><code>//在内购项目中创的商品单号
 #define ProductID_IAP0p20 @&quot;Nada.JPYF01&quot;//20
@@ -190,7 +185,7 @@
 #define ProductID_IAP24p6000 @&quot;Nada.JPYF05&quot; //6000
 </code></pre>
 
-<h2 id="toc_4">添加观察者</h2>
+<h2 id="toc_3">添加观察者</h2>
 
 <pre><code>-(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -199,7 +194,7 @@
 }
 </code></pre>
 
-<h2 id="toc_5">移除观察者</h2>
+<h2 id="toc_4">移除观察者</h2>
 
 <pre><code>-(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -208,7 +203,7 @@
 }
 </code></pre>
 
-<h2 id="toc_6">设置 UI</h2>
+<h2 id="toc_5">设置 UI</h2>
 
 <pre><code>- (void)viewDidLoad {
     [super viewDidLoad];
@@ -226,7 +221,7 @@
 }
 </code></pre>
 
-<h2 id="toc_7">测试内购</h2>
+<h2 id="toc_6">测试内购</h2>
 
 <pre><code>-(void)test{
 
@@ -247,7 +242,7 @@
 }
 </code></pre>
 
-<h2 id="toc_8">请求所有的商品 ID</h2>
+<h2 id="toc_7">请求所有的商品 ID</h2>
 
 <pre><code>#pragma mark 1.请求所有的商品ID
 -(void)requestProductID:(NSString *)productID{
@@ -267,7 +262,7 @@
 }
 </code></pre>
 
-<h2 id="toc_9">苹果那边的内购监听</h2>
+<h2 id="toc_8">苹果那边的内购监听</h2>
 
 <pre><code>#pragma mark 2.苹果那边的内购监听
 -(void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response{
@@ -305,7 +300,7 @@
 }
 </code></pre>
 
-<h2 id="toc_10">内购代码调用</h2>
+<h2 id="toc_9">内购代码调用</h2>
 
 <pre><code>#pragma mark 内购的代码调用
 -(void)buyProduct:(SKProduct *)product{
@@ -322,7 +317,7 @@
 }
 </code></pre>
 
-<h2 id="toc_11">实现观察者监听付钱的代理方法，只要交易发生变化就会走下面的方法</h2>
+<h2 id="toc_10">实现观察者监听付钱的代理方法，只要交易发生变化就会走下面的方法</h2>
 
 <pre><code>#pragma mark 4.实现观察者监听付钱的代理方法,只要交易发生变化就会走下面的方法
 -(void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{
@@ -370,7 +365,7 @@
 }
 </code></pre>
 
-<h2 id="toc_12">苹果内购支付成功</h2>
+<h2 id="toc_11">苹果内购支付成功</h2>
 
 <pre><code>// 苹果内购支付成功
 - (void)buyAppleStoreProductSucceedWithPaymentTransactionp:(SKPaymentTransaction *)paymentTransactionp {
@@ -401,7 +396,7 @@
 }
 </code></pre>
 
-<h2 id="toc_13">生成订单参数</h2>
+<h2 id="toc_12">生成订单参数</h2>
 
 <pre><code>- (void)checkAppStorePayResultWithBase64String:(NSString *)base64String {
 
@@ -456,7 +451,7 @@
 }
 </code></pre>
 
-<h2 id="toc_14">客户端验证购买凭据</h2>
+<h2 id="toc_13">客户端验证购买凭据</h2>
 
 <pre><code>#pragma mark 客户端验证购买凭据
 - (void)verifyTransactionResult
@@ -613,7 +608,7 @@
 	      
 		      
 			      <li class="post">
-			        <a href="15193489395143.html">---</a>
+			        <a href="15193489395143.html">2018-02-23-内购</a>
 			      </li>
 		     
 		  
