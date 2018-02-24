@@ -1,0 +1,475 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  2018-02-06-SVN 相关问题和登录密码问题 - 
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:github.com/HearOtSea/HearOtSea.github.io.git ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; </span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html">工作总结</a></li>
+        
+            <li><a href="%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html">生活总结</a></li>
+        
+            <li><a href="%E5%B7%A5%E4%BD%9C%E6%B8%85%E5%8D%95.html">工作清单</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>2018-02-06-SVN 相关问题和登录密码问题</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2018/2/5 9:7 上午</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <hr/>
+
+<p>layout: post<br/>
+title: &quot;SVN 相关问题和登录密码问题&quot;<br/>
+date: 2018.02.06</p>
+
+<h2 id="toc_0">tag: iOS 总结</h2>
+
+<h2 id="toc_1">SVN 问题</h2>
+
+<ul>
+<li><p>开发项目的时候使用的是别人的包，所以在上传 SVN 的时候“鱿鱼” 操作不当导致两个项目混成一个项目，结果我很慌啊，灰常慌，灰常慌有木有啊，我了个..咳咳，正题</p></li>
+<li><p>严重警告，不看后果自负：</p>
+
+<ul>
+<li>记得备份！！！</li>
+<li>记得备份！！！</li>
+<li>记得备份！！！</li>
+</ul></li>
+</ul>
+
+<pre><code># 1. 打开 SVN 左边会有一栏你的项目，点击你所选的项目，右键 delete
+
+# 2. 然后把项目的 APP ID 更改一下，因为是一款 APP 做成两种不同的效果，所以会有两个 APP ID
+
+# 3. 继续打开项目所在的 SVN 路径下，拖入你正在开发的项目，上传 OK
+
+# 4. emmm  暂时没发现什么问题，如果有问题加群联系：698453193
+
+
+
+</code></pre>
+
+<h2 id="toc_2">账号密码健壮性的问题</h2>
+
+<ul>
+<li>接口</li>
+</ul>
+
+<pre><code>//修改密码
++(NSString *)ChangeCodeUrlWithOp:(NSInteger)op{
+    NSString *opStr =[NSString stringWithFormat:@&quot;%ld&quot;,op];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc]initWithObjectsAndKeys:opStr,@&quot;op&quot;,
+                                 nil];
+    return [NSString stringWithFormat:@&quot;%@version=%@&amp;timeStamp=%@&amp;imei=%@&amp;tp=ucenter/updatepwd&amp;pt=2&amp;op=%ld&amp;sign=%@&quot;,QWUrl,QWVersion,[QWCommonFunc time],QWImei,op,[self getSignAndSignDict:dict]];
+
+}
+</code></pre>
+
+<ul>
+<li>这里的 op 后台传过来的是 int 类型，所以我们转换成 NSString 类型</li>
+</ul>
+
+<pre><code>-(void)buttonQuickRegister{
+    NSString *phoneUrl = [NSString stringWithFormat:@&quot;%@&quot;,[QWHttpUrls phoneNumUrlWithphone:UserName.text]];
+    [QWHttpTool get:phoneUrl params:nil success:^(id  _Nullable json) {
+        
+        M = [json[@&quot;status&quot;] intValue];
+        QWLog(@&quot;msg==%@&quot;,json[@&quot;msg&quot;]);
+        if ([UserName.text isEqualToString:@&quot;&quot;]) {
+            [QWShowMessage showToastmsg:@&quot;手机号不能为空&quot;];
+            return;
+        }
+        else if (![QWStringUtils checkTelNumber:UserName.text])
+        {
+            [QWShowMessage showToastmsg:@&quot;请输入正确的手机号&quot;];
+            return;
+        }else if (M == -1){
+            [QWShowMessage showToastmsg:@&quot;该手机号不可用&quot;];
+            
+            return;
+        }
+        
+        else if ([Password.text isEqualToString:@&quot;&quot;])
+        {
+            [QWShowMessage showToastmsg:@&quot;请输入密码&quot;];
+            return;
+        }else if (![QWStringUtils checkPassword:Password.text])
+        {
+            [QWShowMessage showToastmsg:@&quot;请设置6-18位数字和字母组合密码&quot;];
+            return;
+        }else if (![Password.text isEqualToString:Rpassword.text])
+        {
+            [QWShowMessage showToastmsg:@&quot;两次密码输入不一致&quot;];
+            return;
+        }
+        else if ([code.text isEqualToString:@&quot;&quot;])
+        {
+            [QWShowMessage showToastmsg:@&quot;请输入验证码&quot;];
+            return;
+            
+        }
+        
+        else
+        {
+            [code resignFirstResponder];
+            [UserName resignFirstResponder];
+            
+            NSString *resUrl = [NSString stringWithFormat:@&quot;%@&quot;,[QWHttpUrls registerUrl]];
+            QWLog(@&quot;resUrl====%@&quot;,resUrl);
+            NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
+            [param setValue:UserName.text forKey:@&quot;account&quot;];
+            [param setValue:Password.text forKey:@&quot;password&quot;];
+            [param setValue:code.text forKey:@&quot;code&quot;];
+            [QWHttpTool postmanager:resUrl params:param success:^(id  _Nonnull manager, id  _Nonnull json) {
+                
+                QWLog(@&quot;json====%@&quot;,json);
+                QWLog(@&quot;status====%@&quot;,json[@&quot;status&quot;]);
+                QWLog(@&quot;data====%@&quot;,json[@&quot;data&quot;]);
+                
+                if ([json[@&quot;status&quot;] intValue] == 1) {
+                    //                QWAccountModel *model = [QWAccountModel sharedModel];
+                    //                model.uid = json[@&quot;data&quot;][@&quot;uid&quot;];
+                    //                model.nickname = json[@&quot;data&quot;][@&quot;username&quot;];
+                    //                model.phone = json[@&quot;data&quot;][@&quot;phone&quot;];
+                    //                model.isLogin = YES;
+                    
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                }
+                [QWShowMessage showToastmsg:json[@&quot;msg&quot;]];
+                
+            } failure:^(NSError * _Nonnull error) {
+                
+            }];
+            
+        }
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
+
+
+
+}
+</code></pre>
+
+<ul>
+<li><p>看了以上大佬写的代码后，我发现我真的菜的扣 jio</p></li>
+<li><p>开心一下：</p></li>
+</ul>
+
+<pre><code># 为什么图书管理不能穿拖鞋？
+
+# 以防翻书舔手和看书抠脚丫的打起来
+</code></pre>
+
+<h2 id="toc_3">项目改名字</h2>
+
+<ul>
+<li>转：<a href="https://www.jianshu.com/p/2887d6fb5769">在iOS项目中，如何完美的修改项目名称</a></li>
+</ul>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="15177929223553.html" 
+          title="Previous Post: 2018-02-05-生活总结">&laquo; 2018-02-05-生活总结</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="15175595412656.html" 
+          title="Next Post: 我玩">我玩 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1></h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html"><strong>工作总结</strong></a>
+        
+            <a href="%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html"><strong>生活总结</strong></a>
+        
+            <a href="%E5%B7%A5%E4%BD%9C%E6%B8%85%E5%8D%95.html"><strong>工作清单</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="15193489395143.html">2018-02-23-内购</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15184172518005.html">2018-02-12-狗年吉祥</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15184166364607.html">2018-02-12-项目中会用到的知识</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15179689057067.html">2018-02-12-项目中会用到的知识</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15181600421700.html">2018-02-09-C 语言总结</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+
+
+
+  </body>
+</html>

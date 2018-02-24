@@ -1,0 +1,675 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  2018-02-23-内购 - 
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:github.com/HearOtSea/HearOtSea.github.io.git ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; </span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html">工作总结</a></li>
+        
+            <li><a href="%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html">生活总结</a></li>
+        
+            <li><a href="%E5%B7%A5%E4%BD%9C%E6%B8%85%E5%8D%95.html">工作清单</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>2018-02-23-内购</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2018/2/23 9:22 上午</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <hr/>
+
+<p>layout: post<br/>
+title: &quot;内购&quot;<br/>
+date: 2018.02.23</p>
+
+<h2 id="toc_0">tag: iOS 总结</h2>
+
+<h2 id="toc_1">1. 导入 <StoreKit/StoreKit.h></h2>
+
+<h2 id="toc_2">2. 遵循 SKProductsRequestDelegate, SKPaymentTransactionObserver 协议</h2>
+
+<h2 id="toc_3">3. 设置商品 ID</h2>
+
+<pre><code>//在内购项目中创的商品单号
+#define ProductID_IAP0p20 @&quot;Nada.JPYF01&quot;//20
+#define ProductID_IAP1p100 @&quot;Nada.JPYF02&quot; //100
+#define ProductID_IAP4p600 @&quot;Nada.JPYF03&quot; //600
+#define ProductID_IAP9p1000 @&quot;Nada.JPYF04&quot; //1000
+#define ProductID_IAP24p6000 @&quot;Nada.JPYF05&quot; //6000
+</code></pre>
+
+<h2 id="toc_4">添加观察者</h2>
+
+<pre><code>-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    // 添加观察者
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+}
+</code></pre>
+
+<h2 id="toc_5">移除观察者</h2>
+
+<pre><code>-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    // 移除观察者
+    [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
+}
+</code></pre>
+
+<h2 id="toc_6">设置 UI</h2>
+
+<pre><code>- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @&quot;内购&quot;;
+
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@&quot;测试&quot; style:UIBarButtonItemStylePlain target:self action:@selector(test)];
+
+    // 恢复购买的按钮
+    UIButton * revert = [[UIButton alloc]initWithFrame:CGRectMake(20, 100, 100, 80)];
+    [revert setBackgroundColor:[UIColor cyanColor]];
+    [revert addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
+    [revert setTitle:@&quot;pay&quot; forState:UIControlStateNormal];
+    [self.view addSubview: revert];
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+</code></pre>
+
+<h2 id="toc_7">测试内购</h2>
+
+<pre><code>-(void)test{
+
+    if([SKPaymentQueue canMakePayments]){
+
+        // productID就是你在创建购买项目时所填写的产品ID
+        selectProductID = [NSString stringWithFormat:@&quot;%@&quot;,ProductID1];
+        [self requestProductID:selectProductID];
+
+    }else{
+
+        // NSLog(@&quot;不允许程序内付费&quot;);
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@&quot;温馨提议&quot; message:@&quot;请先开启应用内付费购买功能。&quot; preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@&quot;确定&quot; style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
+
+    }
+}
+</code></pre>
+
+<h2 id="toc_8">请求所有的商品 ID</h2>
+
+<pre><code>#pragma mark 1.请求所有的商品ID
+-(void)requestProductID:(NSString *)productID{
+
+    // 1.拿到所有可卖商品的ID数组
+    NSArray *productIDArray = [[NSArray alloc]initWithObjects:productID, nil];
+    NSSet *sets = [[NSSet alloc]initWithArray:productIDArray];
+
+    // 2.向苹果发送请求，请求所有可买的商品
+    // 2.1.创建请求对象
+    SKProductsRequest *sKProductsRequest = [[SKProductsRequest alloc]initWithProductIdentifiers:sets];
+    // 2.2.设置代理(在代理方法里面获取所有的可卖的商品)
+    sKProductsRequest.delegate = self;
+    // 2.3.开始请求
+    [sKProductsRequest start];
+
+}
+</code></pre>
+
+<h2 id="toc_9">苹果那边的内购监听</h2>
+
+<pre><code>#pragma mark 2.苹果那边的内购监听
+-(void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response{
+
+    NSLog(@&quot;可卖商品的数量=%ld&quot;,response.products.count);
+
+    NSArray *product = response.products;
+    if([product count] == 0){
+
+        NSLog(@&quot;没有商品&quot;);
+        return;
+    }
+
+    for (SKProduct *sKProduct in product) {
+
+        NSLog(@&quot;pro info&quot;);
+        NSLog(@&quot;SKProduct 描述信息：%@&quot;, sKProduct.description);
+        NSLog(@&quot;localizedTitle 产品标题：%@&quot;, sKProduct.localizedTitle);
+        NSLog(@&quot;localizedDescription 产品描述信息：%@&quot;,sKProduct.localizedDescription);
+        NSLog(@&quot;price 价格：%@&quot;,sKProduct.price);
+        NSLog(@&quot;productIdentifier Product id：%@&quot;,sKProduct.productIdentifier);
+
+        if([sKProduct.productIdentifier isEqualToString: selectProductID]){
+
+            [self buyProduct:sKProduct];
+
+            break;
+
+        }else{
+
+            //NSLog(@&quot;不不不相同&quot;);
+        }
+    }
+
+}
+</code></pre>
+
+<h2 id="toc_10">内购代码调用</h2>
+
+<pre><code>#pragma mark 内购的代码调用
+-(void)buyProduct:(SKProduct *)product{
+
+    // 1.创建票据
+    SKPayment *skpayment = [SKPayment paymentWithProduct:product];
+
+    // 2.将票据加入到交易队列
+    [[SKPaymentQueue defaultQueue] addPayment:skpayment];
+
+    // 3.添加观察者，监听用户是否付钱成功(不在此处添加观察者)
+    //[[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+
+}
+</code></pre>
+
+<h2 id="toc_11">实现观察者监听付钱的代理方法，只要交易发生变化就会走下面的方法</h2>
+
+<pre><code>#pragma mark 4.实现观察者监听付钱的代理方法,只要交易发生变化就会走下面的方法
+-(void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{
+
+    /*
+     SKPaymentTransactionStatePurchasing,    正在购买
+     SKPaymentTransactionStatePurchased,     已经购买
+     SKPaymentTransactionStateFailed,        购买失败
+     SKPaymentTransactionStateRestored,      回复购买中
+     SKPaymentTransactionStateDeferred       交易还在队列里面，但最终状态还没有决定
+     */
+
+    for (SKPaymentTransaction *transaction in transactions) {
+        switch (transaction.transactionState) {
+            case SKPaymentTransactionStatePurchasing:{
+
+                NSLog(@&quot;正在购买&quot;);
+            }break;
+            case SKPaymentTransactionStatePurchased:{
+
+                NSLog(@&quot;购买成功&quot;);
+                // 购买后告诉交易队列，把这个成功的交易移除掉
+                [queue finishTransaction:transaction];
+                [self buyAppleStoreProductSucceedWithPaymentTransactionp:transaction];
+            }break;
+            case SKPaymentTransactionStateFailed:{
+
+                NSLog(@&quot;购买失败&quot;);
+                // 购买失败也要把这个交易移除掉
+                [queue finishTransaction:transaction];
+            }break;
+            case SKPaymentTransactionStateRestored:{
+                NSLog(@&quot;回复购买中,也叫做已经购买&quot;);
+                // 回复购买中也要把这个交易移除掉
+                [queue finishTransaction:transaction];
+            }break;
+            case SKPaymentTransactionStateDeferred:{
+
+                NSLog(@&quot;交易还在队列里面，但最终状态还没有决定&quot;);
+            }break;
+            default:
+                break;
+        }
+    }
+}
+</code></pre>
+
+<h2 id="toc_12">苹果内购支付成功</h2>
+
+<pre><code>// 苹果内购支付成功
+- (void)buyAppleStoreProductSucceedWithPaymentTransactionp:(SKPaymentTransaction *)paymentTransactionp {
+
+    NSString * productIdentifier = paymentTransactionp.payment.productIdentifier;
+    // NSLog(@&quot;productIdentifier Product id：%@&quot;, productIdentifier);
+    NSString *transactionReceiptString= nil;
+
+    //系统IOS7.0以上获取支付验证凭证的方式应该改变，切验证返回的数据结构也不一样了。
+    NSString *version = [UIDevice currentDevice].systemVersion;
+    if([version intValue] &gt;= 7.0){
+        // 验证凭据，获取到苹果返回的交易凭据
+        // appStoreReceiptURL iOS7.0增加的，购买交易完成后，会将凭据存放在该地址
+        NSURLRequest * appstoreRequest = [NSURLRequest requestWithURL:[[NSBundle mainBundle]appStoreReceiptURL]];
+        NSError *error = nil;
+//        [NSURLSession dataTaskWithRequest:appstoreRequest completionHandler:nil]
+        NSData * receiptData = [NSURLConnection sendSynchronousRequest:appstoreRequest returningResponse:nil error:&amp;error];
+        transactionReceiptString = [receiptData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+    }else{
+
+        NSData * receiptData = paymentTransactionp.transactionReceipt;
+        //  transactionReceiptString = [receiptData base64EncodedString];
+        transactionReceiptString = [receiptData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+    }
+    // 去验证是否真正的支付成功了
+    [self checkAppStorePayResultWithBase64String:transactionReceiptString];
+
+}
+</code></pre>
+
+<h2 id="toc_13">生成订单参数</h2>
+
+<pre><code>- (void)checkAppStorePayResultWithBase64String:(NSString *)base64String {
+
+    /* 生成订单参数，注意沙盒测试账号与线上正式苹果账号的验证途径不一样，要给后台标明 */
+    /*
+     注意：
+     自己测试的时候使用的是沙盒购买(测试环境)
+     App Store审核的时候也使用的是沙盒购买(测试环境)
+     上线以后就不是用的沙盒购买了(正式环境)
+     所以此时应该先验证正式环境，在验证测试环境
+
+     正式环境验证成功，说明是线上用户在使用
+     正式环境验证不成功返回21007，说明是自己测试或者审核人员在测试
+     */
+    /*
+     苹果AppStore线上的购买凭证地址是： https://buy.itunes.apple.com/verifyReceipt
+     测试地址是：https://sandbox.itunes.apple.com/verifyReceipt
+     */
+    //    NSNumber *sandbox;
+    NSString *sandbox;
+#if (defined(APPSTORE_ASK_TO_BUY_IN_SANDBOX) &amp;&amp; defined(DEBUG))
+    //sandbox = @(0);
+    sandbox = @&quot;0&quot;;
+#else
+    //sandbox = @(1);
+    sandbox = @&quot;1&quot;;
+#endif
+
+    NSMutableDictionary *prgam = [[NSMutableDictionary alloc] init];;
+    [prgam setValue:sandbox forKey:@&quot;sandbox&quot;];
+    [prgam setValue:base64String forKey:@&quot;reciept&quot;];
+
+    /*
+     请求后台接口，服务器处验证是否支付成功，依据返回结果做相应逻辑处理
+     0 代表沙盒  1代表 正式的内购
+     最后最验证后的
+     */
+    /*
+     内购验证凭据返回结果状态码说明
+     21000 App Store无法读取你提供的JSON数据
+     21002 收据数据不符合格式
+     21003 收据无法被验证
+     21004 你提供的共享密钥和账户的共享密钥不一致
+     21005 收据服务器当前不可用
+     21006 收据是有效的，但订阅服务已经过期。当收到这个信息时，解码后的收据信息也包含在返回内容中
+     21007 收据信息是测试用（sandbox），但却被发送到产品环境中验证
+     21008 收据信息是产品环境中使用，但却被发送到测试环境中验证
+     */
+
+    NSLog(@&quot;字典==%@&quot;,prgam);
+
+}
+</code></pre>
+
+<h2 id="toc_14">客户端验证购买凭据</h2>
+
+<pre><code>#pragma mark 客户端验证购买凭据
+- (void)verifyTransactionResult
+{
+    // 验证凭据，获取到苹果返回的交易凭据
+    // appStoreReceiptURL iOS7.0增加的，购买交易完成后，会将凭据存放在该地址
+    NSURL *receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
+    // 从沙盒中获取到购买凭据
+    NSData *receipt = [NSData dataWithContentsOfURL:receiptURL];
+    // 传输的是BASE64编码的字符串
+    /**
+     BASE64 常用的编码方案，通常用于数据传输，以及加密算法的基础算法，传输过程中能够保证数据传输的稳定性
+     BASE64是可以编码和解码的
+     */
+    NSDictionary *requestContents = @{
+                                      @&quot;receipt-data&quot;: [receipt base64EncodedStringWithOptions:0]
+                                      };
+    NSError *error;
+    // 转换为 JSON 格式
+    NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestContents
+                                                          options:0
+                                                            error:&amp;error];
+    // 不存在
+    if (!requestData) { /* ... Handle error ... */ }
+
+    // 发送网络POST请求，对购买凭据进行验证
+    NSString *verifyUrlString;
+#if (defined(APPSTORE_ASK_TO_BUY_IN_SANDBOX) &amp;&amp; defined(DEBUG))
+    verifyUrlString = @&quot;https://sandbox.itunes.apple.com/verifyReceipt&quot;;
+#else
+    verifyUrlString = @&quot;https://buy.itunes.apple.com/verifyReceipt&quot;;
+#endif
+    // 国内访问苹果服务器比较慢，timeoutInterval 需要长一点
+    NSMutableURLRequest *storeRequest = [NSMutableURLRequest requestWithURL:[[NSURL alloc] initWithString:verifyUrlString] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
+
+    [storeRequest setHTTPMethod:@&quot;POST&quot;];
+    [storeRequest setHTTPBody:requestData];
+
+    // 在后台对列中提交验证请求，并获得官方的验证JSON结果
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [NSURLConnection sendAsynchronousRequest:storeRequest queue:queue
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                               if (connectionError) {
+                                   NSLog(@&quot;链接失败&quot;);
+                               } else {
+                                   NSError *error;
+                                   NSDictionary *jsonResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:&amp;error];
+                                   if (!jsonResponse) {
+                                       NSLog(@&quot;验证失败&quot;);
+                                   }
+
+                                   // 比对 jsonResponse 中以下信息基本上可以保证数据安全
+                                   /*
+                                    bundle_id
+                                    application_version
+                                    product_id
+                                    transaction_id
+                                    */
+
+                                   NSLog(@&quot;验证成功&quot;);
+                               }
+                           }];
+
+}
+</code></pre>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="15184172518005.html" 
+          title="Next Post: 2018-02-12-狗年吉祥">2018-02-12-狗年吉祥 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1></h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html"><strong>工作总结</strong></a>
+        
+            <a href="%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html"><strong>生活总结</strong></a>
+        
+            <a href="%E5%B7%A5%E4%BD%9C%E6%B8%85%E5%8D%95.html"><strong>工作清单</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="15193489395143.html">2018-02-23-内购</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15184172518005.html">2018-02-12-狗年吉祥</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15184166364607.html">2018-02-12-项目中会用到的知识</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15179689057067.html">2018-02-12-项目中会用到的知识</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15181600421700.html">2018-02-09-C 语言总结</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+
+
+
+  </body>
+</html>

@@ -1,0 +1,468 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  2018-01-31-获取本地图片 - 
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:github.com/HearOtSea/HearOtSea.github.io.git ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; </span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html">工作总结</a></li>
+        
+            <li><a href="%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html">生活总结</a></li>
+        
+            <li><a href="%E5%B7%A5%E4%BD%9C%E6%B8%85%E5%8D%95.html">工作清单</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>2018-01-31-获取本地图片</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2018/1/31 9:8 上午</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <hr/>
+
+<p>layout: post<br/>
+title: &quot;获取本地图片&quot;<br/>
+date: 2018.01.30<br/>
+tag: iOS 总结</p>
+
+<hr/>
+
+<h2 id="toc_0">打开本地相册并添加到视图</h2>
+
+<pre><code>- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @&quot;上传壁纸&quot;;
+    // 点击UIButton AddWallpaper 就是打开相册添加图片
+    [_AddWallpaper addTarget:self action:@selector(AddWallpaperClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 点击UIButton UpWallPaper 就是上传图片
+    [_UpWallpaper addTarget:self action:@selector(UpWallpaperClick) forControlEvents:UIControlEventTouchUpInside];
+}
+</code></pre>
+
+<pre><code>- (void)AddWallpaperClick {
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@&quot;请选择图片&quot; preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *OKAction = [UIAlertAction actionWithTitle:@&quot;打开相册&quot; style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        // 打开相册
+        [self open];
+    }];
+    
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@&quot;取消&quot; style:UIAlertActionStyleCancel handler:nil];
+    
+    [alertController addAction:OKAction];
+    [alertController addAction:cancelAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+    
+}
+</code></pre>
+
+<pre><code>- (void)open {
+    // 1.判断相册是否可以打开
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) return;
+    // 2. 创建图片选择控制器
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    /**
+     typedef NS_ENUM(NSInteger, UIImagePickerControllerSourceType) {
+     UIImagePickerControllerSourceTypePhotoLibrary, // 相册
+     UIImagePickerControllerSourceTypeCamera, // 用相机拍摄获取
+     UIImagePickerControllerSourceTypeSavedPhotosAlbum // 相簿
+     }
+     */
+    // 3. 设置打开照片相册类型(显示所有相簿)
+    ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    // ipc.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    // 照相机
+    // ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+    // 4.设置代理
+    ipc.delegate = self;
+    // 5.modal出这个控制器
+    [self presentViewController:ipc animated:YES completion:nil];
+}
+</code></pre>
+
+<pre><code>#pragma mark -- &lt;UIImagePickerControllerDelegate&gt;--
+// 获取图片后的操作
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary&lt;NSString *,id&gt; *)info
+{
+    // 销毁控制器
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    // 设置图片
+    _UpImage.image = info[UIImagePickerControllerOriginalImage];
+}
+
+</code></pre>
+
+<pre><code>- (void)UpWallpaperClick {
+    
+}
+</code></pre>
+
+<ul>
+<li>这里是上传到后台数据，但是由于后台暂时没有给数据，就写成这样</li>
+</ul>
+
+<pre><code>+ (void)uploadImageWithImage:(UIImage *)image pid:(NSString *)pid success:(void (^)(id responseObject))success failureHandler:(void(^)(NSError *error)) failure{
+    //加载提示菊花
+    MBProgressHUD *hud;
+    hud.label.text = NSLocalizedString(@&quot;加载中...&quot;, @&quot;HUD loading title&quot;);
+    /*
+     此段代码如果需要修改，可以调整的位置
+     1. 把upload.php改成网站开发人员告知的地址
+     2. 把file改成网站开发人员告知的字段名
+     */
+    
+    //AFN3.0+基于封住HTPPSession的句柄x
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+//    NSDictionary *dict = @{@&quot;username&quot;:@&quot;Saup&quot;};
+    
+    [manager POST:@&quot;&quot; parameters:nil constructingBodyWithBlock:^(id&lt;AFMultipartFormData&gt;  _Nonnull formData) {
+        NSData *data = UIImagePNGRepresentation(image);
+        // 在网络开发中，上传文件时，是文件不允许被覆盖，文件重名
+        // 要解决此问题，
+        // 可以在上传时使用当前的系统事件作为文件名
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        // 设置时间格式
+        formatter.dateFormat = @&quot;yyyyMMddHHmmss&quot;;
+        NSString *str = [formatter stringFromDate:[NSDate date]];
+        NSString *fileName = [NSString stringWithFormat:@&quot;%@.png&quot;, str];
+        
+        //上传
+        /*
+         此方法参数
+         1. 要上传的[二进制数据]
+         2. 对应网站上[upload.php中]处理文件的[字段&quot;file&quot;]
+         3. 要保存在服务器上的[文件名]
+         4. 上传文件的[mimeType]
+         */
+       [formData appendPartWithFileData:data name:@&quot;file&quot; fileName:fileName mimeType:@&quot;image/png&quot;];
+    
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+
+        //上传进度
+        // @property int64_t totalUnitCount;     需要下载文件的总大小
+        // @property int64_t completedUnitCount; 当前已经下载的大小
+        //
+        // 给Progress添加监听 KVO
+        NSLog(@&quot;%f&quot;,1.0 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
+
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //上传成功时的回调
+        [hud hideAnimated:YES];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //        //失败时的回调
+        [hud hideAnimated:YES];
+    }];
+    
+}
+</code></pre>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="15175344621527.html" 
+          title="Previous Post: 2018-02-02-工作清单">&laquo; 2018-02-02-工作清单</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="15172931924189.html" 
+          title="Next Post: 2018-01-30-最近状态">2018-01-30-最近状态 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1></h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html"><strong>工作总结</strong></a>
+        
+            <a href="%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html"><strong>生活总结</strong></a>
+        
+            <a href="%E5%B7%A5%E4%BD%9C%E6%B8%85%E5%8D%95.html"><strong>工作清单</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="15193489395143.html">2018-02-23-内购</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15184172518005.html">2018-02-12-狗年吉祥</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15184166364607.html">2018-02-12-项目中会用到的知识</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15179689057067.html">2018-02-12-项目中会用到的知识</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15181600421700.html">2018-02-09-C 语言总结</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+
+
+
+  </body>
+</html>

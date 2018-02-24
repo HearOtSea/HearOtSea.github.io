@@ -1,0 +1,571 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  2018.01.05 - 工作总结 - 
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:github.com/HearOtSea/HearOtSea.github.io.git ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; </span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html">工作总结</a></li>
+        
+            <li><a href="%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html">生活总结</a></li>
+        
+            <li><a href="%E5%B7%A5%E4%BD%9C%E6%B8%85%E5%8D%95.html">工作清单</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>2018.01.05 - 工作总结</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2018/1/5 9:15 上午</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h2 id="toc_0">项目报错</h2>
+
+<h4 id="toc_1">- 1. 报错描述：</h4>
+
+<pre><code>Cannot synthesize weak property because the current deployment target does not support weak references
+</code></pre>
+
+<ul>
+<li><p>解决办法：</p>
+
+<ul>
+<li>项目 -&gt; <mark>TARGETS</mark> -&gt; <mark>IOS</mark> -&gt; <mark>Build Settings</mark> -&gt; <mark>Apple LLVM 9.0 - Language - Objective C</mark> -&gt; <mark>WeakReferences inManual Retain Release</mark> 改为 <mark>YES</mark></li>
+</ul>
+
+<p><img src="media/15151149332976/15151436350114.jpg" alt=""/></p></li>
+</ul>
+
+<h4 id="toc_2">- 2. 报错描述：</h4>
+
+<pre><code>-fobjc-weak is not supported on the current deployment target
+</code></pre>
+
+<p><img src="media/15151149332976/15151448389185.jpg" alt=""/></p>
+
+<ul>
+<li><p>原因是这样：</p>
+
+<ul>
+<li>ios5.0以下不支持弱类型，你的target版本肯定是5.0以下的；</li>
+</ul></li>
+</ul>
+
+<h2 id="toc_3">马甲包相关事项</h2>
+
+<h4 id="toc_4">一、 App Store上架费用，要多少钱。</h4>
+
+<p>这个因产品而异，一般是6000-10000元人民币。</p>
+
+<h4 id="toc_5">二、 App Store上架周期，要多久过。</h4>
+
+<p>这个因产品而异，正常的话一周内，如果产品老是出问题,被苹果拒绝就不好说了，一般情况下，我们的客户两周内过审，问题不大。</p>
+
+<h4 id="toc_6">三、 App Store上架流程</h4>
+
+<ol>
+<li>提交</li>
+<li>审核</li>
+<li>审核通过/审核不通过，被拒解决方案</li>
+<li>上架</li>
+</ol>
+
+<h4 id="toc_7">四、APP上架常见问题</h4>
+
+<ol>
+<li><p>之前做过哪些包？有案例吗？</p>
+
+<ul>
+<li>彩票的，贷款的，理财的，游戏的，都做过。</li>
+</ul></li>
+<li><p>客户需要提供什么？</p>
+
+<ul>
+<li>1 告知我们无法上架的原因。</li>
+<li>2. 是首发还是更新被拒。</li>
+<li>3. 找个技术负责人，拉群对接下，帮助修改产品</li>
+</ul></li>
+<li><p>棋牌类、彩票类能上架吗？</p>
+
+<ul>
+<li>可以</li>
+</ul></li>
+<li><p>上架和加速审核有什么区别？</p>
+
+<ul>
+<li>上架是指客户的产品能够在appstore里展示</li>
+<li>加速审核是使APP进入审核的绿色通道，加快审核速度，让苹果尽快出审核结果，时间可由数天缩短到2-48小时内（节假日除外），不保证上架成功。</li>
+</ul></li>
+<li><p>需要改代码的，姑婆可以帮客户改吗？</p>
+
+<ul>
+<li>我们提供指导协助，有些源码我们可以提供，具体我们可跟客户的iOS开发详聊</li>
+</ul></li>
+<li><p>金融，夺宝，直播，捕鱼，游戏，电商，旅游，汽车这几类产品都可以做苹果上架吗？</p>
+
+<ul>
+<li>可以，成功率基本100%，并且游戏不需要版号，金融个人开发者也可以成功上传。</li>
+</ul></li>
+<li><p>一般多久可以上架成功？</p>
+
+<ul>
+<li>一般3周</li>
+<li>有两种情况需要注意下哦，
+
+<ul>
+<li>（1）如果客户拖延时间一直不提交，耽误的时间不算在内</li>
+<li>（2）如果出现新的被拒问题，时间要相应增加</li>
+</ul></li>
+</ul></li>
+<li><p>金融类贷款，没有资质能不能上架？</p>
+
+<ul>
+<li>可以的</li>
+</ul></li>
+<li><p>姑婆可以提供账号，上好架把包转给客户吗？</p>
+
+<ul>
+<li>可以的</li>
+</ul></li>
+<li><p>金融理财产品，什么都没有，能不能做？</p>
+
+<ul>
+<li>可以，提供部分素材，并说明要求即可</li>
+</ul></li>
+</ol>
+
+<h4 id="toc_8">五、App Store上架条件</h4>
+
+<ol>
+<li> 软件正常。
+
+<ul>
+<li>这里指的是没有bug，符合苹果的条件。</li>
+</ul></li>
+<li> 提交审核。</li>
+<li> 审核通过。</li>
+</ol>
+
+<h4 id="toc_9">六、App Store上架是什么</h4>
+
+<ul>
+<li>这里指的是ios的商店，app store上架指的是ios的软件从提交申请到上线的整个过程，它的目的是让软件展示在app store上，获取app store过来的流量，用户，从而获取收入。</li>
+</ul>
+
+<h4 id="toc_10">七、 App Store上架被拒原因</h4>
+
+<ol>
+<li>截图中出现了Android</li>
+<li>截图中出现了hack苹果的内容</li>
+<li>评论中出现了“屌丝”等不雅词汇</li>
+<li>App中包含谈论Android系统的内容</li>
+<li>你修改了状态栏，不行</li>
+<li>只有第三方登录，没有自己的注册登陆功能，不行</li>
+<li>您的应用包括色情内容（色情交易，色情展示）</li>
+<li>有微信分享功能，结果因为要强制用户安装微信，才能使用该功能，被拒</li>
+<li>应用内用了圆角按钮，无情被拒</li>
+<li>你给我解释解释，应用里的积分从哪里来，到哪里去？</li>
+<li>应用里面表示有广告，但是审核者玩了后说没广告，后来申述成功，因为第二次游戏的时候才会出现广告（虐心重复向游戏），你丫就不能玩两遍么，一遍就几十秒~~</li>
+<li>有第三方支付（支付宝）果断被拒！！！</li>
+<li>因为集成了友盟 友盟获取用户mac地址被拒了。</li>
+<li>您的内容因为没有举报功能、含有色情内容不能通过。</li>
+<li>使用第三方的logo被拒(由于涉及到联通运营方面 果断在关于里面加了个联通的logo 标识合作伙伴 果断被拒 要求提供联通的书面证明。)</li>
+<li>没给测试帐号</li>
+<li>QR CODE里边有android的下载地址（直接转跳iTunes后通过）</li>
+<li>不符合iOS UI审美观（改UI）</li>
+<li>只有第三方登陆，没有自己的注册登陆功能...（新增登陆注册功能通过）</li>
+<li>你的软件加了强制评论功能：就一个按钮点击进入评论，必须改成先提示框提醒用户是否进入评论.</li>
+<li>存放文档的地方由于iCloud会自动备份而被拒绝，只有用户自己使用和创建出来的才允许放在Document文件夹下。</li>
+<li>审核员打不开我的接口，换海外vps，过最蛋疼的。</li>
+<li>因为截图里面放了iPhone的模型被拒。</li>
+<li>游戏运行崩溃；</li>
+<li>游戏截图中有“测试字样”；</li>
+<li>游戏太简单；</li>
+<li>一次提交多个相同的游戏；</li>
+<li>游戏中使用其他版权图片（使用了flappybird原图）</li>
+<li>加了广告框架，游戏中缺没有广告显示（其实是在game over时候显示，结果测试人员就一直不知道怎么能死）；</li>
+<li>内购不能使用；</li>
+<li>game center不能使用。</li>
+<li>App Store显示名字和软件名称不符合。</li>
+<li>支付时不得强制获取用户信息（比如 登陆、注册），必须在看到价格之前让用户登陆、注册。</li>
+<li>App内购，产品类型不对。</li>
+<li>内购没有Restore按钮；</li>
+<li>有登陆注册功能，但没有提供测试账户（大意了）</li>
+<li>有去除广告的按钮，但没发现有广告。(后来截了个图，回复审核那边，两小时之内就通过审核了)</li>
+<li>版权问题。没有提供相关的版权文件</li>
+<li>评级问题：提交的时候是评级4星，后来被拒，改成12星，通过审核了。</li>
+<li>关键字不符合要求</li>
+<li>内容太简单，说是浪费用户时间</li>
+<li>界面风格不符合iOS风格</li>
+<li>应用评级，从4+改成12+，再改成16+最后说我不符合16+，我再改回4+，竟然过了...</li>
+<li>Splash上放了个蝙蝠侠蜘蛛侠，版权问题未给通过，后让UI改画了一个猥琐男人，通过了。</li>
+<li>应用内有个保存图片至相册的按钮，然后plist里有个Application supports iTunes file sharing设为了yes，无情被拒。</li>
+<li>用户在应用里自己下载的文档都不能存放在Document文件夹下，被拒。</li>
+<li>为了获得审查应用程序的完整功能，我们需要相关的硬件。 我以前都是录制一个操作视频上传然后就通过了，这回我录了2次都是相同的回复，不知道抽什么风。</li>
+<li>做了款社交的软件，上线的时候没有提供账号和密码，导致审核的时候进不去,reject. ps:那么大个注册 看不到么？看不到么？</li>
+<li>论坛模块里由用户发的活动贴提到安卓平台和WP平台被拒，然后我说我没问题，他说三个工作日之内电话联系，过去4-5天了，还没联系。</li>
+<li>按钮位置不符合ios风格。</li>
+<li>一个笑话APP，开机画面上有“逗比”这两个字，苹果审核说含有粗俗不文明的文字，然后被拒了。</li>
+<li>QQ登陆功能，但是没下载QQ就不行。</li>
+<li>第一次没有给用户举报的功能。加了只有新浪和qq登录没有自己的登录注册系统（QQ SDK的没装QQ提示的是下载）。好像还有没有用户协议巴拉巴拉，反正那次审核就耗一月的时间。</li>
+<li>审核人员打开app无法加载内容，一般是因为国内服务器的问题。解决方法是录个app的操作视频，放到youtube上，发给苹果，屡试不爽。</li>
+<li>界面太丑被拒，换了张背景图通过了。</li>
+<li>iPad 写成了IPad。</li>
+<li>没提供注册功能，被拒...开放注册通过；</li>
+<li>按钮图片类似iPhone桌面图标被拒；</li>
+<li>因为iCloud云备份的问题被拒绝，将备份功能关闭通过。</li>
+<li>使用第三方SDK，有个提示信息遮挡了状态栏。</li>
+<li>图片上有链接。</li>
+<li>因为有android关键字被拒绝了，因为描述中有android关键字被拒绝了，因为有swfit关键字是个没发布的语言被拒绝了。因为按钮点击无效被拒绝了。</li>
+<li>内容包含苹果产品iPad</li>
+<li>有竖中指的图片</li>
+<li>IDFA展示广告没有提供视频</li>
+<li>注册页未添加pravicy声明文件。</li>
+<li>iTunes升级后，分级莫名奇妙由12+变成了4+。</li>
+<li>用了显眼的词语,其实就是&quot;Beautiful girl&quot;之类的，说内容令人反感。</li>
+<li>引导页文案与内容不符。</li>
+<li>因为应用截图被拒。美术偷懒给了4张android的截图，虽然app内容是一样的，但是顶部的状态栏是Android的！</li>
+<li>名字不符合，包含不良信息，包含与当前app不符的内容，包含特殊含义的歧义字符</li>
+<li>App中有积分墙</li>
+<li>App中有第三方支付(如短信支付，积分墙支付)</li>
+<li>App的功能过于单一或仅仅是一个demo</li>
+<li>在注册时强制获取用户信息</li>
+<li>需要提供原作者的版权授权书</li>
+<li>App中有IAP内购，但是没有恢复内购的按钮</li>
+<li>强制玩家给App评5星好评</li>
+<li>没有兼容iOS</li>
+<li>做了一款智能家居的应用，没有提供应用控制智能设备的视频地址没拒，每一次提交新版都要确保你的视频地址是否有效，有一次我就没有确认(YouTube的个人视频上传之后如果不设置成公共视频过一段时间就会转为私有的，除了自己别人无法访问)，然后视频地址刚好无效了。。。</li>
+<li>资讯客户端焦点图放出了盘古破解iOS8越狱的新闻。。</li>
+<li>截图中出现一只玩具企鹅，然后拒绝说我们发现这个营销截图不能充分反映你的应用使用</li>
+<li>成人应用可以上架AppStore：内容必须“有用”</li>
+</ol>
+
+<h4 id="toc_11">八、App Store上架的常入的坑</h4>
+
+<ol>
+<li><p>最近的一次，因为App界面里出现“无节操”的字眼，被拒了。理由是：不雅词汇，使用户不适。我真是无力吐槽啊，也没法当面对质，好吧，我改成了“闹着玩”后审核通过。</p></li>
+<li><p>上一次，App里加了个不完美的功能，于是加了个“beta”的字样，然后被打回了，说是App里不应包含测试版的功能，不能出现“beta”字样，好吧，我写了个代码，判断审核期里不显示beta，上架后再继续显示。不过后来每次审核，都没人再管里面的beta字样，估计是因为审核的人不一样吧，关注点不同。iOS大小写写错了被打回。在简介里如果涉及到苹果的商标或者词汇，一定一个字母都不能错，包括每个字母的大小写。</p></li>
+<li><p>引导用户好评，差点被封号。事情是这样的，我在微博发了条微博说去AppStore评论有奖品送，不知道被举报了还是咋滴，苹果发了个邮件说不允许鼓励评论，然后还有一个加拿大的电话打过来跟我确认情况，我说了情况后，她说下不为例即可，还是很nice的。全程中文沟通。对了，在苹果所有涉及审核上架邮件沟通等环节，尽管使用中文，他们有专人负责的。</p></li>
+<li><p>没有提供测试账号。这个当时有点莫名其妙的，其实我的App不需要测试账号，后来随便填了个，然后就过了。</p></li>
+<li><p>没有隐私声明。因为我是输入法，这个是必须提供的，我后来从搜狗输入法那里copy过来改了改放在自己服务器上的。</p></li>
+<li><p>第三方输入法必须提供数字输入的功能。这个我也觉得有点莫名其妙，但是必须要加入，之前做的时候没有看条款，最后因为这个，我错过了第三方输入法第一波上架潮，iOS8正式版出来后，落后了好几个周才上架。</p></li>
+<li><p>有一次不小心在界面里出现了成人词汇，但是我的App是4+评级的，于是被打回，后来我把评级临时提高了才通过。</p></li>
+<li><p>我努力回忆，暂时只记起这些，都是很低级的错误，大家也可以一起来补充。</p></li>
+</ol>
+
+<p>另外，再说一个诀窍：提交App，一定要利用好Expedite Review这个东西，所谓Expedite Review，就是申请快速Review，一般通过后，提交当天就可以通过审核。不过前提是你能描述出你的App线上版本存在重大bug。你可以故意留点bug，或者是真的有bug，或者是故意夸大一下你的bug描述，通过的几率还是挺高的，半年来我至少通过了四五次。提交地址是Sign in with your Apple</p>
+
+<h4 id="toc_12">九、App Store上架建议</h4>
+
+<ol>
+<li><p>文字描述不能越界，apple 首先看文字描述，如果不过关，直接拒绝；脱离开苹果的宣传是另外一回事；</p></li>
+<li><p>苹果默认采取的是最小策略：硬件需求最小化；审核的时候会最大化的关闭硬件参数，如果没有在app 中直接说明的话。如果你使用了wifi ，gps 等设备一定要在参数中说明，他们才不会管你是运行于ipad wifi还是ipad wifi+3G.你参数中没有说明的他统统不管；如果你要播放超过10分钟的声频，注意苹果是另外有要求的；</p></li>
+<li><p>特别注意各种Crash,比如联网异常导致的Crash；正常使用GPS硬件的时候，始终是会有经纬度数据的，但是苹果审核的时候就是没有。 哥没有做判断，于是Crash了。 被拒</p></li>
+<li><p>7天原则，绝大部分都是需要7天的。虽然有狗屎运的四个小时就通过了，但是不要指望；我曾经以为苹果遵循的是先进后出原则，于是半夜2点上传app.谁知道还是不行；不过，每个账号有两次机会申请加急处理；</p></li>
+<li><p>苹果的随意性很强，不同工程师审核的时候把握的度是不一样的；你会看到很多app 比你做得还垃圾怎么进了app store .没话说，人品问题；</p></li>
+<li><p>如果已经申请上架，但是发现了Bug或者其他问题。建议还是自己打回来，不要等苹果来拒绝了；</p></li>
+<li><p>要想避免各种被拒绝的情况，最好的办法就是阅读苹果的条例！可是亲啊，那个英文TA认识我，我不完全认识TA啊，而且太长了，太长了！</p></li>
+</ol>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="15151149469059.html" 
+          title="Previous Post: 2018.1.5 - 工作清单">&laquo; 2018.1.5 - 工作清单</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="15150286267119.html" 
+          title="Next Post: 2018.01.04 - 工作总结">2018.01.04 - 工作总结 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1></h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html"><strong>工作总结</strong></a>
+        
+            <a href="%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html"><strong>生活总结</strong></a>
+        
+            <a href="%E5%B7%A5%E4%BD%9C%E6%B8%85%E5%8D%95.html"><strong>工作清单</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="15193489395143.html">2018-02-23-内购</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15184172518005.html">2018-02-12-狗年吉祥</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15184166364607.html">2018-02-12-项目中会用到的知识</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15179689057067.html">2018-02-12-项目中会用到的知识</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15181600421700.html">2018-02-09-C 语言总结</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+
+
+
+  </body>
+</html>

@@ -1,0 +1,465 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  2018.01.22 - 工作总结 - 
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:github.com/HearOtSea/HearOtSea.github.io.git ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; </span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html">工作总结</a></li>
+        
+            <li><a href="%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html">生活总结</a></li>
+        
+            <li><a href="%E5%B7%A5%E4%BD%9C%E6%B8%85%E5%8D%95.html">工作清单</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>2018.01.22 - 工作总结</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2018/1/22 9:1 上午</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h2 id="toc_0">adjust SDK 接入</h2>
+
+<ul>
+<li>接入 初始化</li>
+<li>YourAppToken 是后台创建的 iOS 端只需要调用就行
+<img src="media/15165828761245/15165881950052.jpg" alt=""/></li>
+</ul>
+
+<h2 id="toc_1">SDK 开发</h2>
+
+<pre><code>在SDK开发中，一般会需要经过几个流程，
+
+# 开发SDK
+# 测试SDK
+# 把SDK交付给使用人员
+
+这些东西看似步骤多，过程繁琐，而且每修改一次SDK就需要重复一次上述的过程，增加了一些不必要的操作。
+
+当然，如果我们在SDK设计之初就有一个好的项目架构，就可以极大简化开发流程，提高开发效率.
+</code></pre>
+
+<ul>
+<li><p><a href="https://www.jianshu.com/p/edc679a893c9">转：一种比较实用的iOS SDK项目架构</a></p></li>
+<li><p>开发 SDK</p>
+
+<ul>
+<li>一般都是 <mark>.a</mark> </li>
+<li>有的需求打包成 <mark>framework</mark></li>
+</ul></li>
+</ul>
+
+<p><img src="media/15165828761245/15165913153841.jpg" alt=""/></p>
+
+<h2 id="toc_2">pushToViewControllerWhenClickPushMessageWith - 这个是极光推送的方法</h2>
+
+<pre><code>#pragma mark -- 程序点击推送消息进入的方法
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    // Required
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.triggerisKindOfClass:[UNPushNotificationTriggerclass]]) {
+        [JPUSHServicehandleRemoteNotification:userInfo];
+        
+         [selfpushToViewControllerWhenClickPushMessageWith:userInfo]; //跳转页面
+    }
+    completionHandler();  // 系统要求执行这个方法
+}
+
+#pragma mark -- 程序跳转方法
+-(void)pushToViewControllerWhenClickPushMessageWith:(NSDictionary*)msgDic{
+    
+    //将字段存入本地，因为要在你要跳转的页面用它来判断
+   NSUserDefaults*pushJudge = [NSUserDefaultsstandardUserDefaults];
+  //  [pushJudge setObject:@&quot;push&quot;forKey:@&quot;push&quot;];
+//判断后台传送的标示（用于跳转哪一个页面的判断）
+    if ([[msgDicobjectForKey:@&quot;type&quot;]isEqualToString:@&quot;active&quot;]){
+//得到根部控制器
+        TabBarController *hxl=(TabBarController *)self.window.rootViewController;
+//得到控制器中的导航栏
+        UINavigationController *nav=hxl.selectedViewController;
+//得到导航栏对应的控制器
+        UIViewController  *controller=(UIViewController *)nav.visibleViewController;
+//进行跳转页面
+        TSProductDetailViewController *pro=[[TSProductDetailViewControlleralloc]init];
+        
+         pro.detailid=[[msgDicobjectForKey:@&quot;id&quot;]integerValue];        
+        [controller.navigationControllerpushViewController:pro animated:YES];
+      
+    }elseif ([[msgDicobjectForKey:@&quot;type&quot;]isEqualToString:@&quot;dynamics&quot;]){
+        TabBarController *hxl=(TabBarController *)self.window.rootViewController;
+        hxl.selectedIndex=2;
+    }
+}
+
+#pragma mark iOS 10 前台收到通知（远程推送和本地通知）
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.triggerisKindOfClass:[UNPushNotificationTriggerclass]]) {
+        /// iOS10处理远程推送
+        [JPUSHServicehandleRemoteNotification:userInfo];
+        /// 前台收到推送的时候转成本地通知 ===========================
+        [self popAlert:userInfo];
+        
+    }else{
+        /// iOS10处理本地通知添加到通知栏 ==============================
+        completionHandler(UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionSound|UNNotificationPresentationOptionAlert);
+        
+        
+    }
+    // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以选择设置
+}
+
+//在前台的时候 我这里就直接弹出提示框
+-(void)popAlert:(NSDictionary *)pushMessageDic{
+    NSLog(@&quot;%@&quot;,pushMessageDic);
+    NSString *title;
+    if([[pushMessageDicobjectForKey:@&quot;type&quot;]isEqualToString:@&quot;active&quot;])
+    {
+     title=@&quot;您有新的活动推送&quot;;
+        [JCAlertViewshowTwoButtonsWithTitle:titleMessage:             [[pushMessageDicobjectForKey:@&quot;aps&quot;]objectForKey:@&quot;alert&quot;]ButtonType:JCAlertViewButtonTypeCancelButtonTitle:@&quot;取消&quot;Click:^{
+            
+        } ButtonType:JCAlertViewButtonTypeDefaultButtonTitle:@&quot;查看&quot;Click:^{
+            [selfpushToViewControllerWhenClickPushMessageWith:pushMessageDic];
+            
+        }];
+    }elseif([[pushMessageDic objectForKey:@&quot;type&quot;]isEqualToString:@&quot;dynamics&quot;]){
+        title=@&quot;您有新的评论消息&quot;;
+        [JCAlertViewshowOneButtonWithTitle:titleMessage:[[pushMessageDicobjectForKey:@&quot;aps&quot;]objectForKey:@&quot;alert&quot;]ButtonType:JCAlertViewButtonTypeCancelButtonTitle:@&quot;取消&quot;Click:^{
+            
+        }];
+      
+    }
+    
+   
+}
+
+
+</code></pre>
+
+<h2 id="toc_3">测试数据</h2>
+
+<ul>
+<li>后台给了个接口
+
+<ul>
+<li>传进 IDFA 用来收集用户注册激活数据</li>
+</ul></li>
+</ul>
+
+<p>1- <img src="media/15165828761245/15166026740705.jpg" alt=""/><br/>
+2 - <img src="media/15165828761245/15166027434820.jpg" alt=""/></p>
+
+<p>3 - <img src="media/15165828761245/15166027084987.jpg" alt=""/></p>
+
+<p>4 - <img src="media/15165828761245/15166024878785.jpg" alt=""/></p>
+
+<h2 id="toc_4">架构</h2>
+
+<ul>
+<li><a href="http://keeganlee.me/post/architecture/20160303">转：APP架构经验总结</a></li>
+</ul>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="15166763998887.html" 
+          title="Previous Post: 2018.01.23 - hexo 博客搭建">&laquo; 2018.01.23 - hexo 博客搭建</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="15165828492939.html" 
+          title="Next Post: 2018.01.22 - 努力就会更优秀">2018.01.22 - 努力就会更优秀 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1></h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html"><strong>工作总结</strong></a>
+        
+            <a href="%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html"><strong>生活总结</strong></a>
+        
+            <a href="%E5%B7%A5%E4%BD%9C%E6%B8%85%E5%8D%95.html"><strong>工作清单</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="15193489395143.html">2018-02-23-内购</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15184172518005.html">2018-02-12-狗年吉祥</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15184166364607.html">2018-02-12-项目中会用到的知识</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15179689057067.html">2018-02-12-项目中会用到的知识</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15181600421700.html">2018-02-09-C 语言总结</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+
+
+
+  </body>
+</html>

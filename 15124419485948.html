@@ -1,0 +1,495 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  2017.12.05 - Git 上传代码 - 
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:github.com/HearOtSea/HearOtSea.github.io.git ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; </span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html">工作总结</a></li>
+        
+            <li><a href="%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html">生活总结</a></li>
+        
+            <li><a href="%E5%B7%A5%E4%BD%9C%E6%B8%85%E5%8D%95.html">工作清单</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>2017.12.05 - Git 上传代码</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2017/12/5 10:45 上午</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <hr/>
+
+<p>layout: post<br/>
+title: &quot;Git 上传代码&quot;<br/>
+date: 2017.12.05<br/>
+tag: iOS 总结</p>
+
+<hr/>
+
+<h2 id="toc_0">Git 快捷上传代码</h2>
+
+<pre><code>#  之前一直用的是SourceTree、SVN 不过都是公司服务器本地上传
+   
+   想过最早用的就是GitHub 就想过国区里有没有，结果就找到了“马云”大大
+   
+   经过了解后码云给我的感觉就是方便快捷的保存项目以及合作开发
+   
+   所以今天就写了一篇关于 Git 的文章，以供学习
+</code></pre>
+
+<h3 id="toc_1">本地项目上传至码云</h3>
+
+<ol>
+<li> 在码云上点击 “新建项目”</li>
+<li>  创建成功后，打开终端 cd 到 文件里</li>
+<li>  git init 初始化仓库</li>
+<li>  git remote add origin “URL”（码云上新建项目点进去克隆或者复制的链接）</li>
+<li>  git pull origin master（把分支上的文件拉下来）</li>
+<li>  把要上传的项目移动到刚刚从云端抓取下来的文件夹内</li>
+<li>  git add . 或者 git add + 被拖入的项目名（保存到缓存区）</li>
+<li>  git commit -m &quot;要编辑的内容&quot;（推送到本地库种）</li>
+<li>  git push origin master （推送到远程仓库也就是码云）</li>
+</ol>
+
+<h3 id="toc_2">支付宝</h3>
+
+<h3 id="toc_3">Webkit (WKUIDelegate)</h3>
+
+<ul>
+<li><strong>UIWebView</strong> 是iOS 2 就有的 UIKit 中非常古老的加载网页控件</li>
+<li><strong>WKWebView</strong> 是 iOS 8 之后才有的 WebKit 中的内容。</li>
+<li>苹果推出 WKWebView 就是为了替换旧的 UIWebView</li>
+</ul>
+
+<h4 id="toc_4">1. UIWebView 的优缺点</h4>
+
+<ul>
+<li>UIWebView 会引起内存泄露，这是它系统本身的问题。</li>
+<li>用 UIWebView 加载大数据资源时，内存峰值、内存都会暴增，同时CPU电量消耗也较高。</li>
+<li>UIWebView 支持缓存 和 NSURLProtocol 拦截。</li>
+</ul>
+
+<h4 id="toc_5">2. WKWebView 的优缺点</h4>
+
+<ul>
+<li>拥有高达 60FPS 滚动刷新率及内置手势。</li>
+<li>支持了更多的 HTML5 特性。</li>
+<li>高效的 app 和 web 信息交换通道。</li>
+<li>允许 JavaScript 的 Nitro 库加载并使用, UIWebView 中限制了。</li>
+<li>提供加载网页进度的属性。</li>
+<li>WKWebView 网页加载速度有提升，更快（占用内存可能只有 UIWebView 的1/3~1/4）。</li>
+<li>没有缓存，更为细致地拆分了 UIWebViewDelegate 中的方法。//我建议如果对缓存不高的页面可以使用，用户体验会提高很多。</li>
+<li>WKWebView 不支持缓存 和 NSURLProtocol 拦截.</li>
+</ul>
+
+<h4 id="toc_6">3. UIWebView 的三种 load 方法</h4>
+
+<h5 id="toc_7">loadRequest</h5>
+
+<ul>
+<li>加载网络资源</li>
+</ul>
+
+<pre><code>UIWebView *web = [[UIWebView alloc] initWithFrame:self.view.bounds];
+[self.view addsubView: web];
+[web loadRequest:[NSURLRequestrequestWithURL:[NSURL RULWithString:@&quot;https//:www.qiangwan.com&quot;]]];
+// http请求需要在info文件里配置一下，APP Transport Security -&gt; Allow Arbitrary Loads = YES
+</code></pre>
+
+<ul>
+<li>除了加载网络资源外，loadRequest 还可以加载本地资源</li>
+</ul>
+
+<pre><code>// str2 == str3 != str1 str1多了file:
+NSString *str1 = [[[NSBundle mainBundle] bundleURL] absoluteString];
+NSString *str2 = [[NSBundle mainBundle] bundlePath] ;
+
+NSString *str3 = [[NSBundle mainBundle] resourcePath] ;
+
+NSString *path = [str3 stringByAppendingPathComponent:@&quot;test.html&quot;];
+
+[web loadRequest:[NSURLRequestrequestWithURL:[NSURLfileURLWithPath:path]]];
+</code></pre>
+
+<h5 id="toc_8">loadHTMLString</h5>
+
+<ul>
+<li>这个方法用于直接加载 html 代码
+
+<ul>
+<li>如果 html 没有存在文件夹中，推荐使用这种方法</li>
+</ul></li>
+</ul>
+
+<pre><code>UIWebView *web = [[UIWebView alloc] initWithFrame:self.view.bounds];   
+
+[self.view addSubview:web];    
+
+NSString *HTMLData = @&quot;&lt;hn&gt;Hello World&lt;/hn&gt;&quot;;
+
+[web loadHTMLString:HTMLData baseURL:nil];
+</code></pre>
+
+<ul>
+<li>当然你也可以用这个方法从本地 html 读取代码，然后加载。但此时请注意 baseURL 要传对，否则 html 中引用的资源是找不到的。</li>
+</ul>
+
+<pre><code>NSString *str3 = [[NSBundle mainBundle] resourcePath] ;
+
+NSString *path = [str3 stringByAppendingPathComponent:@&quot;test.html&quot;];
+
+NSString *htmlStr = [[NSString alloc]initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+
+[web loadHTMLString:htmlstrbaseURL:[[NSBundlemainBundle] bundleURL]];
+</code></pre>
+
+<p>loadRequest 和 loadHTMLString 都可以加载本地资源，苹果给出了解释：<code>To help you avoid being vulnerable to security attacks, be sure to use this method to load local HTML files; don’t use loadRequest:。</code></p>
+
+<p>意思是，为避免受到安全攻击，一定要用这种方法来加载本地HTML文件;不要使用 loadRequest。如果不从 html 文件载入你也可以这样：</p>
+
+<pre><code>NSString *HTMLData = @&quot;src=\&quot;test2.png\&quot;/&gt;ddd&quot;;
+
+[self.webView loadHTMLString:HTMLData baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] bundlePath]]];
+
+baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] bundlePath]]
+</code></pre>
+
+<p>这段指出 HTMLData 所引用的其他文件资源的基本路径，如果 baseURL:nil 图片信息将不会显示出来</p>
+
+<h5 id="toc_9">loadData</h5>
+
+<ul>
+<li><p>使用loadData方法对文件进行加载，是以二进制方式加载数据，并且指定类型（mimetype）和编码类型（textEncodingName）</p></li>
+<li><p>加载本地 PDF</p></li>
+</ul>
+
+<pre><code>NSString *dataPath = [[NSBundle mainBundle]pathForResource:@&quot;test&quot; ofType:@&quot;pdf&quot;];
+
+[_webView loadData:[NSData dataWithContentsOfFile:dataPath] MIMEType:@&quot;application/pdf&quot; textEncodingName:@&quot;UTF-8&quot; baseURL:nil];
+</code></pre>
+
+<ul>
+<li>加载本地文本文件</li>
+</ul>
+
+<pre><code>NSString *dataPath = [[NSBundle mainBundle]pathForResource:@&quot;谁胡传&quot; ofType:@&quot;txt&quot;];
+
+[_webView loadData:[NSData dataWithContentsOfFile:dataPath] MIMEType:@&quot;text/plain&quot; textEncodingName:@&quot;UTF-8&quot; baseURL:nil];
+</code></pre>
+
+<h4 id="toc_10">4. WKWebView 继承了 UIWebView 中的这三种 load 方法，又增加了 loadFileURL 方法。（iOS9.0 之后）</h4>
+
+<ul>
+<li><p>loadRequest 在 WKWebView 中只能加载网络资源了，想要适配9.0之前的系统也可以通过一些间接的方式加载本地资源（不推荐）。可以用 loadHTMLString 或 loadData 来加载本地资源。</p></li>
+<li><p>loadHTMLString 和 loadData 几乎没有变化，加载时默认适配的终端不同。UIWebView 默认是手机端 WKWebView 默认是 pc 端。</p></li>
+<li><p>loadFileURL</p>
+
+<ul>
+<li>在 iOS9 的 SDK 中加入了该便利方法来加载本地的HTML文件。</li>
+</ul></li>
+</ul>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="15124460533194.html" 
+          title="Previous Post: 2017.12.05 - 工作清单">&laquo; 2017.12.05 - 工作清单</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="15123669187792.html" 
+          title="Next Post: 2017.12.04 - 工作总结">2017.12.04 - 工作总结 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1></h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html"><strong>工作总结</strong></a>
+        
+            <a href="%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html"><strong>生活总结</strong></a>
+        
+            <a href="%E5%B7%A5%E4%BD%9C%E6%B8%85%E5%8D%95.html"><strong>工作清单</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="15193489395143.html">2018-02-23-内购</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15184172518005.html">2018-02-12-狗年吉祥</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15184166364607.html">2018-02-12-项目中会用到的知识</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15179689057067.html">2018-02-12-项目中会用到的知识</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15181600421700.html">2018-02-09-C 语言总结</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+
+
+
+  </body>
+</html>
