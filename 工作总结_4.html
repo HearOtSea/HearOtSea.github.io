@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  2017.12.29 - 常用的宏定义 - 心海
+  工作总结 - 心海
   
   </title>
   
@@ -92,36 +92,23 @@
        
 
  <script type="text/javascript">
-  $(function(){
-    $('#menu_item_index').addClass('is_active');
-  });
+	$(function(){
+		$('#menu_item_index').addClass('is_active');
+	});
 </script>
 <div class="row">
-  <div class="large-8 medium-8 columns">
-      <div class="markdown-body article-wrap">
-       <div class="article">
-          
-          <h1>2017.12.29 - 常用的宏定义</h1>
-     
-        <div class="read-more clearfix">
-          <span class="date">2017/12/29</span>
-
-          <span>posted in&nbsp;</span> 
-          
-              <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
-           
-         
-          <span class="comments">
-            
-
-            
-          </span>
-
-        </div>
-      </div><!-- article -->
-
-      <div class="article-content">
-      <pre><code>#define WoWWeakSelf __weak __typeof(self) weakSelf = self;
+	<div class="large-8 medium-8 columns">
+		<div class="markdown-body home-categories">
+		
+			<div class="article">
+                <a class="clearlink" href="15145096513919.html">
+                
+                  <h1>2017.12.29 - 常用的宏定义</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<pre><code>#define WoWWeakSelf __weak __typeof(self) weakSelf = self;
 #define WoWStrongSelf __strong __typeof(weakSelf) strongSelf = weakSelf;
 
 //礼包中心上方高度
@@ -226,46 +213,291 @@
 #define isIPhoneX ((kScreenWidth == 375.f &amp;&amp; kScreenHeight == 812.f)||(kScreenWidth == 812.f &amp;&amp; kScreenHeight == 375.f) ? YES : NO)
 </code></pre>
 
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/12/29</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
 
-    
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15144493934137.html">
+                
+                  <h1>2017.12.28 - iPhone X 适配问题</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<ul>
+<li>1. Safe Area</li>
+<li>2. table</li>
+<li>3. Navigation
 
-      </div>
+<ul>
+<li>Navigation 集成 UISearchController</li>
+<li>UINavigationController和滚动交互</li>
+</ul></li>
+<li><ol>
+<li>UIScrollView and UITableView的新特性</li>
+</ol>
 
-      <div class="row">
-        <div class="large-6 columns">
-        <p class="text-left" style="padding:15px 0px;">
-      
-          <a href="15148552681142.html" 
-          title="Previous Post: 2018.01.02 - 工作总结">&laquo; 2018.01.02 - 工作总结</a>
-      
-        </p>
-        </div>
-        <div class="large-6 columns">
-      <p class="text-right" style="padding:15px 0px;">
-      
-          <a  href="15144493934137.html" 
-          title="Next Post: 2017.12.28 - iPhone X 适配问题">2017.12.28 - iPhone X 适配问题 &raquo;</a>
-      
-      </p>
-        </div>
-      </div>
-      <div class="comments-wrap">
-        <div class="share-comments">
-          <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55117df11d1413c3" async="async"></script>
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_native_toolbox"></div>
+<ul>
+<li>如果有一些文本位于UI滚动视图的内部，并包含在导航控制器中，现在一般 <code>navigationContollers</code> 会传入一个 <code>contentInset</code> 给其最顶层的<code>viewController</code> 的 <code>scrollView</code>，在iOS11中进行了一个很大的改变，不再通过 <code>scrollView</code> 的 <code>contentInset</code> 属性了，而是新增了一个属性： <code>adjustedContentInset</code>，通过下面两种图的对比，能够表示 <code>adjustContentInset</code> 表示的区域：</li>
+</ul>
 
-          
+<p><img src="media/15144493934137/15144497270116.png" alt=""/></p></li>
+<li><p>新增的contentInsetAdjustmentBehavior属性用来配置adjustedContentInset的行为，该结构体有以下几种类型：</p></li>
+</ul>
 
-          
-        </div>
-      </div>
-    </div><!-- article-wrap -->
-  </div><!-- large 8 -->
+<pre><code>typedef NS_ENUM(NSInteger, UIScrollViewContentInsetAdjustmentBehavior) {  
+    UIScrollViewContentInsetAdjustmentAutomatic, 
+    UIScrollViewContentInsetAdjustmentScrollableAxes,
+    UIScrollViewContentInsetAdjustmentNever,
+    UIScrollViewContentInsetAdjustmentAlways,
+}
+
+@property(nonatomic) UIScrollViewContentInsetAdjustmentBehavior contentInsetAdjustmentBehavior;
+@property(nonatomic, readonly) UIEdgeInsets adjustedContentInset；
+
+//adjustedContentInset值被改变的delegate
+- (void)adjustedContentInsetDidChange; 
+- (void)scrollViewDidChangeAdjustedContentInset:(UIScrollView *)scrollView;
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/12/28</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15143361319778.html">
+                
+                  <h1>2017.12.27 - 抢玩的 BUG</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">抢玩遇到的 BUG</h2>
+
+<ul>
+<li><p>BUG 1</p>
+
+<p><img src="media/15143361319778/15143580454394.jpg" alt=""/></p></li>
+<li><p>BUG 2</p>
+
+<p><img src="media/15143361319778/D117E2E0D13D7949FCE2D72115F1B5B2.jpg" alt="D117E2E0D13D7949FCE2D72115F1B5B2"/></p></li>
+</ul>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/12/27</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15142514800509.html">
+                
+                  <h1>2017.12.26 - PCH 文件问题</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<ul>
+<li><p>苹果不提倡 PCH 文件</p></li>
+<li><p>原因可能是因为大家把大量的头文件和宏定义放到pch里边，导致编译时间过长。</p></li>
+<li><p>苹果去掉他可能是要加快编译时间增加用户体验。</p></li>
+<li><p>虽然失去了编程的便利性,但还是不得不佩服苹果的以用户为中心的思考方式。</p></li>
+</ul>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/12/26</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15139967362514.html">
+                
+                  <h1>2017.12.23 - 工作总结</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">我玩提审方法</h2>
+
+<p><strong>要求：使用抢玩助手的提审包</strong></p>
+
+<ul>
+<li><p>复制粘贴抢玩助手的代码</p></li>
+<li><p>需要<mark>更改</mark>和<mark>注意</mark>的地方：</p>
+
+<ul>
+<li><p>代码不能一样</p></li>
+<li><p>界面不能一样，例如：</p>
+
+<ul>
+<li>启动页面         （不能和抢玩一样）- 要设计图</li>
+<li>主界面          （不能和抢玩一样）- 设计图</li>
+<li>图标           （不能和抢玩一样）- 要设计图</li>
+<li>数据           （按照抢玩做个审核开关）</li>
+</ul></li>
+</ul></li>
+</ul>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/12/23</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15139145136353.html">
+                
+                  <h1>2017.12.22 - 工作总结</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<ul>
+<li><mark>由于这两天的问题，没有写工作总结，在这里作检讨，不管多晚下班，下班之前都要把工作总结写好，写好了再下班，这是准则</mark></li>
+</ul>
+
+<h2 id="toc_0">在群里看到的问题</h2>
+
+<ul>
+<li><p>我在交流群里看到了个这样的问题：</p></li>
+<li><p>The next submission of this app may require a longer review time, and this app will not be eligible for an expedited review until this issue is resolved.</p></li>
+<li><p>这个的意思是项目进入延期队列了，没有十天半个月没法过审</p>
+
+<h2 id="toc_1">【支持iOS11】UITableView左滑删除自定义 - 实现多选项并使用自定义图片</h2></li>
+<li><p><a href="https://www.jianshu.com/p/779f36c21632">【支持iOS11】UITableView左滑删除自定义 - 实现多选项并使用自定义图片</a></p></li>
+</ul>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/12/22</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+              
 
 
-
+			<div class="row">
+			  <div class="large-6 columns">
+			  <p class="text-left" style="padding-top:25px;">
+			   <a href="工作总结_3.html">&laquo; Prev Page</a>  
+			  </p>
+			  </div>
+			  <div class="large-6 columns">
+			<p class="text-right" style="padding-top:25px;">
+			 <a href="工作总结_5.html">&raquo; Next Page</a> 
+			</p>
+			  </div>
+			</div>
+		</div>
+	</div><!-- large 8 -->
 
  <div class="large-4 medium-4 columns">
   <div class="hide-for-small">

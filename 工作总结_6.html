@@ -1,0 +1,754 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  工作总结 - 心海
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="心海" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:github.com/HearOtSea/HearOtSea.github.io.git ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; 心海</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html">工作总结</a></li>
+        
+            <li><a href="%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html">生活总结</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+	$(function(){
+		$('#menu_item_index').addClass('is_active');
+	});
+</script>
+<div class="row">
+	<div class="large-8 medium-8 columns">
+		<div class="markdown-body home-categories">
+		
+			<div class="article">
+                <a class="clearlink" href="15130667105753.html">
+                
+                  <h1>2017.12.12 - 工作总结</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<ul>
+<li><p>WKWebView 缓存问题：</p>
+
+<ul>
+<li><p><a href="http://blog.csdn.net/Deft_MKJing/article/details/78548162">WKWebView的缓存问题以及如何正确清理缓存</a></p></li>
+<li><p><a href="http://blog.csdn.net/txz_gray/article/details/58587316">iOS9 WKWebView清除缓存方法</a></p></li>
+</ul></li>
+<li><p>WKWebView 弹窗处理</p>
+
+<ul>
+<li><a href="http://qiita.com/ShingoFukuyama/items/5d97e6c62e3813d1ae98">ShingoFukuyama - 日本人处理弹窗事件</a></li>
+</ul></li>
+</ul>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/12/12</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15129622345321.html">
+                
+                  <h1>2017.12.11 - 工作总结</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">隐藏状态栏</h2>
+
+<ul>
+<li> A push B 隐藏 B 界面的状态栏
+
+<ul>
+<li>在 viewDidLoad 方法添加以下代码：</li>
+</ul></li>
+</ul>
+
+<pre><code>[self prefersStatusBarHidden];  
+[self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];  
+</code></pre>
+
+<pre><code>- (BOOL)prefersStatusBarHidden  
+{  
+    return YES;//隐藏为YES，显示为NO  
+}  
+</code></pre>
+
+<ul>
+<li><p>所有界面全部隐藏状态栏<img src="media/15129622345321/15129636745664.jpg" alt=""/></p>
+
+<ul>
+<li>查看一下有没有这两个 key</li>
+<li>没有添加以下：</li>
+</ul></li>
+</ul>
+
+<pre><code>Status bar is initially hidden   （value：YES)
+
+View controller-based status bar appearance   (value:NO)
+</code></pre>
+
+<h2 id="toc_1">禁止WebView滚动</h2>
+
+<pre><code>UIScrollView *tempView = (UIScrollView *)[self.myWebView.subviews objectAtIndex:0];
+
+tempView.scrollEnabled = NO;
+</code></pre>
+
+<h2 id="toc_2">添加支付白名单</h2>
+
+<ul>
+<li>info.plist 文件右键</li>
+<li>open AS</li>
+<li>Source Code</li>
+<li>添加以下代码</li>
+</ul>
+
+<pre><code> &lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;alipays&lt;/string&gt;
+        &lt;string&gt;alipayauth&lt;/string&gt;
+        &lt;string&gt;alipay&lt;/string&gt;
+        &lt;string&gt;alipayqr&lt;/string&gt;
+        &lt;string&gt;alipays&lt;/string&gt;
+        &lt;string&gt;weixin&lt;/string&gt;
+        &lt;string&gt;wechat&lt;/string&gt;
+        &lt;string&gt;sinaweibohd&lt;/string&gt;
+        &lt;string&gt;sinaweibo&lt;/string&gt;
+        &lt;string&gt;sinaweibosso&lt;/string&gt;
+        &lt;string&gt;sinaweibohdsso&lt;/string&gt;
+        &lt;string&gt;weibosdk&lt;/string&gt;
+        &lt;string&gt;weibosdk2.5&lt;/string&gt;
+        &lt;string&gt;mqqapi&lt;/string&gt;
+        &lt;string&gt;mqq&lt;/string&gt;
+        &lt;string&gt;mqqOpensdkSSoLogin&lt;/string&gt;
+        &lt;string&gt;mqqconnect&lt;/string&gt;
+        &lt;string&gt;mqqopensdkdataline&lt;/string&gt;
+        &lt;string&gt;mqqopensdkgrouptribeshare&lt;/string&gt;
+        &lt;string&gt;mqqopensdkfriend&lt;/string&gt;
+        &lt;string&gt;mqqopensdkapi&lt;/string&gt;
+        &lt;string&gt;mqqopensdkapiV2&lt;/string&gt;
+        &lt;string&gt;mqqopensdkapiV3&lt;/string&gt;
+        &lt;string&gt;mqzoneopensdk&lt;/string&gt;
+        &lt;string&gt;wtloginmqq&lt;/string&gt;
+        &lt;string&gt;wtloginmqq2&lt;/string&gt;
+        &lt;string&gt;mqqwpa&lt;/string&gt;
+        &lt;string&gt;mqzone&lt;/string&gt;
+        &lt;string&gt;mqzonev2&lt;/string&gt;
+        &lt;string&gt;mqzoneshare&lt;/string&gt;
+        &lt;string&gt;wtloginqzone&lt;/string&gt;
+        &lt;string&gt;mqzonewx&lt;/string&gt;
+        &lt;string&gt;mqzoneopensdkapiV2&lt;/string&gt;
+        &lt;string&gt;mqzoneopensdkapi19&lt;/string&gt;
+        &lt;string&gt;mqqopensdkapiV4&lt;/string&gt;
+        &lt;string&gt;mqzoneopensdkapi&lt;/string&gt;
+        &lt;string&gt;mqqbrowser&lt;/string&gt;
+        &lt;string&gt;mttbrowser&lt;/string&gt;
+    &lt;/array&gt;
+</code></pre>
+
+<h2 id="toc_3">OC 简单的调用 Web 网页 基础方法</h2>
+
+<ul>
+<li>添加 <mark>WebKit.weFrameWork</mark> 框架</li>
+<li>导入头文件 <code>#import &lt;WebKit/WebKit.h&gt;</code></li>
+<li>创建 WKWebView 并且将其设置成 View</li>
+</ul>
+
+<pre><code>WKWebView *WKWeb = [[WKWebView alloc] initWithFrame:[UIScreen mainScreen].bounds];    
+self.view = WKWeb;
+NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&quot;https://www.baidu.com&quot;]];
+[WKWeb loadRequest:request];
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/12/11</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15128140217961.html">
+                
+                  <h1>2017.12.09 - 工作总结</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">证书打包</h2>
+
+<ul>
+<li>为了确保快速开发，自动选择证书一般是不勾选</li>
+<li>导入证书</li>
+<li><mark>debug</mark> 用dev</li>
+<li><mark>Release</mark> 用adhoc
+<img src="media/15128140217961/15128140864586.jpg" alt=""/></li>
+</ul>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/12/9</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15126948659559.html">
+                
+                  <h1>2017.12.08 - 工作总结</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">Info.plist 文件报错</h2>
+
+<pre><code>could not read data from &#39;/Users/hjz/Desktop/我玩登录/2017-12-7/IPlay/IPlay/Info.plist&#39;: The file “Info.plist” couldn’t be opened because there is no such file.
+
+修改了Info.plist的实际文件位置（项目和单元测试对应不同的Info.plist）
+</code></pre>
+
+<h2 id="toc_1">纯代码和 StoryBoard 的优缺点</h2>
+
+<ul>
+<li>其实，你完全不需要做一个 “艰难的决定”，你可以像 QQ 和微信那样，根据具体情况来选择性的使用 xib 和 storyboard。一些建议：</li>
+</ul>
+
+<pre><code># 对于复杂的、动态生成的界面，建议使用手工编写界面，但一定要注意view和业务层的分离
+
+# 对于需要统一风格的按钮或UI控件，建议使用手工用代码来构造。增加复用性和通用性。
+
+# 对于需要有继承或组合关系的 UIView 类或 UIViewController 类（例如baseview），建议用代码手工编写界面。
+
+# 对于那些简单的、静态的、非核心功能界面，可以考虑使用 xib 或 storyboard 来完成。
+                                                                                    _Hjz
+</code></pre>
+
+<h2 id="toc_2">所谓的智商情商</h2>
+
+<pre><code>情商高的，智商不会低。
+
+智商低的，情商不会高。
+
+最后我想说的是，高智商的天才是不需要情商的。
+
+因为天才和疯子是没有区别的，你不懂天才的世界就像你永远无法理解疯子的行为一样。
+</code></pre>
+
+<h2 id="toc_3">证书问题：</h2>
+
+<pre><code>The certificate used to sign &quot;IPlay&quot; has either expired or has been revoked. 
+
+An updated certificate is required to sign and install the application.
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/12/8</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15126089650790.html">
+                
+                  <h1>2017.12.07 - 报错 255 和 HTTP 权限问题</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">报错信息：failed with exit code 255</h2>
+
+<pre><code>Command /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool failed with exit code 255
+</code></pre>
+
+<ul>
+<li><p>clean your project</p></li>
+<li><p>delete the cached data (Organizer-&gt;Projects-&gt;Derived Data tap &#39;Delete...&#39;</p></li>
+<li><p>insure that for this XIB the proper </p></li>
+<li><p>versioning is set (select XIB, 3rd Xcode tab on right, File options:<br/>
+close the project</p></li>
+<li><p>quit Xcode</p></li>
+<li><p>reopen Xcode, then the product</p></li>
+<li><p>try again</p></li>
+</ul>
+
+<h2 id="toc_1">Push 所要做的内容：</h2>
+
+<pre><code>self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+self.window.backgroundColor = [UIColor whiteColor];
+UINavigationController *nav= [[UINavigationController alloc]init];
+self.window.rootViewController = nav;
+    
+ViewController  *rootView = [[ViewController  alloc] init];
+[nav addChildViewController:rootView];
+    
+[self.window makeKeyAndVisible];
+</code></pre>
+
+<h2 id="toc_2">iOS 9 HTTP 请求报错：</h2>
+
+<pre><code>App Transport Security has blocked a cleartext HTTP (http://) resource load since it is insecure. Temporary exceptions can be configured via your app&#39;s Info.plist file.
+</code></pre>
+
+<ul>
+<li>解决方案：</li>
+</ul>
+
+<pre><code>1.在 Info.plist 中添加 NSAppTransportSecurity 类型 Dictionary。
+2.在 NSAppTransportSecurity 下添加 NSAllowsArbitraryLoads 类型 Boolean, 值设为 YES
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/12/7</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15125221802822.html">
+                
+                  <h1>2017.12.06 - 重拾 iOS 相关代码</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">WMPageController</h2>
+
+<ul>
+<li><a href="http://www.jianshu.com/p/e2503fb3241b">iOS开发--新闻首页效果WMPageController的使用</a></li>
+</ul>
+
+<p><img src="media/15125221802822/728237-cb71fe08fe1c0ad9.gif" alt="728237-cb71fe08fe1c0ad9"/></p>
+
+<h2 id="toc_1">CocoaPods</h2>
+
+<ul>
+<li><a href="http://www.jianshu.com/p/9e4e36ba8574">iOS 安装CocoaPods详细过程</a></li>
+</ul>
+
+<h2 id="toc_2">iOS 11：截图</h2>
+
+<ul>
+<li><p>当调取相册的时候APP崩溃并显示标题的错误：</p>
+
+<ul>
+<li>This app has crashed because it attempted to access privacy-sensitive data without a usage description. The app’s Info.plist must contain an NSPhotoLibraryUsageDescription key with a string value explaining to the user how the app uses this data.</li>
+</ul></li>
+<li><p>解决方法：</p>
+
+<ul>
+<li>在info.plst文件里添加这句</li>
+<li>Privacy - Photo Library Additions Usage Description</li>
+</ul></li>
+</ul>
+
+<h3 id="toc_3">由于官方的解释较少，又在网上查找了下其他信息：</h3>
+
+<ul>
+<li>iOS11以前： 
+
+<ul>
+<li><mark>NSPhotoLibraryUsageDescription</mark>：访问相册和存储照片到相册（读写），会出现用户授权。 </li>
+</ul></li>
+<li>iOS11之后： 
+
+<ul>
+<li><mark>NSPhotoLibraryUsageDescription</mark>：无需添加。默认开启访问相册权限（读），无需用户授权。 </li>
+<li><mark>NSPhotoLibraryAddUsageDescription</mark>： 添加内容到相册（写），会出现用户授权。</li>
+</ul></li>
+</ul>
+
+<h2 id="toc_4">工作内容：星期五上交</h2>
+
+<p>写一个H5和OC交互的截图功能：如下图</p>
+
+<p><img src="media/15125221802822/%7B184E81EB-FAD9-67E0-D880-A673780CCD8A%7D.jpg" alt="{184E81EB-FAD9-67E0-D880-A673780CCD8A}"/></p>
+
+<h2 id="toc_5">UIAlertView 问题：</h2>
+
+<ul>
+<li><p>在iOS 9.0 SDK 环境下编译上述代码时，会有下列的警告提示：</p></li>
+<li><p>“‘UIAlertView’ is deprecated:first deprecated in iOS 9.0 - UIAlertView is deprecated. Use UIAlertController with a preferredStyle of UIAlertControllerStyleAlert instead”</p></li>
+<li><p>意思是UIAlertView首先在iOS9中被弃用（不推荐）使用。让我们去用<mark>UIAlertController</mark>。但是运行程序，发现代码还是可以成功运行，不会出现crash。</p></li>
+<li><p>方法改为如下：</p></li>
+</ul>
+
+<pre><code>[alert addAction:[UIAlertAction actionWithTitle:@&quot;确定&quot; style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    //点击按钮的响应事件；
+}]];
+    
+//弹出提示框；
+[self presentViewController:alert animated:true completion:nil];
+</code></pre>
+
+<h2 id="toc_6">AssetsLibrary 问题：</h2>
+
+<ul>
+<li><p>AssetsLibrary/AssetsLibrary.h</p></li>
+<li><p>&#39;ALAssetsLibrary&#39; is deprecated: first deprecated in iOS 9.0 - Use PHPhotoLibrary from the Photos framework instead</p></li>
+</ul>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/12/6</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+              
+
+
+			<div class="row">
+			  <div class="large-6 columns">
+			  <p class="text-left" style="padding-top:25px;">
+			   <a href="工作总结_5.html">&laquo; Prev Page</a>  
+			  </p>
+			  </div>
+			  <div class="large-6 columns">
+			<p class="text-right" style="padding-top:25px;">
+			 <a href="工作总结_7.html">&raquo; Next Page</a> 
+			</p>
+			  </div>
+			</div>
+		</div>
+	</div><!-- large 8 -->
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>心海</h1>
+                <div class="site-des">iOS 攻城狮、斗鱼吃鸡主播</div>
+                <div class="social">
+
+
+
+
+
+
+
+<a target="_blank" class="weibo" href="https://weibo.com/HearOtSea" title="weibo">Weibo</a>
+<a target="_blank" class="twitter" target="_blank" href="www.xiaoxinhai.com" title="Twitter">Twitter</a>
+<a target="_blank" class="github" target="_blank" href="https://github.com/JiaZhiH" title="GitHub">GitHub</a>
+<a target="_blank" class="email" href="mailto:532289567@qq.com" title="Email">Email</a>
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html"><strong>工作总结</strong></a>
+        
+            <a href="%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html"><strong>生活总结</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="15193489395143.html">2018-02-23-内购</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15184172518005.html">2018-02-12-狗年吉祥</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15184166364607.html">2018-02-12-项目中会用到的知识</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15181600421700.html">2018-02-09-C 语言总结</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15181482163531.html">2018-02-09-知识小集</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+
+
+
+  </body>
+</html>

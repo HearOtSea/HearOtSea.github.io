@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  2017.12.05 - Git 上传代码 - 心海
+  工作总结 - 心海
   
   </title>
   
@@ -92,36 +92,23 @@
        
 
  <script type="text/javascript">
-  $(function(){
-    $('#menu_item_index').addClass('is_active');
-  });
+	$(function(){
+		$('#menu_item_index').addClass('is_active');
+	});
 </script>
 <div class="row">
-  <div class="large-8 medium-8 columns">
-      <div class="markdown-body article-wrap">
-       <div class="article">
-          
-          <h1>2017.12.05 - Git 上传代码</h1>
-     
-        <div class="read-more clearfix">
-          <span class="date">2017/12/5</span>
-
-          <span>posted in&nbsp;</span> 
-          
-              <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
-           
-         
-          <span class="comments">
-            
-
-            
-          </span>
-
-        </div>
-      </div><!-- article -->
-
-      <div class="article-content">
-      <hr/>
+	<div class="large-8 medium-8 columns">
+		<div class="markdown-body home-categories">
+		
+			<div class="article">
+                <a class="clearlink" href="15124419485948.html">
+                
+                  <h1>2017.12.05 - Git 上传代码</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<hr/>
 
 <p>layout: post<br/>
 title: &quot;Git 上传代码&quot;<br/>
@@ -293,46 +280,167 @@ baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] bundlePath]]
 </ul></li>
 </ul>
 
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/12/5</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
 
-    
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15123669187792.html">
+                
+                  <h1>2017.12.04 - Pods里没用过的的第三方</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<ul>
+<li><p>EDStarRating （星级评价）</p></li>
+<li><p>JPush （极光推送）</p></li>
+<li><p>UMengAnalytics （友盟）</p></li>
+<li><p>IDFA</p></li>
+</ul>
 
-      </div>
+<pre><code>认识一下iOS系统的各种设备识别码：
 
-      <div class="row">
-        <div class="large-6 columns">
-        <p class="text-left" style="padding:15px 0px;">
-      
-          <a href="15125221802822.html" 
-          title="Previous Post: 2017.12.06 - 重拾 iOS 相关代码">&laquo; 2017.12.06 - 重拾 iOS 相关代码</a>
-      
-        </p>
-        </div>
-        <div class="large-6 columns">
-      <p class="text-right" style="padding:15px 0px;">
-      
-          <a  href="15123669187792.html" 
-          title="Next Post: 2017.12.04 - Pods里没用过的的第三方">2017.12.04 - Pods里没用过的的第三方 &raquo;</a>
-      
-      </p>
-        </div>
-      </div>
-      <div class="comments-wrap">
-        <div class="share-comments">
-          <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55117df11d1413c3" async="async"></script>
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_native_toolbox"></div>
+1、UDID ，全称是 （Unique Device Identifier），顾名思义，它就是苹果IOS设备的唯一识别码，它由40个字符的字母和数字组成，为了保护用户隐私苹果已经禁止读取这个标识了。
 
-          
+2、UUID，全称是（Universally Unique IDentifier），是基于iOS设备上面某个单个的应用程序，只要用户没有完全删除应用程序，则这个 UUID 在用户使用该应用程序的时候一直保持不变。如果用户删除了这个应用程序，然后再重新安装，那么这个 UUID 已经发生了改变。UUID 不好的地方就是用户删除了你开发的程序以后，基本上你就不可能获取之前的数据了。
 
-          
-        </div>
-      </div>
-    </div><!-- article-wrap -->
-  </div><!-- large 8 -->
+3、MAC 地址，用来定义网络设备的位置。一个主机会有一个 MAC 地址，MAC 地址是网卡决定的，是固定的，为了保护用户隐私苹果已经禁止读取这个标识了。
+
+4、OpenUDID，不是苹果官方的，是一个替代 UDID 的第三发解决方案， 缺点是如果你完全删除全部带有 OpenUDID SDK 包的 App（比如恢复系统等），那么 OpenUDID 会重新生成，而且和之前的值会不同，相当于新设备；
+
+5、IDFA 广告标示符，适用于对外：例如广告推广，换量等跨应用的用户追踪等。
+
+6、IDFV，Vindor 标示符 (IDFV-identifierForVendor)，来自同一个运营商的应用运行在同一个设备上，此属性的值是相同的；不同的运营商应用运行在同一个设备上值不同。
+</code></pre>
+
+<h4 id="toc_0">自己所了解所知道的</h4>
+
+<ul>
+<li><ol>
+<li>在工程目录种打开 Push Notification</li>
+</ol></li>
+<li><ol>
+<li>工程目录种 Info 里可以添加相关推送</li>
+</ol></li>
+</ul>
+
+<h4 id="toc_1">自己不了解不知道的</h4>
+
+<ul>
+<li><p>automaticallyAdjustsScrollViewInsets ，当设置为YES时（默认YES），如果视图里面存在唯一一个 UIScrollView 或其子类View，那么它会自动设置相应的内边距，这样可以让 scroll 占据整个视图，又不会让导航栏遮盖。</p>
+
+<ul>
+<li><p>当 controller 上的第一个子视图不是scrollview 以及其子类的时候，就会取消内边距。此时原本全屏的 scrollview 设置的frame（0，0，self.view.frame.size.width，xx）就会从状态栏开始算起，如果应用有导航栏的话，那么就会遮盖住视图的64个高度</p></li>
+<li><p>解决方案:</p>
+
+<ul>
+<li><p>self.automaticallyAdjustsScrollViewInsets = NO;<br/>
+禁用掉自动设置的内边距，自行控制 controller上index 为0的控件以及 scrollview 控件的位置</p></li>
+<li><p>self.edgesForExtendedLayout = UIExtendedEdgeNone;<br/>
+这种方式设置，不需要再重新设置 index 为0的控件的位置以及scrollview的位置，(0，0) 默认的依然是从导航栏下面开始算起</p></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h4 id="toc_2">userInteractionEnable</h4>
+
+<ul>
+<li><p>userInteractionEnabled 中的 User 是指的用户者</p></li>
+<li><p>当前视图设为 view.userInteractionEnabled=NO 时，当前视图不可交互，该视图上面的子视图也不可与用户交互（不可响应即被该视图忽视），响应事件传递到下面的父视图。</p></li>
+<li><p>当前视图设为 view.userInteractionEnabled=YES 时，当前视图可交互，该视图上面的子视图可以用户交互（可以响应即被视图接受），下面的父视图不会接收到响应。</p></li>
+<li><p>UIImageView 默认的 userInteractionEnabled 是NO；</p></li>
+<li><p>UILabel 默认 userInteractionEnabled 是 NO；</p></li>
+<li><p>UIView 的 userInteractionEnabled 默认是 YES。</p></li>
+<li><p>当视图对象的 userInteractionEnabled设置为NO 的时候，用户触发的事件，如触摸事件，键盘弹出事件等，将会被该视图忽略（其他视图照常响应），并且该视图对象也会从事件响应队列中被移除。</p></li>
+<li><p>当 userInteractionEnabled设为YES 时，则事件可以正常的传递给该视图对象。</p></li>
+<li><p><strong>注意：</strong>响应者链是能够响应事件的对象组成的链，事件在该链上传递，最终结果事件或被处理或被抛弃。所以一个对象在不在响应者链里是其能否响应事件的首要前提条件！</p></li>
+</ul>
+
+<p><img src="media/15123669187792/1264820-35a1ebe22072f71a.png" alt="1264820-35a1ebe22072f71a"/></p>
+
+<h3 id="toc_3">抢玩APP有以下的BUG：</h3>
+
+<ul>
+<li><p>微信登录出问题（微信没权限，最后选择去掉微信）</p></li>
+<li><p>App Store 上的版本是四个月前更新的</p></li>
+<li><p>登录的时候键盘一直挡住按钮（用户体验不太好）</p></li>
+<li><p>界面最上端出现 BUG</p></li>
+<li><p>礼包里，点击轮播图后条跳转的界面然后领取礼包码后没有做处理，点击三次后程序直接崩溃</p></li>
+</ul>
+
+<h3 id="toc_4">iOS 从0到1搭建高可用App框架</h3>
+
+<ul>
+<li><a href="http://www.jianshu.com/p/f09a4f21e0f9">iOS 从0到1搭建高可用App框架</a></li>
+</ul>
+
+<h3 id="toc_5">UIViewControllerAnimatedTransitioning（自定义转场）</h3>
+
+<ul>
+<li><p><a href="http://www.jianshu.com/p/e7155f938e59">ViewController自定义转场－基础</a></p></li>
+<li><p><a href="http://www.jianshu.com/p/59224648828b">自定义控制器的转场动画（Push、Pop）</a></p></li>
+</ul>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/12/4</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+              
 
 
-
+			<div class="row">
+			  <div class="large-6 columns">
+			  <p class="text-left" style="padding-top:25px;">
+			   <a href="工作总结_6.html">&laquo; Prev Page</a>  
+			  </p>
+			  </div>
+			  <div class="large-6 columns">
+			<p class="text-right" style="padding-top:25px;">
+			
+			</p>
+			  </div>
+			</div>
+		</div>
+	</div><!-- large 8 -->
 
  <div class="large-4 medium-4 columns">
   <div class="hide-for-small">

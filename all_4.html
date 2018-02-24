@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  2018.01.05 - 项目报错 - 心海
+  心海
   
   </title>
   
@@ -92,36 +92,121 @@
        
 
  <script type="text/javascript">
-  $(function(){
-    $('#menu_item_index').addClass('is_active');
-  });
+	$(function(){
+		$('#menu_item_index').addClass('is_active');
+	});
 </script>
 <div class="row">
-  <div class="large-8 medium-8 columns">
-      <div class="markdown-body article-wrap">
-       <div class="article">
-          
-          <h1>2018.01.05 - 项目报错</h1>
-     
-        <div class="read-more clearfix">
-          <span class="date">2018/1/5</span>
+	<div class="large-8 medium-8 columns">
+		<div class="markdown-body home-categories">
+		
+			<div class="article">
+                <a class="clearlink" href="15152104112124.html">
+                
+                  <h1>2018.01.06 - iPhone X 等问题</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">我玩</h2>
 
-          <span>posted in&nbsp;</span> 
-          
-              <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
-           
-         
-          <span class="comments">
-            
+<ul>
+<li>适配 iPhone X
 
-            
-          </span>
+<ul>
+<li><mark>X</mark> 不变</li>
+<li><mark>Y</mark> 是 <mark>NavgationBarHeight</mark></li>
+<li><mark>Width</mark> 全屏宽度</li>
+<li><mark>Height</mark> 全屏高度</li>
+</ul></li>
+</ul>
 
-        </div>
-      </div><!-- article -->
+<h2 id="toc_1">隐藏 iPhone X 小白条</h2>
 
-      <div class="article-content">
-      <h4 id="toc_0">- 1. 报错描述：</h4>
+<pre><code># pragma mark - 隐藏 iPhone X 小白条
+- (BOOL)prefersHomeIndicatorAutoHidden
+{
+    return YES;
+}
+
+- (UIRectEdge)preferredScreenEdgesDeferringSystemGestures
+{
+    return UIRectEdgeAll;
+}
+</code></pre>
+
+<p><mark>注意：</mark> 这里的方法要写在要加载的 <mark>ViewController</mark> 里才可以实现</p>
+
+<h2 id="toc_2">LuanchImage</h2>
+
+<pre><code>iphone X (Retina HD 5.5 @3x): 1125 x 2436
+iPhone 6Plus/6SPlus(Retina HD 5.5 @3x): 1242 x 2208
+iPhone 6/6S/(Retina HD 4.7 @2x): 750 x 1334
+iPhone 5/5S(Retina 4 @2x): 640 x 1136
+iPhone 4/4S(@2x): 640 x 960
+</code></pre>
+
+<pre><code>*Device*                    *Portrait*                *Landscape size*
+------------------------------------------------------------------------------
+12.9&quot; iPad Pro              2048px × 2732px          2732px × 2048px
+10.5&quot; iPad Pro              1668px × 2224px          2224px × 1668px
+9.7&quot; iPad                   1536px × 2048px          2048px × 1536px
+7.9&quot; iPad mini 4            1536px × 2048px          2048px × 1536px
+iPhone X                    1125px × 2436px          2436px × 1125px
+iPhone 8 Plus               1242px × 2208px          2208px × 1242px
+iPhone 8                    750px × 1334px           1334px × 750px
+iPhone 7 Plus               1242px × 2208px          2208px × 1242px
+iPhone 7                    750px × 1334px           1334px × 750px
+iPhone 6s Plus              1242px × 2208px          2208px × 1242px
+iPhone 6s                   750px × 1334px           1334px × 750px
+iPhone SE                   640px × 1136px           1136px × 640px
+
+注意：在调整750*1334图片大小的时候 默认大小会变成750*1333 一定要改成1334否则会影响应用内字体颜色和大小
+</code></pre>
+
+<h2 id="toc_3">抢玩</h2>
+
+<ul>
+<li>适配 <mark>iPhone</mark> X
+
+<ul>
+<li>底部的 <mark>StatusbBarHeight</mark> 高度计算
+<img src="media/15152104112124/15152301743451.jpg" alt=""/></li>
+</ul></li>
+</ul>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2018/1/6</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15151149332976.html">
+                
+                  <h1>2018.01.05 - 项目报错</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h4 id="toc_0">- 1. 报错描述：</h4>
 
 <pre><code>Cannot synthesize weak property because the current deployment target does not support weak references
 </code></pre>
@@ -367,46 +452,400 @@
 <li><p>要想避免各种被拒绝的情况，最好的办法就是阅读苹果的条例！可是亲啊，那个英文TA认识我，我不完全认识TA啊，而且太长了，太长了！</p></li>
 </ol>
 
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2018/1/5</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
 
-    
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15150286267119.html">
+                
+                  <h1>2018.01.04 - 日常报错和即将入坑内购</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">ERROR： -999</h2>
 
-      </div>
+<ul>
+<li><p><mark>NSURLErrorCancelled</mark> 就是 -999，它代表请求被取消的意思。</p>
 
-      <div class="row">
-        <div class="large-6 columns">
-        <p class="text-left" style="padding:15px 0px;">
-      
-          <a href="15152104112124.html" 
-          title="Previous Post: 2018.01.06 - iPhone X 等问题">&laquo; 2018.01.06 - iPhone X 等问题</a>
-      
-        </p>
-        </div>
-        <div class="large-6 columns">
-      <p class="text-right" style="padding:15px 0px;">
-      
-          <a  href="15150286267119.html" 
-          title="Next Post: 2018.01.04 - 日常报错和即将入坑内购">2018.01.04 - 日常报错和即将入坑内购 &raquo;</a>
-      
-      </p>
-        </div>
-      </div>
-      <div class="comments-wrap">
-        <div class="share-comments">
-          <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55117df11d1413c3" async="async"></script>
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_native_toolbox"></div>
+<ul>
+<li><p>根本原因</p></li>
+<li><p>出现 <code>NSURLErrorDomain Code = -999</code> 的根本原因是什么呢？</p></li>
+<li><p>其实就是因为webview在之前的请求还没有加载完成，下一个请求发起了，此时webview会取消掉之前的请求，因此会回调到失败这里。</p></li>
+<li><p>因此，在处理Webview的加载失败的回调时，要注意拦截掉被取消的请求。</p></li>
+</ul></li>
+<li><p>解决方案</p>
 
-          
+<ul>
+<li>在webview加载失败时，添加如下代码来判断：</li>
+</ul></li>
+</ul>
 
-          
-        </div>
-      </div>
-    </div><!-- article-wrap -->
-  </div><!-- large 8 -->
+<pre><code>- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+  [self stopAnimating];
+  
+  // 如果是被取消，什么也不干
+  if([error code] == NSURLErrorCancelled)  {
+    return;
+  }
+  
+  // 后续失败处理
+}
+</code></pre>
+
+<p><img src="media/15150286267119/15150301044047.jpg" alt=""/></p>
+
+<h2 id="toc_1">UIView 动画</h2>
+
+<ul>
+<li><p>动画相关</p>
+
+<p><img src="media/15150286267119/15150302698343.jpg" alt=""/></p></li>
+</ul>
+
+<h2 id="toc_2">苹果内购</h2>
+
+<h3 id="toc_3">整体流程</h3>
+
+<p><strong>第一部分</strong> - iTunes Connect 配置</p>
+
+<ul>
+<li><ol>
+<li>进入 itunes Connect 的【协议、税务和银行业】填写相关信息</li>
+</ol></li>
+<li><ol>
+<li>今日 【我的APP】-【功能】-【APP 内购买项目】- 选择自己所需要添加的内购的类型</li>
+</ol></li>
+<li><ol>
+<li>填写好这几项，需要记录下每个产品的内购ID，也就是唯一ID，为以后购买产品做准备。</li>
+</ol></li>
+<li><ol>
+<li>在工程中配置好证书
+<img src="media/15150286267119/15150487411740.png" alt=""/></li>
+</ol></li>
+</ul>
+
+<p><strong>第二部分</strong> - 代码块</p>
+
+<ol>
+<li><p>头件 <code>“#import&lt;StoreKit/StoreKit.h&gt;”</code></p></li>
+<li><p>引入 <code>&quot;SKProductsRequestDelegate,SKPaymentTransactionObserver&quot;</code> 这两个代理</p></li>
+<li><p>我们需要在内购的那个页面viewDidLoad方法里直接调用方法:<br/>
+<img src="media/15150286267119/15150489140069.png" alt=""/></p></li>
+<li><p>然后接下来就是几个最重要的代理方法了，如果正常的内购能够走通，那么这几个代理方法就会很流畅的运行过去，并且返回你所购买的商品的信息。<br/>
+<img src="media/15150286267119/15150490079783.png" alt=""/><br/><br/>
+<img src="media/15150286267119/15150490783374.png" alt=""/><br/>
+<img src="media/15150286267119/15150490836294.png" alt=""/><br/>
+<img src="media/15150286267119/15150490908444.png" alt=""/><br/>
+<img src="media/15150286267119/15150490959281.png" alt=""/><br/>
+<img src="media/15150286267119/15150491018020.png" alt=""/><br/>
+<img src="media/15150286267119/15150491070504.png" alt=""/></p></li>
+</ol>
+
+<p><strong>第三部分</strong> - 常见错误总结</p>
+
+<ol>
+<li><p>请求不到内购的产品信息。</p>
+
+<ul>
+<li>解决办法：</li>
+<li><p>（1） 先看看 <mark>bundle id</mark>，和测试证书之类的东西配置的都对不对，然后看看产品的唯一 <mark>ID</mark> 和 <mark>iTunesConnect</mark> 里的能不能对应上。如果都没有问题，那么看下面的。</p></li>
+<li><p>（2） 去看看 <mark>iTunesConnect</mark> 里的协议里面的公司的地址信息和银行卡信息是否填写正确，只要没有报错，报红就可以。基本上上面这几点弄好了也就能请求到商品了。</p></li>
+</ul></li>
+<li><p>手机提示无法连接到<mark>itunesStore</mark></p>
+
+<ul>
+<li>解决办法：把手机的 <mark>Apple ID</mark> 先注销掉，然后购买的时候重新填写 <mark>Apple ID</mark>。</li>
+</ul></li>
+</ol>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2018/1/4</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15149410759703.html">
+                
+                  <h1>2018.01.03 - 工作总结</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">我玩</h2>
+
+<ul>
+<li><p>修改【个人中心】-【我的设置】-【关于我玩】里的不能点击的BUG，原因出在，不用进行判断是否登录</p></li>
+<li><p>修改关于我玩的icon以及内容和标识</p>
+
+<ul>
+<li><code>imageView.contentMode =  UIViewContentModeCenter;</code></li>
+</ul></li>
+<li><p>去掉了<code>QWWebViewController.h</code>里的<code>lastView</code></p></li>
+<li><p>每日签到的接口对接</p></li>
+</ul>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2018/1/3</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15148552681142.html">
+                
+                  <h1>2018.01.02 - 工作总结</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">抢玩</h2>
+
+<ul>
+<li><p>个人中心【修改密码】提示验证码失效</p></li>
+<li><p>个人中心点击【每日签到】报错</p>
+
+<p><img src="media/15148552681142/15148760088541.jpg" alt=""/><br/>
+改成这样：</p>
+
+<p><img src="media/15148552681142/15148760522168.jpg" alt=""/></p></li>
+</ul>
+
+<pre><code>decisionHandler(WKNavigationActionPolicyAllow);
+return;
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2018/1/2</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15145096513919.html">
+                
+                  <h1>2017.12.29 - 常用的宏定义</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<pre><code>#define WoWWeakSelf __weak __typeof(self) weakSelf = self;
+#define WoWStrongSelf __strong __typeof(weakSelf) strongSelf = weakSelf;
+
+//礼包中心上方高度
+#define kTopBarHeight  40.0f
+/*
+ 日志输出
+ */
+#ifdef DEBUG
+#define WoWLog(...) NSLog(__VA_ARGS__)
+#else
+#define WoWLog(...)
+#endif
+
+#define WoWColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define WoWColorWithAl(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+#define WoWColorFromRGB(rgbValue)    [UIColor colorWithRed:((float)((rgbValue &amp; 0xFF0000) &gt;&gt; 16))/255.0 green:((float)((rgbValue &amp; 0xFF00) &gt;&gt; 8))/255.0 blue:((float)(rgbValue &amp; 0xFF))/255.0 alpha:1.0]
+
+//----颜色----
+//主题色，高亮信息
+//#define kWoWThemeColor         WoWColor(222,64,74)
+#define kWoWThemeColor         [UIColor colorWithHexString:@&quot;#de162f&quot;]
+#define kWoWOrangeColor         [UIColor colorWithHexString:@&quot;#de162f&quot;]
+#define kWoWOrangeSelectColor   [UIColor colorWithHexString:@&quot;#cf152c&quot;]
+#define kWoWOrangeDisableColor         [UIColor colorWithHexString:@&quot;#f2a6b0&quot;]
+#define kWoWOrangeBottomColor   [UIColor colorWithHexString:@&quot;#efc7cc&quot;]
+#define kWoWGraySelectColor   [UIColor colorWithHexString:@&quot;#e8ebe8&quot;]
+#define kWoWGrayColor   [UIColor colorWithHexString:@&quot;#e8e8e8&quot;]
+#define kWoWBlueSelectColor   [UIColor colorWithHexString:@&quot;#3187cf&quot;]
+#define kWoWBlueColor   [UIColor colorWithHexString:@&quot;#3f8ed8&quot;]
+#define kWoWRedColor   WoWColor(255,6,7)
+//窗口透明背景
+#define kWoWBackgroundColorWithAl WoWColorWithAl(0,0,0,0.4)
+
+#define kWoWNavigationBarColor WoWColor(254,254,254)
+////黑色字体标题颜色,重要信息
+#define kWoWDarkTextColor [UIColor colorWithHexString:@&quot;#131313&quot;]
+////灰色字体颜色，颜色较淡，辅助信息
+#define kWoWLightGrayTextColor [UIColor colorWithHexString:@&quot;#999999&quot;]
+////灰色字体颜色，颜色较深，辅助信息
+#define kWoWDarkGrayTextColor [UIColor colorWithHexString:@&quot;#666666&quot;]
+
+////背景色
+#define kWoWBackgroundColor [UIColor colorWithHexString:@&quot;#f3f3f3&quot;]
+//登录注册白色背景
+#define kWoWWhiteBackColorWithAl WoWColorWithAl(248,248,248,0.7)
+//登录注册大背景
+#define kWoWGrayBackColorWithAl WoWColorWithAl(190,190,190,0.7)
+//登录注册字体颜色
+#define WoW_logintextColor  [UIColor colorWithRed:42/255.0 green:65/255.0 blue:88/255.0 alpha:1.0]
+//白色
+#define kWoWWhiteColor WoWColor(255,255,255)
+//分割线颜色，不可用状态
+#define kWoWSeparatorColor [UIColor colorWithHexString:@&quot;#e8ebe8&quot;]
+//绿色，按钮
+#define kWoWGreenButtonColor WoWColor(0,204,111)
+
+//屏幕大小
+/* 当前设备的屏幕尺寸，含状态栏，例如320x480，也即分辨率,ios8以下不随设备方向而变化，ios8及以上是实时尺寸 */
+#define kScreenWidth [[UIScreen mainScreen] bounds].size.width
+#define kScreenHeight [[UIScreen mainScreen] bounds].size.height
+#define kScreenSize [[UIScreen mainScreen] bounds].size
+
+// 系统控件默认高度
+//#define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define kNavBarHeight2  self.navigationController.navigationBar.frame.size.height
+
+#define kNavStatusHeight
+#define kavStatusHeight1(A,B) ({__typeof(A) __a = (A);__typeof(B) __b = (B); __a &gt; __b ? 32 : 44; })
+// 系统控件默认高度
+//#define kStatusBarHeight  ((@available(iOS 11.0, *)&amp;&amp;(kScreenHeight&gt;kScreenWidth)) ? 44 : 0)
+#define kSafeTopMargin ({CGFloat safeTopMargin = 0;if(isIPhoneX) {if (kScreenWidth&gt;kScreenHeight){safeTopMargin = 0;} else if (kScreenHeight&gt;kScreenWidth) {safeTopMargin = 44;}}else {safeTopMargin = 0;}safeTopMargin;})
+#define kSafeLeftRightMargin ({CGFloat safeLeftRightMargin = 0;if(isIPhoneX) {if (kScreenHeight&gt;kScreenWidth){safeLeftRightMargin = 0;} else if (kScreenWidth&gt;kScreenHeight) {safeLeftRightMargin = 44;}}else {safeLeftRightMargin = 0;}safeLeftRightMargin;})
+
+#define kSafeBottomMargin ({CGFloat safeBottomMargin = 0;if(isIPhoneX) {if (kScreenHeight&gt;kScreenWidth){safeBottomMargin = 34;} else if (kScreenWidth&gt;kScreenHeight) {safeBottomMargin = 21;}}else {safeBottomMargin = 0;}safeBottomMargin;})
+
+// 状态栏高度
+#define STATUS_BAR_HEIGHT (iPhoneX ? 44.f : 20.f)
+
+#define kStatusBarHeight  ((isIPhoneX&amp;&amp;(kScreenHeight&gt;kScreenWidth)) ? 44 : 0)
+////#define kStatusBarHeight kStatusBarHeight1(statusBarHiddenStatus)
+////#define kStatusBarHeight1(A) ({__typeof(A) __a = (A); __a  ? 0 : 20; })
+#define kNavBarHeight   kNavBarHeight1(kScreenWidth,kScreenHeight)
+#define kNavBarHeight1(A,B) ({__typeof(A) __a = (A);__typeof(B) __b = (B); __a &gt; __b ? 32 : 44; })
+//#define isVCBasedStatusBarAppearanceNum (NSNumber *)[[NSBundle mainBundle] objectForInfoDictionaryKey:@&quot;UIViewControllerBasedStatusBarAppearance&quot;]
+////#define statusBarHiddenStatus [isVCBasedStatusBarAppearanceNum intValue] =1  ? self.prefersStatusBarHidden : [UIApplication sharedApplication].statusBarHidden
+//#define statusBarHiddenStatus ({__typeof(isVCBasedStatusBarAppearanceNum) __a = (isVCBasedStatusBarAppearanceNum);  __a ? self.prefersStatusBarHidden : [UIApplication sharedApplication].statusBarHidden; })
+
+#define Interface_Flag              (int)[UIDevice getDeviceOrientation]  //横竖屏方向
+/* 判断设备是否横屏 */
+#define kIsDeviceLandscape          (Interface_Flag == 1)
+/* 判断设备是否竖屏 */
+#define kIsDevicePortrait           (Interface_Flag == 0)
+
+//系统版本
+#define iOS7Later ([UIDevice currentDevice].systemVersion.floatValue &gt;= 7.0f)
+#define iOS8Later ([UIDevice currentDevice].systemVersion.floatValue &gt;= 8.0f)
+#define iOS9Later ([UIDevice currentDevice].systemVersion.floatValue &gt;= 9.0f)
+#define iOS9_1Later ([UIDevice currentDevice].systemVersion.floatValue &gt;= 9.1f)
+#define iOS10Later ([UIDevice currentDevice].systemVersion.floatValue &gt;= 10.0f)
+#define iOSVersion [UIDevice currentDevice].systemVersion.floatValue
+
+#define isIPhoneX ((kScreenWidth == 375.f &amp;&amp; kScreenHeight == 812.f)||(kScreenWidth == 812.f &amp;&amp; kScreenHeight == 375.f) ? YES : NO)
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/12/29</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+              
 
 
-
+			<div class="row">
+			  <div class="large-6 columns">
+			  <p class="text-left" style="padding-top:25px;">
+			   <a href="all_3.html">&laquo; Prev Page</a>  
+			  </p>
+			  </div>
+			  <div class="large-6 columns">
+			<p class="text-right" style="padding-top:25px;">
+			 <a href="all_5.html">&raquo; Next Page</a> 
+			</p>
+			  </div>
+			</div>
+		</div>
+	</div><!-- large 8 -->
 
  <div class="large-4 medium-4 columns">
   <div class="hide-for-small">
