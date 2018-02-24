@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  2018.01.15 - 工作总结 - 
+  2018.01.15 - Swift 4.0 学习笔记 - 
   
   </title>
   
@@ -79,8 +79,6 @@
             <li><a href="%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html">工作总结</a></li>
         
             <li><a href="%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html">生活总结</a></li>
-        
-            <li><a href="%E5%B7%A5%E4%BD%9C%E6%B8%85%E5%8D%95.html">工作清单</a></li>
          
 
       </ul>
@@ -103,7 +101,7 @@
       <div class="markdown-body article-wrap">
        <div class="article">
           
-          <h1>2018.01.15 - 工作总结</h1>
+          <h1>2018.01.15 - Swift 4.0 学习笔记</h1>
      
         <div class="read-more clearfix">
           <span class="date">2018/1/15</span>
@@ -123,17 +121,15 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <h2 id="toc_0">Swift 4.0 学习笔记</h2>
+      <h3 id="toc_0">1 - 元祖</h3>
 
-<h3 id="toc_1">1 - 元祖</h3>
-
-<h4 id="toc_2"><strong>元组就是把多个值组合成一个复合值，元祖内的值可以是【任意类型】，并不要求是相同类型。</strong></h4>
+<h4 id="toc_1"><strong>元组就是把多个值组合成一个复合值，元祖内的值可以是【任意类型】，并不要求是相同类型。</strong></h4>
 
 <p><img src="media/15159800102789/15159801330533.jpg" alt=""/></p>
 
-<h3 id="toc_3">2 - 可选类型</h3>
+<h3 id="toc_2">2 - 可选类型</h3>
 
-<h4 id="toc_4">Swift 中的 nil 不同于 OC 中的 nil。</h4>
+<h4 id="toc_3">Swift 中的 nil 不同于 OC 中的 nil。</h4>
 
 <ul>
 <li> 在 OC 中，nil 是一个<strong>指向不存在的对象的指针</strong>。 </li>
@@ -141,9 +137,9 @@
 <img src="media/15159800102789/15159806477779.jpg" alt=""/></li>
 </ul>
 
-<h3 id="toc_5">3 - If 语句和强制解包</h3>
+<h3 id="toc_4">3 - If 语句和强制解包</h3>
 
-<h4 id="toc_6">使用  <mark>（！）</mark>  时，访问不存在值的可选类型会触发运行错误, 所以在使用<mark>（！）</mark> 强制解包前, 要<mark>始终确保</mark>可选类型包含了非空的值。</h4>
+<h4 id="toc_5">使用  <mark>（！）</mark>  时，访问不存在值的可选类型会触发运行错误, 所以在使用<mark>（！）</mark> 强制解包前, 要<mark>始终确保</mark>可选类型包含了非空的值。</h4>
 
 <ul>
 <li>当你确定可选类型确实有值,你可以通过在可选类型名称的末尾添加感叹号<mark>（!）</mark>来访问其包含的值。这个感叹号如同在宣称：<strong>“我知道这个可选类型肯定有值，请使用它。”</strong> </li>
@@ -154,7 +150,7 @@
 <img src="media/15159800102789/15159811062918.jpg" alt=""/><br/>
 <img src="media/15159800102789/15159811275719.jpg" alt=""/></p>
 
-<h3 id="toc_7">4 - 可选绑定</h3>
+<h3 id="toc_6">4 - 可选绑定</h3>
 
 <ol>
 <li><strong>你可以使用可选绑定来确定可选类型是否包含值，如果这样做，你必须把这个绑定的值用作临时常量或变量</strong></li>
@@ -182,7 +178,7 @@
 的代码中使用</strong></li>
 </ol>
 
-<h3 id="toc_8">思考：Xib Storyboard 纯代码</h3>
+<h3 id="toc_7">思考：Xib Storyboard 纯代码</h3>
 
 <pre><code># 其实完全不需要做一个“艰难的决定”，你可以像 QQ 和微信那样，根据具体情况来选择性的使用 xib 和 storyboard
 
@@ -197,7 +193,7 @@
 # 对于那些简单的、静态的、非核心功能界面，可以考虑使用 xib 或 storyboard 来完成。
 </code></pre>
 
-<h3 id="toc_9">Swift 算术运算符简写</h3>
+<h3 id="toc_8">Swift 算术运算符简写</h3>
 
 <p><img src="media/15159800102789/15159971045250.jpg" alt=""/></p>
 
@@ -215,15 +211,15 @@
         <p class="text-left" style="padding:15px 0px;">
       
           <a href="15160726556143.html" 
-          title="Previous Post: 2018.01.16 - 工作总结">&laquo; 2018.01.16 - 工作总结</a>
+          title="Previous Post: 2018.01.16 - 相册的功能">&laquo; 2018.01.16 - 相册的功能</a>
       
         </p>
         </div>
         <div class="large-6 columns">
       <p class="text-right" style="padding:15px 0px;">
       
-          <a  href="15157457648624.html" 
-          title="Next Post: 2018.01.12 - 工作总结">2018.01.12 - 工作总结 &raquo;</a>
+          <a  href="15155509790124.html" 
+          title="Next Post: 2018.01.10 - 初入 iOS 内购">2018.01.10 - 初入 iOS 内购 &raquo;</a>
       
       </p>
         </div>
@@ -280,8 +276,6 @@
             <a href="%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html"><strong>工作总结</strong></a>
         
             <a href="%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html"><strong>生活总结</strong></a>
-        
-            <a href="%E5%B7%A5%E4%BD%9C%E6%B8%85%E5%8D%95.html"><strong>工作清单</strong></a>
          
         </p>
 

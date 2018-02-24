@@ -79,8 +79,6 @@
             <li><a href="%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html">工作总结</a></li>
         
             <li><a href="%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html">生活总结</a></li>
-        
-            <li><a href="%E5%B7%A5%E4%BD%9C%E6%B8%85%E5%8D%95.html">工作清单</a></li>
          
 
       </ul>
@@ -123,15 +121,14 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <hr/>
+      <!-----
+layout: post
+title: "jeklly 搭建博客"
+date: 2018.01.22
+tag: jeklly
+---  -->
 
-<p>layout: post<br/>
-title: &quot;jeklly 搭建博客&quot;<br/>
-date: 2018.01.22</p>
-
-<h2 id="toc_0">tag: jeklly</h2>
-
-<h3 id="toc_1">介绍</h3>
+<h3 id="toc_0">介绍</h3>
 
 <ul>
 <li><p>Jekyll 是一个简单的博客形态的静态站点生产机器。它有一个模版目录，其中包含原始文本格式的文档，通过 Markdown （或者 Textile） 以及 Liquid 转化成一个完整的可发布的静态网站，你可以发布在任何你喜爱的服务器上。Jekyll 也可以运行在 GitHub Page 上，也就是说，你可以使用 GitHub 的服务来搭建你的项目页面、博客或者网站，而且是完全免费的</p></li>
@@ -140,7 +137,7 @@ date: 2018.01.22</p>
 <li><p>Jekyll 是一个免费的简单静态网页生成工具，可以配合第三方服务例如： Disqus（评论）、多说(评论) 以及分享 等等扩展功能，Jekyll 可以直接部署在 Github（国外） 或 Coding（国内） 上，可以绑定自己的域名。Jekyll中文文档、Jekyll英文文档、Jekyll主题列表。</p></li>
 </ul>
 
-<h4 id="toc_2">Jekyll 环境配置</h4>
+<h4 id="toc_1">Jekyll 环境配置</h4>
 
 <ul>
 <li>安装 jekyll</li>
@@ -171,7 +168,7 @@ $ cd myBlog
 <li>在浏览器里输入： <a href="http://localhost:4000">http://localhost:4000</a>，就可以看到你的博客效果了。</li>
 </ul>
 
-<h4 id="toc_3">目录结构</h4>
+<h4 id="toc_2">目录结构</h4>
 
 <ul>
 <li><p>Jekyll 的核心其实是一个文本转换引擎。它的概念其实就是： 你用你最喜欢的标记语言来写文章，可以是 Markdown，也可以是 Textile,或者就是简单的 HTML, 然后 Jekyll 就会帮你套入一个或一系列的布局中。在整个过程中你可以设置URL路径, 你的文本在布局中的显示样式等等。这些都可以通过纯文本编辑来实现，最终生成的静态页面就是你的成品了。</p></li>
@@ -206,7 +203,7 @@ $ cd myBlog
 <li><p>到此，博客初步搭建算是完成了，</p></li>
 </ul>
 
-<h4 id="toc_4">博客部署到远端</h4>
+<h4 id="toc_3">博客部署到远端</h4>
 
 <ul>
 <li>我这里讲的是部署到 Github Page 创建一个 github 账号，然后创建一个跟你账户名一样的仓库，如我的 github 账户名叫 leopardpan，我的 github 仓库名就叫 leopardpan.github.io，创建好了之后，把刚才建立的 myBlog 项目 push 到 username.github.io仓库里去（username指的是你的github用户名），检查你远端仓库已经跟你本地 myBlog 同步了，然后你在浏览器里输入 username.github.io ，就可以访问你的博客了。</li>
@@ -308,8 +305,6 @@ categories: tag标签的分类，如：categories: 随笔
             <a href="%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html"><strong>工作总结</strong></a>
         
             <a href="%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html"><strong>生活总结</strong></a>
-        
-            <a href="%E5%B7%A5%E4%BD%9C%E6%B8%85%E5%8D%95.html"><strong>工作清单</strong></a>
          
         </p>
 
