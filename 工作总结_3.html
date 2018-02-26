@@ -101,6 +101,167 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
+                <a class="clearlink" href="15159800102789.html">
+                
+                  <h1>2018.01.15 - Swift 4.0 学习笔记</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h3 id="toc_0">1 - 元祖</h3>
+
+<h4 id="toc_1"><strong>元组就是把多个值组合成一个复合值，元祖内的值可以是【任意类型】，并不要求是相同类型。</strong></h4>
+
+<p><img src="media/15159800102789/15159801330533.jpg" alt=""/></p>
+
+<h3 id="toc_2">2 - 可选类型</h3>
+
+<h4 id="toc_3">Swift 中的 nil 不同于 OC 中的 nil。</h4>
+
+<ul>
+<li> 在 OC 中，nil 是一个<strong>指向不存在的对象的指针</strong>。 </li>
+<li> 在 Swift 中，nil 不是指针, 它是<strong>一个不存在值的特定类型的</strong>。 任何数据类型的可选类型都可以设置为 nil，而不仅仅是对象类型。
+<img src="media/15159800102789/15159806477779.jpg" alt=""/></li>
+</ul>
+
+<h3 id="toc_4">3 - If 语句和强制解包</h3>
+
+<h4 id="toc_5">使用  <mark>（！）</mark>  时，访问不存在值的可选类型会触发运行错误, 所以在使用<mark>（！）</mark> 强制解包前, 要<mark>始终确保</mark>可选类型包含了非空的值。</h4>
+
+<ul>
+<li>当你确定可选类型确实有值,你可以通过在可选类型名称的末尾添加感叹号<mark>（!）</mark>来访问其包含的值。这个感叹号如同在宣称：<strong>“我知道这个可选类型肯定有值，请使用它。”</strong> </li>
+<li>这被称为可选类型的强制解包：</li>
+</ul>
+
+<p><img src="media/15159800102789/15159810933357.jpg" alt=""/><br/>
+<img src="media/15159800102789/15159811062918.jpg" alt=""/><br/>
+<img src="media/15159800102789/15159811275719.jpg" alt=""/></p>
+
+<h3 id="toc_6">4 - 可选绑定</h3>
+
+<ol>
+<li><strong>你可以使用可选绑定来确定可选类型是否包含值，如果这样做，你必须把这个绑定的值用作临时常量或变量</strong></li>
+</ol>
+
+<p>2.</p>
+
+<pre><code># 可选绑定可以与if-while 语句一起使用，
+# 以检查可选类型中的值，
+# 并作为这个操作的一部分将该值提取为常量或变量。
+</code></pre>
+
+<p>3.<img src="media/15159800102789/15159823076509.jpg" alt=""/></p>
+
+<p>这段代码可以这样理解：</p>
+
+<ul>
+<li><p>如果 <mark>Int(h)</mark> 方法返回的可选Int包含一个值，创建一个名为<mark>actualNumber</mark>的新常量并设置其值为可选类型包含的值。</p></li>
+<li><p>如果转换成功，则常量<mark>actualNumber</mark>可用于 <mark>if语句</mark>的第一个分支中。它已经通过可选类型中的值初始化了，所以没有必要使用<mark><code>(！)</code></mark>后缀访问其值。在这个例子中，<mark>actualNumber</mark> 只简单地用于打印转换后的结果。</p></li>
+</ul>
+
+<ol>
+<li><strong>在 if 语句中使用可选绑定创建的常量和变量仅在 if 语句的主体内可用。
+相比之下，使用 guard 语句创建的常量和变量可以在 guard 语句后面
+的代码中使用</strong></li>
+</ol>
+
+<h3 id="toc_7">思考：Xib Storyboard 纯代码</h3>
+
+<pre><code># 其实完全不需要做一个“艰难的决定”，你可以像 QQ 和微信那样，根据具体情况来选择性的使用 xib 和 storyboard
+
+# 一些建议：
+
+# 对于复杂的、动态生成的界面，建议使用手工编写界面，但一定要注意view和业务层的分离
+
+# 对于需要统一风格的按钮或UI控件，建议使用手工用代码来构造。增加复用性和通用性。
+
+# 对于需要有继承或组合关系的 UIView 类或 UIViewController 类（例如baseview），建议用代码手工编写界面。
+
+# 对于那些简单的、静态的、非核心功能界面，可以考虑使用 xib 或 storyboard 来完成。
+</code></pre>
+
+<h3 id="toc_8">Swift 算术运算符简写</h3>
+
+<p><img src="media/15159800102789/15159971045250.jpg" alt=""/></p>
+
+<ul>
+<li>如果 <code>hasHeader</code> 这个条件成立 <code>contentHeight</code> 就要比 <code>rowHeight</code> 高 50， 否则就比 <code>rowHeight</code> 高 20</li>
+</ul>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2018/1/15</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15155509790124.html">
+                
+                  <h1>2018.01.10 - 初入 iOS 内购</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">我玩 - 内购</h2>
+
+<p><img src="media/15155509790124/15155515787078.jpg" alt=""/><br/>
+<img src="media/15155509790124/15155515926831.jpg" alt=""/></p>
+
+<h2 id="toc_1">iOS 内购问题</h2>
+
+<ul>
+<li>内购需要游戏厂商那边支持<strong>内购</strong>原生才能支持内购</li>
+</ul>
+
+<h2 id="toc_2">iOS 测试证书问题</h2>
+
+<ul>
+<li>Dev</li>
+<li>Hoc </li>
+<li>开发者账号每年有一次重置的机会</li>
+</ul>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2018/1/10</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
                 <a class="clearlink" href="15153737680728.html">
                 
                   <h1>2018.01.08 - 证书问题</h1>
@@ -648,97 +809,6 @@ iPhone SE                   640px × 1136px           1136px × 640px
                 </div>
               </div><!-- article -->
         
-			<div class="article">
-                <a class="clearlink" href="15149410759703.html">
-                
-                  <h1>2018.01.03 - 工作总结</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h2 id="toc_0">我玩</h2>
-
-<ul>
-<li><p>修改【个人中心】-【我的设置】-【关于我玩】里的不能点击的BUG，原因出在，不用进行判断是否登录</p></li>
-<li><p>修改关于我玩的icon以及内容和标识</p>
-
-<ul>
-<li><code>imageView.contentMode =  UIViewContentModeCenter;</code></li>
-</ul></li>
-<li><p>去掉了<code>QWWebViewController.h</code>里的<code>lastView</code></p></li>
-<li><p>每日签到的接口对接</p></li>
-</ul>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2018/1/3</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="15148552681142.html">
-                
-                  <h1>2018.01.02 - 工作总结</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h2 id="toc_0">抢玩</h2>
-
-<ul>
-<li><p>个人中心【修改密码】提示验证码失效</p></li>
-<li><p>个人中心点击【每日签到】报错</p>
-
-<p><img src="media/15148552681142/15148760088541.jpg" alt=""/><br/>
-改成这样：</p>
-
-<p><img src="media/15148552681142/15148760522168.jpg" alt=""/></p></li>
-</ul>
-
-<pre><code>decisionHandler(WKNavigationActionPolicyAllow);
-return;
-</code></pre>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2018/1/2</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
               
 
 
@@ -810,6 +880,18 @@ return;
 	      
 		      
 			      <li class="post">
+			        <a href="15196075621669.html">2018-02-26-UIImagePickerController 与 AVFoundation 的区别</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15194586176947.html">2018-02-24-解决git提交问题</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15193489395143.html">2018-02-23-内购</a>
 			      </li>
 		     
@@ -823,18 +905,6 @@ return;
 		      
 			      <li class="post">
 			        <a href="15184166364607.html">2018-02-12-项目中会用到的知识</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15181600421700.html">2018-02-09-C 语言总结</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15181482163531.html">2018-02-09-知识小集</a>
 			      </li>
 		     
 		  

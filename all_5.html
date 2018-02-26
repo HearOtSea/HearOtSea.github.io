@@ -101,6 +101,189 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
+                <a class="clearlink" href="15148552681142.html">
+                
+                  <h1>2018.01.02 - 工作总结</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">抢玩</h2>
+
+<ul>
+<li><p>个人中心【修改密码】提示验证码失效</p></li>
+<li><p>个人中心点击【每日签到】报错</p>
+
+<p><img src="media/15148552681142/15148760088541.jpg" alt=""/><br/>
+改成这样：</p>
+
+<p><img src="media/15148552681142/15148760522168.jpg" alt=""/></p></li>
+</ul>
+
+<pre><code>decisionHandler(WKNavigationActionPolicyAllow);
+return;
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2018/1/2</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15145096513919.html">
+                
+                  <h1>2017.12.29 - 常用的宏定义</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<pre><code>#define WoWWeakSelf __weak __typeof(self) weakSelf = self;
+#define WoWStrongSelf __strong __typeof(weakSelf) strongSelf = weakSelf;
+
+//礼包中心上方高度
+#define kTopBarHeight  40.0f
+/*
+ 日志输出
+ */
+#ifdef DEBUG
+#define WoWLog(...) NSLog(__VA_ARGS__)
+#else
+#define WoWLog(...)
+#endif
+
+#define WoWColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define WoWColorWithAl(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+#define WoWColorFromRGB(rgbValue)    [UIColor colorWithRed:((float)((rgbValue &amp; 0xFF0000) &gt;&gt; 16))/255.0 green:((float)((rgbValue &amp; 0xFF00) &gt;&gt; 8))/255.0 blue:((float)(rgbValue &amp; 0xFF))/255.0 alpha:1.0]
+
+//----颜色----
+//主题色，高亮信息
+//#define kWoWThemeColor         WoWColor(222,64,74)
+#define kWoWThemeColor         [UIColor colorWithHexString:@&quot;#de162f&quot;]
+#define kWoWOrangeColor         [UIColor colorWithHexString:@&quot;#de162f&quot;]
+#define kWoWOrangeSelectColor   [UIColor colorWithHexString:@&quot;#cf152c&quot;]
+#define kWoWOrangeDisableColor         [UIColor colorWithHexString:@&quot;#f2a6b0&quot;]
+#define kWoWOrangeBottomColor   [UIColor colorWithHexString:@&quot;#efc7cc&quot;]
+#define kWoWGraySelectColor   [UIColor colorWithHexString:@&quot;#e8ebe8&quot;]
+#define kWoWGrayColor   [UIColor colorWithHexString:@&quot;#e8e8e8&quot;]
+#define kWoWBlueSelectColor   [UIColor colorWithHexString:@&quot;#3187cf&quot;]
+#define kWoWBlueColor   [UIColor colorWithHexString:@&quot;#3f8ed8&quot;]
+#define kWoWRedColor   WoWColor(255,6,7)
+//窗口透明背景
+#define kWoWBackgroundColorWithAl WoWColorWithAl(0,0,0,0.4)
+
+#define kWoWNavigationBarColor WoWColor(254,254,254)
+////黑色字体标题颜色,重要信息
+#define kWoWDarkTextColor [UIColor colorWithHexString:@&quot;#131313&quot;]
+////灰色字体颜色，颜色较淡，辅助信息
+#define kWoWLightGrayTextColor [UIColor colorWithHexString:@&quot;#999999&quot;]
+////灰色字体颜色，颜色较深，辅助信息
+#define kWoWDarkGrayTextColor [UIColor colorWithHexString:@&quot;#666666&quot;]
+
+////背景色
+#define kWoWBackgroundColor [UIColor colorWithHexString:@&quot;#f3f3f3&quot;]
+//登录注册白色背景
+#define kWoWWhiteBackColorWithAl WoWColorWithAl(248,248,248,0.7)
+//登录注册大背景
+#define kWoWGrayBackColorWithAl WoWColorWithAl(190,190,190,0.7)
+//登录注册字体颜色
+#define WoW_logintextColor  [UIColor colorWithRed:42/255.0 green:65/255.0 blue:88/255.0 alpha:1.0]
+//白色
+#define kWoWWhiteColor WoWColor(255,255,255)
+//分割线颜色，不可用状态
+#define kWoWSeparatorColor [UIColor colorWithHexString:@&quot;#e8ebe8&quot;]
+//绿色，按钮
+#define kWoWGreenButtonColor WoWColor(0,204,111)
+
+//屏幕大小
+/* 当前设备的屏幕尺寸，含状态栏，例如320x480，也即分辨率,ios8以下不随设备方向而变化，ios8及以上是实时尺寸 */
+#define kScreenWidth [[UIScreen mainScreen] bounds].size.width
+#define kScreenHeight [[UIScreen mainScreen] bounds].size.height
+#define kScreenSize [[UIScreen mainScreen] bounds].size
+
+// 系统控件默认高度
+//#define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define kNavBarHeight2  self.navigationController.navigationBar.frame.size.height
+
+#define kNavStatusHeight
+#define kavStatusHeight1(A,B) ({__typeof(A) __a = (A);__typeof(B) __b = (B); __a &gt; __b ? 32 : 44; })
+// 系统控件默认高度
+//#define kStatusBarHeight  ((@available(iOS 11.0, *)&amp;&amp;(kScreenHeight&gt;kScreenWidth)) ? 44 : 0)
+#define kSafeTopMargin ({CGFloat safeTopMargin = 0;if(isIPhoneX) {if (kScreenWidth&gt;kScreenHeight){safeTopMargin = 0;} else if (kScreenHeight&gt;kScreenWidth) {safeTopMargin = 44;}}else {safeTopMargin = 0;}safeTopMargin;})
+#define kSafeLeftRightMargin ({CGFloat safeLeftRightMargin = 0;if(isIPhoneX) {if (kScreenHeight&gt;kScreenWidth){safeLeftRightMargin = 0;} else if (kScreenWidth&gt;kScreenHeight) {safeLeftRightMargin = 44;}}else {safeLeftRightMargin = 0;}safeLeftRightMargin;})
+
+#define kSafeBottomMargin ({CGFloat safeBottomMargin = 0;if(isIPhoneX) {if (kScreenHeight&gt;kScreenWidth){safeBottomMargin = 34;} else if (kScreenWidth&gt;kScreenHeight) {safeBottomMargin = 21;}}else {safeBottomMargin = 0;}safeBottomMargin;})
+
+// 状态栏高度
+#define STATUS_BAR_HEIGHT (iPhoneX ? 44.f : 20.f)
+
+#define kStatusBarHeight  ((isIPhoneX&amp;&amp;(kScreenHeight&gt;kScreenWidth)) ? 44 : 0)
+////#define kStatusBarHeight kStatusBarHeight1(statusBarHiddenStatus)
+////#define kStatusBarHeight1(A) ({__typeof(A) __a = (A); __a  ? 0 : 20; })
+#define kNavBarHeight   kNavBarHeight1(kScreenWidth,kScreenHeight)
+#define kNavBarHeight1(A,B) ({__typeof(A) __a = (A);__typeof(B) __b = (B); __a &gt; __b ? 32 : 44; })
+//#define isVCBasedStatusBarAppearanceNum (NSNumber *)[[NSBundle mainBundle] objectForInfoDictionaryKey:@&quot;UIViewControllerBasedStatusBarAppearance&quot;]
+////#define statusBarHiddenStatus [isVCBasedStatusBarAppearanceNum intValue] =1  ? self.prefersStatusBarHidden : [UIApplication sharedApplication].statusBarHidden
+//#define statusBarHiddenStatus ({__typeof(isVCBasedStatusBarAppearanceNum) __a = (isVCBasedStatusBarAppearanceNum);  __a ? self.prefersStatusBarHidden : [UIApplication sharedApplication].statusBarHidden; })
+
+#define Interface_Flag              (int)[UIDevice getDeviceOrientation]  //横竖屏方向
+/* 判断设备是否横屏 */
+#define kIsDeviceLandscape          (Interface_Flag == 1)
+/* 判断设备是否竖屏 */
+#define kIsDevicePortrait           (Interface_Flag == 0)
+
+//系统版本
+#define iOS7Later ([UIDevice currentDevice].systemVersion.floatValue &gt;= 7.0f)
+#define iOS8Later ([UIDevice currentDevice].systemVersion.floatValue &gt;= 8.0f)
+#define iOS9Later ([UIDevice currentDevice].systemVersion.floatValue &gt;= 9.0f)
+#define iOS9_1Later ([UIDevice currentDevice].systemVersion.floatValue &gt;= 9.1f)
+#define iOS10Later ([UIDevice currentDevice].systemVersion.floatValue &gt;= 10.0f)
+#define iOSVersion [UIDevice currentDevice].systemVersion.floatValue
+
+#define isIPhoneX ((kScreenWidth == 375.f &amp;&amp; kScreenHeight == 812.f)||(kScreenWidth == 812.f &amp;&amp; kScreenHeight == 375.f) ? YES : NO)
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/12/29</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
                 <a class="clearlink" href="15144493934137.html">
                 
                   <h1>2017.12.28 - iPhone X 适配问题</h1>
@@ -328,104 +511,6 @@ tag: 生活总结
                 </div>
               </div><!-- article -->
         
-			<div class="article">
-                <a class="clearlink" href="15139967362514.html">
-                
-                  <h1>2017.12.23 - 工作总结</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h2 id="toc_0">我玩提审方法</h2>
-
-<p><strong>要求：使用抢玩助手的提审包</strong></p>
-
-<ul>
-<li><p>复制粘贴抢玩助手的代码</p></li>
-<li><p>需要<mark>更改</mark>和<mark>注意</mark>的地方：</p>
-
-<ul>
-<li><p>代码不能一样</p></li>
-<li><p>界面不能一样，例如：</p>
-
-<ul>
-<li>启动页面         （不能和抢玩一样）- 要设计图</li>
-<li>主界面          （不能和抢玩一样）- 设计图</li>
-<li>图标           （不能和抢玩一样）- 要设计图</li>
-<li>数据           （按照抢玩做个审核开关）</li>
-</ul></li>
-</ul></li>
-</ul>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2017/12/23</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="15139145136353.html">
-                
-                  <h1>2017.12.22 - 工作总结</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<ul>
-<li><mark>由于这两天的问题，没有写工作总结，在这里作检讨，不管多晚下班，下班之前都要把工作总结写好，写好了再下班，这是准则</mark></li>
-</ul>
-
-<h2 id="toc_0">在群里看到的问题</h2>
-
-<ul>
-<li><p>我在交流群里看到了个这样的问题：</p></li>
-<li><p>The next submission of this app may require a longer review time, and this app will not be eligible for an expedited review until this issue is resolved.</p></li>
-<li><p>这个的意思是项目进入延期队列了，没有十天半个月没法过审</p>
-
-<h2 id="toc_1">【支持iOS11】UITableView左滑删除自定义 - 实现多选项并使用自定义图片</h2></li>
-<li><p><a href="https://www.jianshu.com/p/779f36c21632">【支持iOS11】UITableView左滑删除自定义 - 实现多选项并使用自定义图片</a></p></li>
-</ul>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2017/12/22</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
               
 
 
@@ -497,6 +582,18 @@ tag: 生活总结
 	      
 		      
 			      <li class="post">
+			        <a href="15196075621669.html">2018-02-26-UIImagePickerController 与 AVFoundation 的区别</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15194586176947.html">2018-02-24-解决git提交问题</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15193489395143.html">2018-02-23-内购</a>
 			      </li>
 		     
@@ -510,18 +607,6 @@ tag: 生活总结
 		      
 			      <li class="post">
 			        <a href="15184166364607.html">2018-02-12-项目中会用到的知识</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15181600421700.html">2018-02-09-C 语言总结</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15181482163531.html">2018-02-09-知识小集</a>
 			      </li>
 		     
 		  

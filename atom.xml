@@ -4,13 +4,459 @@
   <title><![CDATA[心海]]></title>
   <link href="https://github.com/HearOtSea/HearOtSea.github.io.git/atom.xml" rel="self"/>
   <link href="https://github.com/HearOtSea/HearOtSea.github.io.git/"/>
-  <updated>2018-02-24T15:42:08+08:00</updated>
+  <updated>2018-02-24T15:45:53+08:00</updated>
   <id>https://github.com/HearOtSea/HearOtSea.github.io.git/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[2018-02-26-UIImagePickerController 与 AVFoundation 的区别]]></title>
+    <link href="https://github.com/HearOtSea/HearOtSea.github.io.git/15196075621669.html"/>
+    <updated>2018-02-26T09:12:42+08:00</updated>
+    <id>https://github.com/HearOtSea/HearOtSea.github.io.git/15196075621669.html</id>
+    <content type="html"><![CDATA[
+<!-----
+layout: post
+title: ""
+date: 2018.02.26
+tag: iOS 总结
+----->
+
+<ul>
+<li>
+<a href="#toc_0">UIImagePickerController 与 AVFoundation 的区别</a>
+</li>
+<li>
+<a href="#toc_1">伪代码</a>
+<ul>
+<li>
+<a href="#toc_2">什么叫伪代码？</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_3">群里在斗代码 哼哼</a>
+<ul>
+<li>
+<a href="#toc_4">Python：解法</a>
+</li>
+<li>
+<a href="#toc_5">OC 解法：</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_6">MJrefresh 的方法</a>
+<ul>
+<li>
+<a href="#toc_7">MJrefresh 下 CollectionView 的方法</a>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<span id="more"></span><!-- more -->
+
+<h2 id="toc_0">UIImagePickerController 与 AVFoundation 的区别</h2>
+
+<p>今天在一个iOS 交流群里看到有人说</p>
+
+<pre><code>现在很少用 ImagePicker 了 
+
+一般都用 AVFoundation
+
+原因是：这个imagepicker不太好用
+</code></pre>
+
+<p>然后我就在网上搜了一下，找到了一片干货，废话不多说，咱们来看</p>
+
+<ul>
+<li><a href="https://www.jianshu.com/p/f7146092e640">AVFoundation</a></li>
+</ul>
+
+<p>emmm...这个是音频的，群里的问题是关于相册的，那我们来看下关于相册的文章</p>
+
+<ul>
+<li><a href="https://www.jianshu.com/p/7e5b1a7f3b92">iOS保存到相册／创建自定义相簿</a></li>
+</ul>
+
+<p>以下这篇文章说的比较片面，最主要是个大概的了解</p>
+
+<ul>
+<li><a href="http://blog.csdn.net/leikezhu1981/article/details/44493659">iOS 上的相机捕捉 UIImagePickerController 与 AVFoundation的区别</a></li>
+</ul>
+
+<p>所以我们最后可以总结：</p>
+
+<pre><code># 不得不说UIImagePickerController确实强大，但是与MPMoviePlayerController类似，由于它的高度封装性，要进行某些自定义工作就比较复杂了。
+
+# 例如要做出一款类似于美颜相机的拍照界面就比较难以实现了，此时就可以考虑使用AVFoundation来实现。
+
+# AVFoundation中提供了很多现成的播放器和录音机，但是事实上它还有更加底层的内容可以供开发者使用。
+
+# 因为AVFoundation中抽了很多和底层输入、输出设备打交道的类，依靠这些类开发人员面对的不再是封装好的音频播放器AVAudioPlayer、录音机（AVAudioRecorder）、视频（包括音频）播放器AVPlayer，而是输入设备（例如麦克风、摄像头）、输出设备（图片、视频）等。
+</code></pre>
+
+<p>扩展学习资料</p>
+
+<ul>
+<li><a href="https://www.jianshu.com/p/2dc960540e68">iOS 保存原图到相册</a></li>
+</ul>
+
+<h2 id="toc_1">伪代码</h2>
+
+<h3 id="toc_2">什么叫伪代码？</h3>
+
+<ul>
+<li><p>今天在交流群里那些大佬们在 【斗代码】于是乎我看不懂他们所说的是啥就去问我师父，结果他跟我讲解的时候有个【伪代码】这个字眼，我瞬间懵逼了，于是就有了以下是资料查询</p></li>
+<li><p>由于最近找工作，面试时面试官提问时让我用伪代码回答他所提的问题，当时笔者就蒙了，满脑子就是问号，相信有部分童鞋和笔者差不多，当然大多数童鞋都是好孩子，应该都知道，于是笔者赶紧回来查了一下官方解释如下：</p></li>
+<li><p>伪代码（Pseudocode）是一种算法描述语言。是用介于自然语言和计算机语言之间的文字和符号（包括数学符号）来描述算法。使用伪代码的目的是使被描述的算法可以容易地以任何一种编程语言（Pascal，C，Java等）实现。因此，伪代码必须结构清晰、代码简单、可读性好，并且类似自然语言。 介于自然语言与编程语言之间。以编程语言的书写形式指明算法职能。使用伪代码， 不用拘泥于具体实现。</p></li>
+<li><p>【简单示例】输入3个数，打印输出其中最大的数。可用如下的伪代码表示：</p></li>
+</ul>
+
+<pre><code>Begin
+输入 A，B，C
+IF A&gt;B 则 A→Max
+否则 B→Max
+IF C&gt;Max 则 C→Max
+Print Max
+End 。
+
+我师父给出的解释是：
+
+如果她爱我，我就爱她，如果她不爱我，那我也不爱她
+</code></pre>
+
+<ul>
+<li>笔者理解为简单的计算机语言，人类语言以及逻辑符号来表示的流程说明。当然朋友们有更好的理解也可以指出来！</li>
+</ul>
+
+<h2 id="toc_3">群里在斗代码 哼哼</h2>
+
+<ul>
+<li><p>第一个如下：</p>
+
+<ul>
+<li><p>写一个函数输出一个数字中的数字组合的下一个最大组合。</p></li>
+<li><p>例如378的下一个最大的组合是387，12下一个最大的组合是21，如果没有更大的组合就返回-1</p></li>
+</ul></li>
+</ul>
+
+<h3 id="toc_4">Python：解法</h3>
+
+<pre><code>import random
+
+ &quot;&quot;&quot;
+
+    写一个函数输出一个数字中的数字组合的下一个最大组合。例如378的下一个最大的组合是387，71632下一个最大的组合是72136，如果没有更大的组合就返回-1（语言不限）
+
+    例子分析：71632
+
+    1、从数字后面往前看，如果一直递增则没有更大的组合，返回－1
+
+    2、若发现更小的，比如上面1比6小，则从1后面的数字6、3、2中找出比1大的那个最小数为2，然后对剩下的数字1、3、6进行从小到大排序，最终组合为72136
+
+&quot;&quot;&quot;
+
+ def nextMaxCount(num):# 例子：4565321
+
+    if num &lt; 10:
+
+        return -1
+
+    L = [int(n) for n in str(num)] # L: [4,5,6,5,3,2,1]
+
+    for i in range(len(L))[::-1]:
+
+        if i == 0:
+
+            return -1
+
+        if L[i] &gt; L[i-1]:
+
+            newL = L[i:]    # newL: [6,5,3,2,1]
+
+            currentNum = L[i-1]
+
+            findNum = -1
+
+            for j in range(len(newL))[::-1]:
+
+                findNum = newL[j]
+
+                if findNum &gt; currentNum:
+
+                    newL.pop(j)     # newL: [5,3,2,1]
+
+                    newL.append(currentNum)# newL: [5,3,2,1,5]
+
+                    newL = sorted(newL)# newL: [1,2,3,5,5]
+
+                    break
+
+            targetL = L[:i-1]
+
+            targetL.append(findNum)
+
+            targetL = targetL + newL
+
+            s = &quot;&quot;
+
+            for n in targetL:
+
+                s = s + str(n)
+
+            return s
+
+ for i in range(10):
+
+    randomNum = random.randint(0,1000000)
+
+    nextCout = nextMaxCount(randomNum)
+
+    print(str(randomNum) + &quot;---&gt;&quot; + str(nextCout))
+</code></pre>
+
+<h3 id="toc_5">OC 解法：</h3>
+
+<pre><code>// 写一个函数输出一个数字中的数字组合的下一个最大组合。
+// 例如378的下一个最大的组合是387，71632下一个最大的组合是72136，如果没有更大的组合就返回-1（语言不限）
+
+/*
+
+    例子分析：71632
+
+    1、从数字后面往前看，如果一直递增则没有更大的组合，返回－1
+
+    2、若发现更小的，比如上面1比6小，则从1后面的数字6、3、2中找出比1大的那个最小数为2，然后对剩下的数字1、3、6进行从小到大排序，最终组合为72136
+
+*/
+
+- (NSUInteger)nextMaxCountWithNum:(NSUInteger)num{ // 例子：4565321
+
+    if (num &lt; 10) {
+
+        return -1;
+
+    }
+
+    NSMutableArray *nums = @[].mutableCopy;
+
+    while (num) {
+
+        [nums insertObject:@(num % 10) atIndex:0];
+
+        num /= 10;
+
+    }
+
+    for (NSInteger i = nums.count - 1; i &gt;= 0; i--) {// nums: [4,5,6,5,3,2,1]
+
+        if (i == 0) {
+
+            return -1;
+
+        }
+
+        if (nums[i] &gt; nums[i - 1]) { // i = 2
+
+　　      NSNumber *currentNum = nums[i-1];
+
+            NSMutableArray *lastArr = [nums subarrayWithRange:NSMakeRange(i, nums.count - i)].mutableCopy;// lastArr: [6,5,3,2,1]
+
+            NSNumber *findNum = 0;
+
+            for (NSInteger j = lastArr.count - 1; j &gt;= 0; j--) {
+
+                NSNumber *findN = lastArr[j];
+
+                if (findN &gt; currentNum) {
+
+                    findNum = findN;                 // findNum: 6
+
+                    [lastArr removeObjectAtIndex:j]; // lastArr: [5,3,2,1]
+
+                    [lastArr addObject:currentNum];  // lastArr: [5,3,2,1,5]
+
+                    break;
+
+                }
+
+            }
+
+            [lastArr sortUsingComparator:^NSComparisonResult(NSNumber *obj1, NSNumber *obj2) {// lastArr: [1,2,3,5,5]
+
+                return obj1.integerValue &gt; obj2.integerValue;
+
+            }];
+
+            NSMutableArray *targetArr = @[].mutableCopy;
+
+            [targetArr addObjectsFromArray:[nums subarrayWithRange:NSMakeRange(0, i-1)]];// targetArr: [4]
+
+            [targetArr addObject:findNum];                                               // targetArr: [4,6]
+
+            [targetArr addObjectsFromArray:lastArr];                                     // targetArr: [4,6,1,2,3,5,5]
+
+            NSString *targetStr = [targetArr componentsJoinedByString:@&quot;&quot;];
+
+            return targetStr.integerValue;
+
+        }
+
+    }
+
+     return -1;
+
+}
+</code></pre>
+
+<ul>
+<li><p>第二个如下：</p>
+
+<ul>
+<li><p>怎么判断是 5s和2倍屏下字体小一号</p></li>
+<li><p>或者ipad上运行iPhone项目的时候也是属于2倍屏 需要字体小一号</p></li>
+<li><p>手机高度和宽度的比例</p></li>
+</ul></li>
+</ul>
+
+<pre><code>.h 文件
+
++ (CGFloat)phoneHeightScale;
+//手机字体的比例
++ (CGFloat)phoneFontScale;
++ (PhoneType)phoneType;
+</code></pre>
+
+<pre><code>.m 文件
+
++ (CGFloat)phoneHeightScale {
+    
+    CGFloat scale = 1.0;
+    scale = [[UIScreen mainScreen] bounds].size.height/667;
+//    if(568 == [[UIScreen mainScreen] bounds].size.height){
+//        scale = [[UIScreen mainScreen] bounds].size.height/667;
+//    }
+//    else if (667 == [[UIScreen mainScreen] bounds].size.height){
+//        scale = [[UIScreen mainScreen] bounds].size.height/667;
+//    }
+//    else if (736 == [[UIScreen mainScreen] bounds].size.height){
+//        scale = [[UIScreen mainScreen] bounds].size.height/667;
+//    }
+//    else if (480 == [[UIScreen mainScreen] bounds].size.height){
+//        scale = [[UIScreen mainScreen] bounds].size.height/667;
+//    }
+//    else{
+//        scale = [[UIScreen mainScreen] bounds].size.height/667;
+//    }
+    return scale;
+}
+
+//手机字体的比例
++ (CGFloat)phoneFontScale {
+    
+    
+    CGFloat scale = 1.0;
+    if(568 == [[UIScreen mainScreen] bounds].size.height){
+        scale = 0.9;
+    }
+    else if (667 == [[UIScreen mainScreen] bounds].size.height){
+        scale = 1.0;
+    }
+    else if (736 == [[UIScreen mainScreen] bounds].size.height){
+        scale = 1.10;
+    }
+    else if (480 == [[UIScreen mainScreen] bounds].size.height){
+        scale = 0.85;
+    }
+    return scale;
+}
+
+/**
+ *  获取手机类型
+ *
+ *  @return 手机类型
+ */
++ (PhoneType)phoneType {
+    
+    PhoneType type = PhoneTypeDefault;
+    if(568 == [[UIScreen mainScreen] bounds].size.height){
+        type = PhoneType5Or5S;
+    }
+    else if (667 == [[UIScreen mainScreen] bounds].size.height){
+        type = PhoneType6Or6S;
+    }
+    else if (736 == [[UIScreen mainScreen] bounds].size.height){
+        type = PhoneType6Plus;
+    }
+    else if (480 == [[UIScreen mainScreen] bounds].size.height){
+        type = PhoneType4Or4S;
+    }
+    return type;
+}
+</code></pre>
+
+<h2 id="toc_6">MJrefresh 的方法</h2>
+
+<h3 id="toc_7">MJrefresh 下 CollectionView 的方法</h3>
+
+<ul>
+<li>废话不多说，直接上代码</li>
+</ul>
+
+<pre><code>- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    [self.view addSubview:self.collectionView];
+    
+    // The drop-down refresh
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        //Call this Block When enter the refresh status automatically
+        [self createData];
+        [self.collectionView.mj_header endRefreshing];  
+    }];
+    
+    // The pull to refresh
+    self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        //Call this Block When enter the refresh status automatically
+        [self createData];
+        [self.collectionView.mj_footer endRefreshing];
+    }];
+   
+}
+</code></pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[2018-02-24-解决git提交问题]]></title>
+    <link href="https://github.com/HearOtSea/HearOtSea.github.io.git/15194586176947.html"/>
+    <updated>2018-02-24T15:50:17+08:00</updated>
+    <id>https://github.com/HearOtSea/HearOtSea.github.io.git/15194586176947.html</id>
+    <content type="html"><![CDATA[
+<ul>
+<li>error: The requested URL returned error: 403 Forbidden while accessing</li>
+</ul>
+
+<pre><code>vim .git/config    
+#修改对于的配置    
+#原来的url = https://github.com/HearOtSea/HearOtSea.github.io.git    
+    
+url = https://HearOtSea@github.com/HearOtSea/HearOtSea.github.io.git  
+</code></pre>
+
+<ul>
+<li>重新提交，弹出的对话框中输入正确的passphrase即可。</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[2018-02-23-内购]]></title>
@@ -516,15 +962,9 @@ tag: 生活总结
 </li>
 <li>
 <a href="#toc_11">四面：</a>
-<ul>
-<li>
-<ul>
+</li>
 <li>
 <a href="#toc_12">综上所述：秋招的一线互联网公司基本上看中学习能力和刻苦勤奋程度。比如百词斩给出的招聘要求就是精通数据结构和算法，没有实际开发经验的都可以。所以要想去大厂基础是必不可少的，而且必须深入学习。</a>
-</li>
-</ul>
-</li>
-</ul>
 </li>
 </ul>
 </li>
@@ -669,7 +1109,7 @@ tag: 生活总结
 <li><p>总结：技术面非常偏向项目，感觉前面两个面试官比较水。</p></li>
 </ul>
 
-<h5 id="toc_12">综上所述：秋招的一线互联网公司基本上看中学习能力和刻苦勤奋程度。比如百词斩给出的招聘要求就是精通数据结构和算法，没有实际开发经验的都可以。所以要想去大厂基础是必不可少的，而且必须深入学习。</h5>
+<h3 id="toc_12">综上所述：秋招的一线互联网公司基本上看中学习能力和刻苦勤奋程度。比如百词斩给出的招聘要求就是精通数据结构和算法，没有实际开发经验的都可以。所以要想去大厂基础是必不可少的，而且必须深入学习。</h3>
 
 ]]></content>
   </entry>
@@ -1797,6 +2237,8 @@ tag: iOS 总结
 
 </code></pre>
 
+<span id="more"></span><!-- more -->
+
 <pre><code># pragma mark -- 添加壁纸
 - (void)AddWallpaperClick {
 
@@ -2004,6 +2446,19 @@ date: 2018.02.06
 tag: iOS 总结
 ----->
 
+<ul>
+<li>
+<a href="#toc_0">SVN 问题</a>
+</li>
+<li>
+<a href="#toc_1">账号密码健壮性的问题</a>
+</li>
+<li>
+<a href="#toc_2">项目改名字</a>
+</li>
+</ul>
+
+
 <h2 id="toc_0">SVN 问题</h2>
 
 <ul>
@@ -2028,6 +2483,8 @@ tag: iOS 总结
 
 
 </code></pre>
+
+<span id="more"></span><!-- more -->
 
 <h2 id="toc_1">账号密码健壮性的问题</h2>
 
@@ -3152,107 +3609,6 @@ UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@&quot;确定&quot;
 <ul>
 <li><a href="https://www.jianshu.com/p/febef5ce9adc">视图userInteractionEnabled交互</a></li>
 </ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[2018.01.18 - SVN 使用]]></title>
-    <link href="https://github.com/HearOtSea/HearOtSea.github.io.git/15162375572647.html"/>
-    <updated>2018-01-18T09:05:57+08:00</updated>
-    <id>https://github.com/HearOtSea/HearOtSea.github.io.git/15162375572647.html</id>
-    <content type="html"><![CDATA[
-<ul>
-<li><p>SVN 库</p>
-
-<p><img src="media/15162375572647/15164141617700.jpg" alt=""/></p></li>
-<li><p>调试以及近期上传的代码都可以在这里查看</p>
-
-<p><img src="media/15162375572647/15164141810345.jpg" alt=""/></p></li>
-<li><p>SVN 浏览器打开</p>
-
-<p><img src="media/15162375572647/15164144203647.jpg" alt=""/></p>
-
-<p><img src="media/15162375572647/15164144524249.jpg" alt=""/></p>
-
-<p><img src="media/15162375572647/15164144635783.jpg" alt=""/></p></li>
-</ul>
-
-<h2 id="toc_0">SVN 合作开发使用注意事项</h2>
-
-<ul>
-<li><p>.a 文件问题</p>
-
-<p><img src="media/15162375572647/15164146259377.jpg" alt=""/></p></li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[2018.01.17 - Swift 入坑]]></title>
-    <link href="https://github.com/HearOtSea/HearOtSea.github.io.git/15161529183966.html"/>
-    <updated>2018-01-17T09:35:18+08:00</updated>
-    <id>https://github.com/HearOtSea/HearOtSea.github.io.git/15161529183966.html</id>
-    <content type="html"><![CDATA[
-<h2 id="toc_0">while 循环</h2>
-
-<ul>
-<li><p>While 循环执行一个合集的语句指导条件变成 False。</p></li>
-<li><p>这种循环最好在第一次循环之后还有未知数量的遍历时使用。</p></li>
-<li><p>Swift 提供了<strong>两种 while 循环</strong>：</p>
-
-<ul>
-<li>While 在每次循环开始的时候计算它自己的条件；</li>
-</ul>
-
-<pre><code>while condition {
-
-statements
-
-} 
-</code></pre>
-
-<ul>
-<li>repeat-while 在每次循环结束的时候计算它自己的条件。 </li>
-</ul>
-
-<pre><code>repeat {
-
-    statements
-
-} while condition
-</code></pre>
-
-<h2 id="toc_1">条件语句</h2></li>
-<li><p>Swift 提供了两种方法来给你的代码添加条件分支，就是所谓的 if 语句和 switch 语句。</p></li>
-<li><p>if 语句来判定简单的条件，比如少量的可能性。 </p></li>
-<li><p>switch 语句则适合更复杂的条件，比如多个可能的组合，并且在模式匹配的情况下更加有用，可以帮你选择一段合适的代码分支来执行。</p>
-
-<pre><code>switch some value to consider {
-case value 1:
-    respond to value 1
-case value 2,
-value 3:
-    respond to value 2 or 3
-default:
-    otherwise, do something else
-}
-</code></pre></li>
-</ul>
-
-<h2 id="toc_2">函数</h2>
-
-<p><img src="media/15161529183966/15161605953833.jpg" alt=""/></p>
-
-<p><img src="media/15161529183966/15161608207008.jpg" alt=""/></p>
-
-<p><img src="media/15161529183966/15161608383775.jpg" alt=""/></p>
-
-<pre><code># 后面没写了是因为我暂时没事做就被安排去做其他的事去了
-
-# 最后我买了本书自己学
-</code></pre>
 
 ]]></content>
   </entry>

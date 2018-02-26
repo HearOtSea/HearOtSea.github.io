@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  2018.01.06 - iPhone X 等问题 - 心海
+  2018-02-24-解决git提交问题 - 心海
   
   </title>
   
@@ -101,10 +101,10 @@
       <div class="markdown-body article-wrap">
        <div class="article">
           
-          <h1>2018.01.06 - iPhone X 等问题</h1>
+          <h1>2018-02-24-解决git提交问题</h1>
      
         <div class="read-more clearfix">
-          <span class="date">2018/1/6</span>
+          <span class="date">2018/2/24</span>
 
           <span>posted in&nbsp;</span> 
           
@@ -121,71 +121,19 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <h2 id="toc_0">我玩</h2>
-
-<ul>
-<li>适配 iPhone X
-
-<ul>
-<li><mark>X</mark> 不变</li>
-<li><mark>Y</mark> 是 <mark>NavgationBarHeight</mark></li>
-<li><mark>Width</mark> 全屏宽度</li>
-<li><mark>Height</mark> 全屏高度</li>
-</ul></li>
+      <ul>
+<li>error: The requested URL returned error: 403 Forbidden while accessing</li>
 </ul>
 
-<h2 id="toc_1">隐藏 iPhone X 小白条</h2>
-
-<pre><code># pragma mark - 隐藏 iPhone X 小白条
-- (BOOL)prefersHomeIndicatorAutoHidden
-{
-    return YES;
-}
-
-- (UIRectEdge)preferredScreenEdgesDeferringSystemGestures
-{
-    return UIRectEdgeAll;
-}
+<pre><code>vim .git/config    
+#修改对于的配置    
+#原来的url = https://github.com/HearOtSea/HearOtSea.github.io.git    
+    
+url = https://HearOtSea@github.com/HearOtSea/HearOtSea.github.io.git  
 </code></pre>
-
-<p><mark>注意：</mark> 这里的方法要写在要加载的 <mark>ViewController</mark> 里才可以实现</p>
-
-<h2 id="toc_2">LuanchImage</h2>
-
-<pre><code>iphone X (Retina HD 5.5 @3x): 1125 x 2436
-iPhone 6Plus/6SPlus(Retina HD 5.5 @3x): 1242 x 2208
-iPhone 6/6S/(Retina HD 4.7 @2x): 750 x 1334
-iPhone 5/5S(Retina 4 @2x): 640 x 1136
-iPhone 4/4S(@2x): 640 x 960
-</code></pre>
-
-<pre><code>*Device*                    *Portrait*                *Landscape size*
-------------------------------------------------------------------------------
-12.9&quot; iPad Pro              2048px × 2732px          2732px × 2048px
-10.5&quot; iPad Pro              1668px × 2224px          2224px × 1668px
-9.7&quot; iPad                   1536px × 2048px          2048px × 1536px
-7.9&quot; iPad mini 4            1536px × 2048px          2048px × 1536px
-iPhone X                    1125px × 2436px          2436px × 1125px
-iPhone 8 Plus               1242px × 2208px          2208px × 1242px
-iPhone 8                    750px × 1334px           1334px × 750px
-iPhone 7 Plus               1242px × 2208px          2208px × 1242px
-iPhone 7                    750px × 1334px           1334px × 750px
-iPhone 6s Plus              1242px × 2208px          2208px × 1242px
-iPhone 6s                   750px × 1334px           1334px × 750px
-iPhone SE                   640px × 1136px           1136px × 640px
-
-注意：在调整750*1334图片大小的时候 默认大小会变成750*1333 一定要改成1334否则会影响应用内字体颜色和大小
-</code></pre>
-
-<h2 id="toc_3">抢玩</h2>
 
 <ul>
-<li>适配 <mark>iPhone</mark> X
-
-<ul>
-<li>底部的 <mark>StatusbBarHeight</mark> 高度计算
-<img src="media/15152104112124/15152301743451.jpg" alt=""/></li>
-</ul></li>
+<li>重新提交，弹出的对话框中输入正确的passphrase即可。</li>
 </ul>
 
 
@@ -197,16 +145,16 @@ iPhone SE                   640px × 1136px           1136px × 640px
         <div class="large-6 columns">
         <p class="text-left" style="padding:15px 0px;">
       
-          <a href="15153737680728.html" 
-          title="Previous Post: 2018.01.08 - 证书问题">&laquo; 2018.01.08 - 证书问题</a>
+          <a href="15196075621669.html" 
+          title="Previous Post: 2018-02-26-UIImagePickerController 与 AVFoundation 的区别">&laquo; 2018-02-26-UIImagePickerController 与 AVFoundation 的区别</a>
       
         </p>
         </div>
         <div class="large-6 columns">
       <p class="text-right" style="padding:15px 0px;">
       
-          <a  href="15151149332976.html" 
-          title="Next Post: 2018.01.05 - 项目报错">2018.01.05 - 项目报错 &raquo;</a>
+          <a  href="15193489395143.html" 
+          title="Next Post: 2018-02-23-内购">2018-02-23-内购 &raquo;</a>
       
       </p>
         </div>

@@ -101,6 +101,250 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
+                <a class="clearlink" href="15177928718830.html">
+                
+                  <h1>2018-02-06-SVN 相关问题和登录密码问题</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<!-----
+layout: post
+title: "SVN 相关问题和登录密码问题"
+date: 2018.02.06
+tag: iOS 总结
+----->
+
+<ul>
+<li>
+<a href="#toc_0">SVN 问题</a>
+</li>
+<li>
+<a href="#toc_1">账号密码健壮性的问题</a>
+</li>
+<li>
+<a href="#toc_2">项目改名字</a>
+</li>
+</ul>
+
+
+<h2 id="toc_0">SVN 问题</h2>
+
+<ul>
+<li><p>开发项目的时候使用的是别人的包，所以在上传 SVN 的时候“鱿鱼” 操作不当导致两个项目混成一个项目，结果我很慌啊，灰常慌，灰常慌有木有啊，我了个..咳咳，正题</p></li>
+<li><p>严重警告，不看后果自负：</p>
+
+<ul>
+<li>记得备份！！！</li>
+<li>记得备份！！！</li>
+<li>记得备份！！！</li>
+</ul></li>
+</ul>
+
+<pre><code># 1. 打开 SVN 左边会有一栏你的项目，点击你所选的项目，右键 delete
+
+# 2. 然后把项目的 APP ID 更改一下，因为是一款 APP 做成两种不同的效果，所以会有两个 APP ID
+
+# 3. 继续打开项目所在的 SVN 路径下，拖入你正在开发的项目，上传 OK
+
+# 4. emmm  暂时没发现什么问题，如果有问题加群联系：698453193
+
+
+
+</code></pre>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="15177928718830.html">Read more</a>&nbsp;&nbsp; 
+                    <span class="date">2018/2/5</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15175348012289.html">
+                
+                  <h1>2018-02-02-上传壁纸功能</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<!-----
+layout: post
+title: "上传壁纸功能"
+date: 2018.02.02
+tag: iOS 总结
+
+--- -->
+
+<h1 id="toc_0">iOS 上传壁纸</h1>
+
+<ul>
+<li><p><a href="https://www.jianshu.com/p/850475044b40">iOS 图片上传看我就够了</a></p></li>
+<li><p><a href="https://www.jianshu.com/p/5cce06c9f33c">iOS 上传图片和上传语音</a></p></li>
+</ul>
+
+<h1 id="toc_1">项目</h1>
+
+<ul>
+<li>在项目中我是使用第二篇稳重中的方法，但是具体我还没实现，需要请教大佬</li>
+</ul>
+
+<pre><code>@implementation WoWUpWallpaperViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @&quot;上传壁纸&quot;;
+    // 点击UIButton AddWallpaper 是打开相册添加图片
+    [_AddWallpaper addTarget:self action:@selector(AddWallpaperClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 点击UIButton UpWallPaper 是上传图片
+    [_UpWallpaper addTarget:self action:@selector(UpWallpaperClick) forControlEvents:UIControlEventTouchUpInside];
+}
+
+# pragma mark -- 添加壁纸
+- (void)AddWallpaperClick {
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@&quot;请选择图片&quot; preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *OKAction = [UIAlertAction actionWithTitle:@&quot;打开相册&quot; style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self openPhotoAlbum];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@&quot;取消&quot; style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:OKAction];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+
+- (void)UpWallpaperClick {
+    QWLog(@&quot;   上传成功啦~~~~~~~ \n成功了？\n\t好像没有\n\t\t真的没有？\n\t\t\temmmmm。。。。   &quot;);
+    [self postDataWithUrl:@&quot;http://www.qiangwan.com/index.php?tp=up&amp;op=image&quot; params:nil imageDatas:nil success:^(id response) {
+        [QWShowMessage showToastmsg:@&quot;上传壁纸成功&quot;];
+    } failure:^(NSError *error) {
+        [QWShowMessage showToastmsg:@&quot;上传壁纸失败&quot;];
+    }];
+}
+
+- (void)openPhotoAlbum {
+    // 1.判断相册是否可以打开
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) return;
+    // 2. 创建图片选择控制器
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    /**
+     typedef NS_ENUM(NSInteger, UIImagePickerControllerSourceType) {
+     UIImagePickerControllerSourceTypePhotoLibrary, // 相册
+     UIImagePickerControllerSourceTypeCamera, // 用相机拍摄获取
+     UIImagePickerControllerSourceTypeSavedPhotosAlbum // 相簿
+     }
+     */
+    // 3. 设置打开照片相册类型(显示所有相簿)
+    ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    // ipc.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    // 照相机
+    // ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+    // 4.设置代理
+    ipc.delegate = self;
+    // 5.modal出这个控制器
+    [self presentViewController:ipc animated:YES completion:nil];
+}
+
+#pragma mark -- &lt;UIImagePickerControllerDelegate&gt;--
+// 获取图片后的操作
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary&lt;NSString *,id&gt; *)info
+{
+    // 销毁控制器
+    [picker dismissViewControllerAnimated:YES completion:nil];
+
+    // 设置图片
+    _UpImage.image = info[UIImagePickerControllerOriginalImage];
+}
+
+
+
+#pragma mark --- 上传图片
+- (void)postDataWithUrl:(NSString *)url params:(NSMutableDictionary *)params imageDatas:(NSArray *)images success:(void (^)(id response))success failure:(void (^)(NSError *error))failure
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [manager.responseSerializer setAcceptableContentTypes:[NSSet　setWithObjects:@&quot;application/json&quot;,@&quot;text/html&quot;,@&quot;text/javascript&quot;,@&quot;text/xml&quot;,@&quot;text/plain&quot;,nil]];
+    [manager POST:url parameters:params constructingBodyWithBlock:^(id&lt;AFMultipartFormData&gt;  _Nonnull formData) {
+        for (UIImage *image in images) {
+            // 图片太大会上传不到服务器上面去
+            NSData *imageData = UIImageJPEGRepresentation(image, 0.1);;
+            // 在网络开发中，上传文件时，是文件不允许被覆盖，文件重名
+            // 要解决此问题，
+            // 可以在上传时使用当前的系统事件作为文件名
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            // 设置时间格式
+            formatter.dateFormat = @&quot;yyyyMMddHHmmss&quot;;
+            NSString *str = [formatter stringFromDate:[NSDate date]];
+            NSString *fileName = [NSString stringWithFormat:@&quot;%@.png&quot;, str];
+            /*
+             此方法参数
+             1. 要上传的[二进制数据]
+             2. 对应网站上[upload.php中]处理文件的[字段&quot;file&quot;]
+             3. 要保存在服务器上的[文件名]
+             4. 上传文件的[mimeType]
+             */
+            NSUInteger index = [images indexOfObject:image];
+            if (index == images.count-1) {
+                // 上传位置图片data
+                [formData appendPartWithFileData:imageData name:@&quot;posfile&quot; fileName:fileName mimeType:@&quot;image/png&quot;];
+            } else {
+                [formData appendPartWithFileData:imageData name:@&quot;file&quot; fileName:fileName mimeType:@&quot;image/png&quot;];
+            }
+        }
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        NSLog(@&quot;uploadProgress = %@&quot;,uploadProgress);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
+}
+
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2018/2/2</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
                 <a class="clearlink" href="15173609376252.html">
                 
                   <h1>2018-01-31-获取本地图片</h1>
@@ -617,363 +861,6 @@ categories: tag标签的分类，如：categories: 随笔
                 </div>
               </div><!-- article -->
         
-			<div class="article">
-                <a class="clearlink" href="15166763998887.html">
-                
-                  <h1>2018.01.23 - hexo 博客搭建</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<!-----
-layout: post
-title: "hexo 搭建博客"
-date: 2018.01.23
-tag: hexo
------>  
-
-<h2 id="toc_0">支付问题</h2>
-
-<ul>
-<li>微信支付
-<img src="media/15166763998887/15166764452163.jpg" alt=""/>
-<img src="media/15166763998887/15166764644716.jpg" alt=""/></li>
-</ul>
-
-<!--- [iOS_抓娃娃SDK使用文档10.1](media/15166763998887/iOS_%E6%8A%93%E5%A8%83%E5%A8%83SDK%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A310.1.pdf)-->
-
-<h2 id="toc_1">Hexo 搭建博客</h2>
-
-<h3 id="toc_2">配置环境</h3>
-
-<ul>
-<li><p>安装 Node（<mark>必须</mark>）</p>
-
-<ul>
-<li><mark>作用</mark>：用来生成静态页面的 到 Node.js 官网下载相应平台的最新版本，一路安装即可。</li>
-</ul></li>
-<li><p>安装Git（<mark>必须</mark>）</p>
-
-<ul>
-<li><mark>作用</mark>：把本地的 hexo 内容提交到 github 上去. 安装 Xcode 就自带有 Git，我就不多说了。</li>
-</ul></li>
-<li><p>申请GitHub（<mark>必须</mark>）</p>
-
-<ul>
-<li><mark>作用</mark>：是用来做博客的远程创库、域名、服务器之类的，怎么与本地 hexo 建立连接等下讲。 github 账号我也不再啰嗦了,没有的话直接申请就行了，跟一般的注册账号差不多，SSH Keys，看你自己了，可以不配制，不配置的话以后每次对自己的博客有改动提交的时候就要手动输入账号密码，配置了就不需要了，怎么配置我就不多说了，网上有很多教程。</li>
-</ul></li>
-</ul>
-
-<h3 id="toc_3">正式安装HEXO　</h3>
-
-<p>1 - Node 和 Git 都安装好后，可执行如下命令安装 hexo：</p>
-
-<pre><code>$ sudo npm install -g hexo
-</code></pre>
-
-<p>2 - 初始化</p>
-
-<ul>
-<li>创建一个文件夹，如：Blog，cd 到 Blog 里执行 hexo init 的。命令：</li>
-</ul>
-
-<pre><code>hexo init
-</code></pre>
-
-<ul>
-<li>好啦，至此，全部安装工作已经完成！</li>
-</ul>
-
-<p>3 - 生成静态页面</p>
-
-<ul>
-<li>继续再Blog目录下执行如下命令，生成静态页面</li>
-</ul>
-
-<pre><code>hexo generate （hexo g  也可以）   
-</code></pre>
-
-<p>4.本地启动</p>
-
-<ul>
-<li>启动本地服务，进行文章预览调试，命令：</li>
-</ul>
-
-<pre><code>hexo server   
-</code></pre>
-
-<ul>
-<li>浏览器输入 <a href="http://localhost:4000">http://localhost:4000</a> 我不知道你们能不能，反正我不能，因为我还有环境没配置好</li>
-</ul>
-
-<p>vim _config.yml<br/>
-翻到最下面，改成我这样子的，注意： : 后面要有空格</p>
-
-<h2 id="toc_4">配置Github</h2>
-
-<h3 id="toc_5">建立Repository</h3>
-
-<ul>
-<li>建立与你用户名对应的仓库，仓库名必须为<mark>【your_user_name.github.io】</mark>，固定写法 然后建立关联，我的Blog在本地/Users/Desktop/Blog，Blog是我之前建的东西也全在这里面，有：</li>
-</ul>
-
-<pre><code>Blog 
-　｜ 
-　｜－－ _config.yml 
-　｜－－ node_modules 
-　｜－－ public 
-　｜－－ source 
-　｜－－ db.json    
-　｜－－ package.json 
-　｜－－ scaffolds 
-　｜－－ themes 
-</code></pre>
-
-<p>　　　　　　 　　　<br/>
-- 现在我们需要 <mark>_config.yml</mark> 文件，来建立关联，命令：</p>
-
-<pre><code>deploy:
-  type: git
-  repository: https://github.com/leopardpan/leopardpan.github.io.git
-  branch: master
-</code></pre>
-
-<ul>
-<li>执行如下命令才能使用git部署</li>
-</ul>
-
-<pre><code>npm install hexo-deployer-git --save
-</code></pre>
-
-<ul>
-<li>网上会有很多说法，有的type是github, 还有repository 最后面的后缀也不一样，是github.com.git，我也踩了很多坑，我现在的版本是hexo: 3.1.1，执行命令hexo -vsersion就出来了,貌似3.0后全部改成我上面这种格式了。 忘了说了，我没用SSH Keys如果你用了SSH Keys的话直接在github里复制SSH的就行了，总共就两种协议，相信你懂的。 然后，执行配置命令：</li>
-</ul>
-
-<pre><code>hexo deploy
-</code></pre>
-
-<ul>
-<li>然后再浏览器中输入 <mark>http://your_name.github.io/</mark> 就行了，我的 github 的账户叫 <mark>xiaoxinhai</mark> ,把这个改成你 github 的账户名就行了</li>
-</ul>
-
-<h3 id="toc_6">部署步骤</h3>
-
-<ul>
-<li>每次部署的步骤，可按以下三步来进行。</li>
-</ul>
-
-<pre><code>hexo clean
-hexo generate
-hexo deploy
-</code></pre>
-
-<ul>
-<li>一些常用命令：</li>
-</ul>
-
-<pre><code>hexo new &quot;postName&quot;         # 新建文章
-hexo new page &quot;pageName&quot;    # 新建页面
-hexo generate               # 生成静态页面至public目录
-hexo server                 # 开启预览访问端口（默认端口4000，&#39;ctrl + c&#39;关闭server）
-hexo deploy                 # 将.deploy目录部署到GitHub
-hexo help                   # 查看帮助
-hexo version                # 查看Hexo的版本
-</code></pre>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2018/1/23</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="15165828761245.html">
-                
-                  <h1>2018.01.22 - SDK 相关</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<ul>
-<li>接入 初始化</li>
-<li>YourAppToken 是后台创建的 iOS 端只需要调用就行
-<img src="media/15165828761245/15165881950052.jpg" alt=""/></li>
-</ul>
-
-<h2 id="toc_0">SDK 开发</h2>
-
-<pre><code>在SDK开发中，一般会需要经过几个流程，
-
-# 开发SDK
-# 测试SDK
-# 把SDK交付给使用人员
-
-这些东西看似步骤多，过程繁琐，而且每修改一次SDK就需要重复一次上述的过程，增加了一些不必要的操作。
-
-当然，如果我们在SDK设计之初就有一个好的项目架构，就可以极大简化开发流程，提高开发效率.
-</code></pre>
-
-<ul>
-<li><p><a href="https://www.jianshu.com/p/edc679a893c9">转：一种比较实用的iOS SDK项目架构</a></p></li>
-<li><p>开发 SDK</p>
-
-<ul>
-<li>一般都是 <mark>.a</mark> </li>
-<li>有的需求打包成 <mark>framework</mark></li>
-</ul></li>
-</ul>
-
-<p><img src="media/15165828761245/15165913153841.jpg" alt=""/></p>
-
-<h2 id="toc_1">pushToViewControllerWhenClickPushMessageWith - 这个是极光推送的方法</h2>
-
-<pre><code>#pragma mark -- 程序点击推送消息进入的方法
-// iOS 10 Support
-- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
-    // Required
-    NSDictionary * userInfo = response.notification.request.content.userInfo;
-    if([response.notification.request.triggerisKindOfClass:[UNPushNotificationTriggerclass]]) {
-        [JPUSHServicehandleRemoteNotification:userInfo];
-        
-         [selfpushToViewControllerWhenClickPushMessageWith:userInfo]; //跳转页面
-    }
-    completionHandler();  // 系统要求执行这个方法
-}
-
-#pragma mark -- 程序跳转方法
--(void)pushToViewControllerWhenClickPushMessageWith:(NSDictionary*)msgDic{
-    
-    //将字段存入本地，因为要在你要跳转的页面用它来判断
-   NSUserDefaults*pushJudge = [NSUserDefaultsstandardUserDefaults];
-  //  [pushJudge setObject:@&quot;push&quot;forKey:@&quot;push&quot;];
-//判断后台传送的标示（用于跳转哪一个页面的判断）
-    if ([[msgDicobjectForKey:@&quot;type&quot;]isEqualToString:@&quot;active&quot;]){
-//得到根部控制器
-        TabBarController *hxl=(TabBarController *)self.window.rootViewController;
-//得到控制器中的导航栏
-        UINavigationController *nav=hxl.selectedViewController;
-//得到导航栏对应的控制器
-        UIViewController  *controller=(UIViewController *)nav.visibleViewController;
-//进行跳转页面
-        TSProductDetailViewController *pro=[[TSProductDetailViewControlleralloc]init];
-        
-         pro.detailid=[[msgDicobjectForKey:@&quot;id&quot;]integerValue];        
-        [controller.navigationControllerpushViewController:pro animated:YES];
-      
-    }elseif ([[msgDicobjectForKey:@&quot;type&quot;]isEqualToString:@&quot;dynamics&quot;]){
-        TabBarController *hxl=(TabBarController *)self.window.rootViewController;
-        hxl.selectedIndex=2;
-    }
-}
-
-#pragma mark iOS 10 前台收到通知（远程推送和本地通知）
-- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
-    NSDictionary * userInfo = notification.request.content.userInfo;
-    if([notification.request.triggerisKindOfClass:[UNPushNotificationTriggerclass]]) {
-        /// iOS10处理远程推送
-        [JPUSHServicehandleRemoteNotification:userInfo];
-        /// 前台收到推送的时候转成本地通知 ===========================
-        [self popAlert:userInfo];
-        
-    }else{
-        /// iOS10处理本地通知添加到通知栏 ==============================
-        completionHandler(UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionSound|UNNotificationPresentationOptionAlert);
-        
-        
-    }
-    // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以选择设置
-}
-
-//在前台的时候 我这里就直接弹出提示框
--(void)popAlert:(NSDictionary *)pushMessageDic{
-    NSLog(@&quot;%@&quot;,pushMessageDic);
-    NSString *title;
-    if([[pushMessageDicobjectForKey:@&quot;type&quot;]isEqualToString:@&quot;active&quot;])
-    {
-     title=@&quot;您有新的活动推送&quot;;
-        [JCAlertViewshowTwoButtonsWithTitle:titleMessage:             [[pushMessageDicobjectForKey:@&quot;aps&quot;]objectForKey:@&quot;alert&quot;]ButtonType:JCAlertViewButtonTypeCancelButtonTitle:@&quot;取消&quot;Click:^{
-            
-        } ButtonType:JCAlertViewButtonTypeDefaultButtonTitle:@&quot;查看&quot;Click:^{
-            [selfpushToViewControllerWhenClickPushMessageWith:pushMessageDic];
-            
-        }];
-    }elseif([[pushMessageDic objectForKey:@&quot;type&quot;]isEqualToString:@&quot;dynamics&quot;]){
-        title=@&quot;您有新的评论消息&quot;;
-        [JCAlertViewshowOneButtonWithTitle:titleMessage:[[pushMessageDicobjectForKey:@&quot;aps&quot;]objectForKey:@&quot;alert&quot;]ButtonType:JCAlertViewButtonTypeCancelButtonTitle:@&quot;取消&quot;Click:^{
-            
-        }];
-      
-    }
-    
-   
-}
-
-
-</code></pre>
-
-<h2 id="toc_2">测试数据</h2>
-
-<ul>
-<li>后台给了个接口
-
-<ul>
-<li>传进 IDFA 用来收集用户注册激活数据</li>
-</ul></li>
-</ul>
-
-<p>1- <img src="media/15165828761245/15166026740705.jpg" alt=""/><br/>
-2 - <img src="media/15165828761245/15166027434820.jpg" alt=""/></p>
-
-<p>3 - <img src="media/15165828761245/15166027084987.jpg" alt=""/></p>
-
-<p>4 - <img src="media/15165828761245/15166024878785.jpg" alt=""/></p>
-
-<h2 id="toc_3">架构</h2>
-
-<ul>
-<li><a href="http://keeganlee.me/post/architecture/20160303">转：APP架构经验总结</a></li>
-</ul>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2018/1/22</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
               
 
 
@@ -1045,6 +932,18 @@ hexo version                # 查看Hexo的版本
 	      
 		      
 			      <li class="post">
+			        <a href="15196075621669.html">2018-02-26-UIImagePickerController 与 AVFoundation 的区别</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15194586176947.html">2018-02-24-解决git提交问题</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15193489395143.html">2018-02-23-内购</a>
 			      </li>
 		     
@@ -1058,18 +957,6 @@ hexo version                # 查看Hexo的版本
 		      
 			      <li class="post">
 			        <a href="15184166364607.html">2018-02-12-项目中会用到的知识</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15181600421700.html">2018-02-09-C 语言总结</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15181482163531.html">2018-02-09-知识小集</a>
 			      </li>
 		     
 		  

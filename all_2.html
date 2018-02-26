@@ -101,6 +101,205 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
+                <a class="clearlink" href="15172931924189.html">
+                
+                  <h1>2018-01-30-最近状态</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<!-----
+layout: post
+title: "最近的状态"
+date: 2018.01.30
+tag: 生活总结 
+---  -->
+
+<h3 id="toc_0">关于工作</h3>
+
+<ul>
+<li>1. 在工作上不要拖后腿</li>
+</ul>
+
+<h3 id="toc_1">私人生活</h3>
+
+<ol>
+<li>冬天家里的水管爆了，三个房间全部被淹了</li>
+<li>平板、手机、猫（wifi）全部报废</li>
+<li> 在生活上不要生病</li>
+<li> 学会好好照顾自己</li>
+<li> 五年前的事过去了</li>
+<li> 现在要学会生活</li>
+<li> 学会坚持</li>
+</ol>
+
+<pre><code># 我很害怕给别人带来麻烦
+
+# 我不想从别人口中得知自己不成熟、不够优秀、或者很烦和这种人做喷狗之类的话
+
+# 我不愿意让自己变得一无是处，不喜欢自己被否定
+
+# 所以，我只能默默的改变，如果现在给一些人带来了一些不必要的麻烦
+
+# 请不要生气，我会改正的
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2018/1/30</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html'>生活总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="2018-1-30-%E6%94%B6%E8%97%8F%E5%8A%9F%E8%83%BD.html">
+                
+                  <h1>2018-01-30-收藏功能</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<!-----
+
+layout: post
+title: "收藏功能"
+date: 2018.01.30
+tag: iOS 总结
+
+--- --> 
+
+<h3 id="toc_0">收藏</h3>
+
+<ul>
+<li> 项目要求要在首页的视频右下角添加一个收藏的功能</li>
+<li>思路：
+
+<ul>
+<li>1. 进入一个界面先要进行判断是否有收藏，所以进行第一次网络请求</li>
+<li>2. 判断成功后，在进行第二次事件，用户点击了收藏按钮所做的动作，例如收藏成功、取消收藏</li>
+</ul></li>
+</ul>
+
+<pre><code>NSString *getiscollect = [QWHttpUrls getiscollectUrl];
+NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+[params setValue:[QWAccountModel sharedModel].uid forKey:@&quot;uid&quot;];
+[params setValue:@&quot;3&quot; forKey:@&quot;collect_type&quot;];
+[params setValue:self.gameID forKey:@&quot;collect_id&quot;];
+[QWHttpTool postmanager:getiscollect params:params success:^(id  _Nonnull manager, id  _Nonnull json) {
+    QWLog(@&quot;显示collectstatus===%@&quot;,json[@&quot;status&quot;]);
+    QWLog(@&quot;显示collectURLdata===%@&quot;,json[@&quot;data&quot;]);
+    if ([json[@&quot;status&quot;] isEqualToString:@&quot;1&quot;]) {
+        [self.collectBtn setImage:[UIImage imageNamed:[NSString stringWithFormat:@&quot;已收藏&quot;]] forState:UIControlStateNormal];
+//            Isselected = 2;
+    }else{
+        [self.collectBtn setImage:[UIImage imageNamed:[NSString stringWithFormat:@&quot;收藏&quot;]] forState:UIControlStateNormal];
+//            Isselected = 1;
+    }
+} failure:^(NSError * _Nonnull error) {
+    
+}];
+</code></pre>
+
+<pre><code>- (void)btnClick{
+    self.collectBtn.selected = !self.collectBtn.selected;
+    
+    if (Isselected==1) {
+        if (self.collectBtn.selected) {
+            NSString *collectURL = [QWHttpUrls CollectUrlWithOp:1 withcollect_type:3 Withcollect_id:_movieStr];
+            NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+            [params setValue:[QWAccountModel sharedModel].uid forKey:@&quot;uid&quot;];
+            [QWHttpTool postmanager:collectURL params:params success:^(id  _Nonnull manager, id  _Nonnull json) {
+                QWLog(@&quot;collect结果===%@&quot;,json[@&quot;msg&quot;]);
+                [QWShowMessage showMessage:[NSString stringWithFormat:@&quot;%@&quot;,json[@&quot;msg&quot;]]];
+                [self.collectBtn setImage:[UIImage imageNamed:[NSString stringWithFormat:@&quot;已收藏&quot;]] forState:UIControlStateSelected];
+            } failure:^(NSError * _Nonnull error) {
+                
+            }];
+        }else{
+            NSString *collectURL = [QWHttpUrls CollectUrlWithOp:2 withcollect_type:3 Withcollect_id:_movieStr];
+            NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+            [params setValue:[QWAccountModel sharedModel].uid forKey:@&quot;uid&quot;];
+            [QWHttpTool postmanager:collectURL params:params success:^(id  _Nonnull manager, id  _Nonnull json) {
+                QWLog(@&quot;collect结果===%@&quot;,json[@&quot;msg&quot;]);
+                [QWShowMessage showMessage:[NSString stringWithFormat:@&quot;%@&quot;,json[@&quot;msg&quot;]]];
+                [self.collectBtn setImage:[UIImage imageNamed:[NSString stringWithFormat:@&quot;收藏&quot;]] forState:UIControlStateSelected];
+            } failure:^(NSError * _Nonnull error) {
+                
+            }];
+            
+        }
+        
+    }else{
+        if (self.collectBtn.selected) {
+            
+            NSString *collectURL = [QWHttpUrls CollectUrlWithOp:2 withcollect_type:3 Withcollect_id:_movieStr];
+            NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+            [params setValue:[QWAccountModel sharedModel].uid forKey:@&quot;uid&quot;];
+            [QWHttpTool postmanager:collectURL params:params success:^(id  _Nonnull manager, id  _Nonnull json) {
+                QWLog(@&quot;collect结果===%@&quot;,json[@&quot;msg&quot;]);
+                [QWShowMessage showMessage:[NSString stringWithFormat:@&quot;%@&quot;,json[@&quot;msg&quot;]]];
+                [self.collectBtn setImage:[UIImage imageNamed:[NSString stringWithFormat:@&quot;收藏&quot;]] forState:UIControlStateSelected];
+            } failure:^(NSError * _Nonnull error) {
+                
+            }];
+        }else{
+            NSString *collectURL = [QWHttpUrls CollectUrlWithOp:1 withcollect_type:3 Withcollect_id:_movieStr];
+            NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+            [params setValue:[QWAccountModel sharedModel].uid forKey:@&quot;uid&quot;];
+            [QWHttpTool postmanager:collectURL params:params success:^(id  _Nonnull manager, id  _Nonnull json) {
+                QWLog(@&quot;collect结果===%@&quot;,json[@&quot;msg&quot;]);
+                [QWShowMessage showMessage:[NSString stringWithFormat:@&quot;%@&quot;,json[@&quot;msg&quot;]]];
+                [self.collectBtn setImage:[UIImage imageNamed:[NSString stringWithFormat:@&quot;已收藏&quot;]] forState:UIControlStateSelected];
+            } failure:^(NSError * _Nonnull error) {
+                
+            }];
+            
+        }
+        
+    }
+}
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2018/1/30</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
                 <a class="clearlink" href="15168455023717.html">
                 
                   <h1>2018-01-25-低级错误</h1>
@@ -666,123 +865,6 @@ hexo version                # 查看Hexo的版本
                 </div>
               </div><!-- article -->
         
-			<div class="article">
-                <a class="clearlink" href="15165828492939.html">
-                
-                  <h1>2018.01.22 - 努力就会更优秀</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<!-----
-layout: post
-title: "努力就会更优秀"
-date: 2018.1.22
-tag: 生活总结 
---- --> 
-
-<h2 id="toc_0">你越努力，就越能更快的撞见幸运</h2>
-
-<ul>
-<li>有时候不想做的事就不做，别强迫自己，也别不好意思拒绝</li>
-</ul>
-
-<h2 id="toc_1">不要因为任何一些事就忘了自己的目标也别再丢了自己</h2>
-
-<ul>
-<li>头脑时刻保持清醒</li>
-</ul>
-
-<h2 id="toc_2">关于工作上的总结可以先记录下来，等有空闲就详细且系统的学习</h2>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2018/1/22</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='%E7%94%9F%E6%B4%BB%E6%80%BB%E7%BB%93.html'>生活总结</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="15164111244478.html">
-                
-                  <h1>2018.01.20 - iPad 问题和简单问题</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h2 id="toc_0">暖暖娃娃机</h2>
-
-<ul>
-<li><p>登录界面问题<br/>
-<img src="media/15164111244478/15164204342495.jpg" alt=""/></p></li>
-<li><p>登录界面布局<br/>
-<img src="media/15164111244478/15164206538007.jpg" alt=""/></p></li>
-</ul>
-
-<h2 id="toc_1">UIAlertVIewController 使用</h2>
-
-<pre><code>UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@&quot;请填写评论&quot; preferredStyle:UIAlertControllerStyleAlert];
-
-UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@&quot;确定&quot; style:UIAlertActionStyleCancel handler:nil];
-
-[alertController addAction:cancelAction];
-
-[self presentViewController:alertController animated:YES completion:nil];
-
-</code></pre>
-
-<h2 id="toc_2">iPad 版本适配</h2>
-
-<ul>
-<li>适配所遇到的问题
-<img src="media/15164111244478/15164381701964.jpg" alt=""/></li>
-</ul>
-
-<h2 id="toc_3">userInteractionEnabled 属性</h2>
-
-<ul>
-<li><a href="https://www.jianshu.com/p/febef5ce9adc">视图userInteractionEnabled交互</a></li>
-</ul>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2018/1/20</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
               
 
 
@@ -854,6 +936,18 @@ UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@&quot;确定&quot;
 	      
 		      
 			      <li class="post">
+			        <a href="15196075621669.html">2018-02-26-UIImagePickerController 与 AVFoundation 的区别</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15194586176947.html">2018-02-24-解决git提交问题</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15193489395143.html">2018-02-23-内购</a>
 			      </li>
 		     
@@ -867,18 +961,6 @@ UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@&quot;确定&quot;
 		      
 			      <li class="post">
 			        <a href="15184166364607.html">2018-02-12-项目中会用到的知识</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15181600421700.html">2018-02-09-C 语言总结</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15181482163531.html">2018-02-09-知识小集</a>
 			      </li>
 		     
 		  
