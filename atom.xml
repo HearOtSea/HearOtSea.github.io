@@ -4,7 +4,7 @@
   <title><![CDATA[心海]]></title>
   <link href="https://github.com/HearOtSea/HearOtSea.github.io.git/atom.xml" rel="self"/>
   <link href="https://github.com/HearOtSea/HearOtSea.github.io.git/"/>
-  <updated>2018-02-24T15:45:53+08:00</updated>
+  <updated>2018-02-26T17:29:20+08:00</updated>
   <id>https://github.com/HearOtSea/HearOtSea.github.io.git/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -20,7 +20,7 @@
     <content type="html"><![CDATA[
 <!-----
 layout: post
-title: ""
+title: "UIImagePickerController 与 AVFoundation 的区别"
 date: 2018.02.26
 tag: iOS 总结
 ----->
@@ -44,7 +44,7 @@ tag: iOS 总结
 <a href="#toc_4">Python：解法</a>
 </li>
 <li>
-<a href="#toc_5">OC 解法：</a>
+<a href="#toc_5">OC解法：</a>
 </li>
 </ul>
 </li>
@@ -55,6 +55,9 @@ tag: iOS 总结
 <a href="#toc_7">MJrefresh 下 CollectionView 的方法</a>
 </li>
 </ul>
+</li>
+<li>
+<a href="#toc_8">iOS 消息如何置顶</a>
 </li>
 </ul>
 
@@ -202,7 +205,8 @@ End 。
 
             targetL.append(findNum)
 
-            targetL = targetL + newL
+            targetL = tar![A7E27CDC7DC51EFAF34F3B4C8B2B0351](media/15196075621669/A7E27CDC7DC51EFAF34F3B4C8B2B0351.png)
+getL + newL
 
             s = &quot;&quot;
 
@@ -221,7 +225,7 @@ End 。
     print(str(randomNum) + &quot;---&gt;&quot; + str(nextCout))
 </code></pre>
 
-<h3 id="toc_5">OC 解法：</h3>
+<h3 id="toc_5">OC解法：</h3>
 
 <pre><code>// 写一个函数输出一个数字中的数字组合的下一个最大组合。
 // 例如378的下一个最大的组合是387，71632下一个最大的组合是72136，如果没有更大的组合就返回-1（语言不限）
@@ -431,6 +435,10 @@ End 。
 }
 </code></pre>
 
+<h2 id="toc_8">iOS 消息如何置顶</h2>
+
+<p><img src="media/15196075621669/A7E27CDC7DC51EFAF34F3B4C8B2B0351.png" alt="A7E27CDC7DC51EFAF34F3B4C8B2B0351"/></p>
+
 ]]></content>
   </entry>
   
@@ -440,6 +448,13 @@ End 。
     <updated>2018-02-24T15:50:17+08:00</updated>
     <id>https://github.com/HearOtSea/HearOtSea.github.io.git/15194586176947.html</id>
     <content type="html"><![CDATA[
+<!-----
+layout: post
+title: "解决git提交问题"
+date: 2018.02.24
+tag: iOS 总结
+----->
+
 <ul>
 <li>error: The requested URL returned error: 403 Forbidden while accessing</li>
 </ul>
@@ -459,11 +474,18 @@ url = https://HearOtSea@github.com/HearOtSea/HearOtSea.github.io.git
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[2018-02-23-内购]]></title>
+    <title type="html"><![CDATA[2018-02-23-iOS 内购]]></title>
     <link href="https://github.com/HearOtSea/HearOtSea.github.io.git/15193489395143.html"/>
     <updated>2018-02-23T09:22:19+08:00</updated>
     <id>https://github.com/HearOtSea/HearOtSea.github.io.git/15193489395143.html</id>
     <content type="html"><![CDATA[
+<!-----
+layout: post
+title: "iOS 内购"
+date: 2018.02.23
+tag: iOS 总结
+----->
+
 <ul>
 <li>
 <a href="#toc_0">1. 导入 <StoreKit/StoreKit.h></a>
@@ -922,6 +944,13 @@ tag: 生活总结
     <updated>2018-02-12T14:23:56+08:00</updated>
     <id>https://github.com/HearOtSea/HearOtSea.github.io.git/15184166364607.html</id>
     <content type="html"><![CDATA[
+<!-----
+layout: post
+title: "项目中会用到的知识"
+date: 2018.02.12
+tag: iOS 总结
+----->
+
 <ul>
 <li>
 <a href="#toc_0">本文转自简书，仅供学习</a>
@@ -1122,7 +1151,7 @@ tag: 生活总结
     <content type="html"><![CDATA[
 <!-- ---
 layout: post
-title: "One"
+title: "C 回顾第一期"
 date: 2018.02.09
 tag: C 总结
 
@@ -2459,6 +2488,8 @@ tag: iOS 总结
 </ul>
 
 
+<span id="more"></span><!-- more -->
+
 <h2 id="toc_0">SVN 问题</h2>
 
 <ul>
@@ -2484,7 +2515,7 @@ tag: iOS 总结
 
 </code></pre>
 
-<span id="more"></span><!-- more -->
+<!-- more -->
 
 <h2 id="toc_1">账号密码健壮性的问题</h2>
 
@@ -2628,6 +2659,8 @@ tag: iOS 总结
 <li><p><a href="https://www.jianshu.com/p/850475044b40">iOS 图片上传看我就够了</a></p></li>
 <li><p><a href="https://www.jianshu.com/p/5cce06c9f33c">iOS 上传图片和上传语音</a></p></li>
 </ul>
+
+<span id="more"></span><!-- more -->
 
 <h1 id="toc_1">项目</h1>
 
@@ -2801,6 +2834,8 @@ tag: iOS 总结
     
 }
 </code></pre>
+
+<span id="more"></span><!-- more -->
 
 <pre><code>- (void)open {
     // 1.判断相册是否可以打开
@@ -3162,6 +3197,8 @@ $ cd myBlog
 <li>在浏览器里输入： <a href="http://localhost:4000">http://localhost:4000</a>，就可以看到你的博客效果了。</li>
 </ul>
 
+<span id="more"></span><!-- more -->
+
 <h4 id="toc_2">目录结构</h4>
 
 <ul>
@@ -3228,7 +3265,7 @@ categories: tag标签的分类，如：categories: 随笔
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[2018.01.23 - hexo 博客搭建]]></title>
+    <title type="html"><![CDATA[2018-01-23 - hexo 博客搭建]]></title>
     <link href="https://github.com/HearOtSea/HearOtSea.github.io.git/15166763998887.html"/>
     <updated>2018-01-23T10:59:59+08:00</updated>
     <id>https://github.com/HearOtSea/HearOtSea.github.io.git/15166763998887.html</id>
@@ -3271,6 +3308,8 @@ tag: hexo
 <li><mark>作用</mark>：是用来做博客的远程创库、域名、服务器之类的，怎么与本地 hexo 建立连接等下讲。 github 账号我也不再啰嗦了,没有的话直接申请就行了，跟一般的注册账号差不多，SSH Keys，看你自己了，可以不配制，不配置的话以后每次对自己的博客有改动提交的时候就要手动输入账号密码，配置了就不需要了，怎么配置我就不多说了，网上有很多教程。</li>
 </ul></li>
 </ul>
+
+<span id="more"></span><!-- more -->
 
 <h3 id="toc_3">正式安装HEXO　</h3>
 
@@ -3392,11 +3431,20 @@ hexo version                # 查看Hexo的版本
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[2018.01.22 - SDK 相关]]></title>
+    <title type="html"><![CDATA[2018-01-22 - SDK 相关]]></title>
     <link href="https://github.com/HearOtSea/HearOtSea.github.io.git/15165828761245.html"/>
     <updated>2018-01-22T09:01:16+08:00</updated>
     <id>https://github.com/HearOtSea/HearOtSea.github.io.git/15165828761245.html</id>
     <content type="html"><![CDATA[
+<!-----
+
+layout: post
+title: "SDK 相关"
+date: 2018.01.22
+tag: iOS 总结
+
+--- --> 
+
 <ul>
 <li>接入 初始化</li>
 <li>YourAppToken 是后台创建的 iOS 端只需要调用就行
@@ -3541,7 +3589,7 @@ hexo version                # 查看Hexo的版本
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[2018.01.22 - 努力就会更优秀]]></title>
+    <title type="html"><![CDATA[2018-01-22 - 努力就会更优秀]]></title>
     <link href="https://github.com/HearOtSea/HearOtSea.github.io.git/15165828492939.html"/>
     <updated>2018-01-22T09:00:49+08:00</updated>
     <id>https://github.com/HearOtSea/HearOtSea.github.io.git/15165828492939.html</id>
@@ -3571,11 +3619,20 @@ tag: 生活总结
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[2018.01.20 - iPad 问题和简单问题]]></title>
+    <title type="html"><![CDATA[2018-01-20 - iPad 问题和简单问题]]></title>
     <link href="https://github.com/HearOtSea/HearOtSea.github.io.git/15164111244478.html"/>
     <updated>2018-01-20T09:18:44+08:00</updated>
     <id>https://github.com/HearOtSea/HearOtSea.github.io.git/15164111244478.html</id>
     <content type="html"><![CDATA[
+<!-----
+
+layout: post
+title: "iPad 问题和简单问题"
+date: 2018.01.20
+tag: iOS 总结
+
+--- --> 
+
 <h2 id="toc_0">暖暖娃娃机</h2>
 
 <ul>

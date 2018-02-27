@@ -101,145 +101,30 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
-                <a class="clearlink" href="15132133340050.html">
-                
-                  <h1>2017.12.14 - 工作总结</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h2 id="toc_0">字符串拼接</h2>
-
-<ul>
-<li>方法一：</li>
-</ul>
-
-<pre><code>- 错误的写法：string = [NSString initWithFormat:@&quot;%@,%@&quot;, string1, string2 ];
-
-- 正确的写法：string = [[NSString alloc] initWithFormat:@&quot;%@,%@&quot;, string1, string2 ];
-
-- 还有一种方法：NSString *string = [NSString stringWithFormat: @&quot;%@%@&quot;, string1, string2];
-</code></pre>
-
-<ul>
-<li>方法二：</li>
-</ul>
-
-<pre><code>string = [string1 stringByAppendingString:string2];
-</code></pre>
-
-<ul>
-<li>方法三：</li>
-</ul>
-
-<pre><code>string = [string stringByAppendingFormat:@&quot;%@,%@&quot;,string1, string2];
-</code></pre>
-
-<h2 id="toc_1">IDFA 的获取方法</h2>
-
-<ul>
-<li><p>之前用的是 IDFV</p></li>
-<li><p>IDFA</p></li>
-</ul>
-
-<pre><code>NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-</code></pre>
-
-<h2 id="toc_2">与后台的联调</h2>
-
-<ul>
-<li>首先是方法名的定义 &quot;jionGroup&quot;、&quot;UserRA&quot; 等</li>
-<li>其次在需要交互的地方写好,调用方法就 OK</li>
-</ul>
-
-<pre><code>#pragma mark - 在发送请求之前，决定是否跳转
-- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler 
-
-- else if ([requestStr rangeOfString:@&quot;AddGroup&quot;].location != NSNotFound) // 这里写 AddGroup 的方法
-
-- else if ([requestStr rangeOfString:@&quot;UserRA&quot;].location != NSNotFound) // 这里写 UserRA 的方法
-</code></pre>
-
-<h2 id="toc_3">调试</h2>
-
-<ul>
-<li>断点是最常见的</li>
-<li>断点停止地方如果想打印数据</li>
-<li>LLDB 调试</li>
-</ul>
-
-<pre><code>控制台 po requestStr
-</code></pre>
-
-<p><img src="media/15132133340050/15133022973723.jpg" alt=""/></p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2017/12/14</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
                 <a class="clearlink" href="15131274964537.html">
                 
-                  <h1>2017.12.13 - 工作总结</h1>
+                  <h1>2017-12-13 - 真机调试、唯一标识符、WKWebView</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<h2 id="toc_0">真机调试问题：</h2>
-
-<pre><code>Your maximum App ID limit has been reached. 
-You may create up to 10 App IDs every 7 days.
-</code></pre>
+                        	<!-----
+layout: post
+title: "真机调试、唯一标识符、WKWebView"
+date: 2017.12.13
+tag: iOS 总结 
+--- -->
 
 <ul>
-<li><p>1.出现这种情况,直接用上一次的 Bundle ID 就行了,因为免费 App ID 账号苹果官方有所限制</p></li>
-<li><p>2.这个时候你不管怎么改变 Bundle ID 都没有用,直接更换以前调试过的 Bundle ID ,就可以搞定了,建议每创建 Bundle ID 就记录一下,当出现这种问题的时候直接更换就可以了</p>
-
-<h2 id="toc_1">唯一标识符</h2></li>
-<li><p><a href="https://www.cnblogs.com/zxykit/p/5320259.html">iOS获取设备唯一标识的各种方法？IDFA、IDFV、UDID分别是什么含义？</a></p></li>
-<li><p>目前在项目中使用的比较多的也就数 IDFV 了,其他的几个基本都被苹果淘汰了.<br/>
-同时关于 UUID ,因为保证对在同一时空中的所有机器都是唯一的,所以在程序安装的时候生成唯一的 UUID 并且保存在 keychain 中,以这个唯一的 UUID 作为唯一标识符,就可以用于判断唯一设备.变相的作为 UDID 的用法</p></li>
-<li><p><a href="http://www.jianshu.com/p/b810d7e007ad">iOS-理解 : UDID、UUID、IDFA、IDFV</a></p>
-
-<h2 id="toc_2">XIB 报错</h2>
-
-<pre><code>error: Illegal Configuration: Compiling IB documents for earlier than iOS 7 is no longer supported.
-</code></pre></li>
-<li><p>修改最低版本    </p>
-
-<p><img src="media/15131274964537/15131458873021.jpg" alt=""/></p></li>
+<li>
+<a href="#toc_0">真机调试问题</a>
+</li>
+<li>
+<a href="#toc_3">WKWebView 问题</a>
+</li>
 </ul>
 
-<h2 id="toc_3">WKWebView 问题</h2>
 
-<pre><code>   NSString *strRequest = [navigationAction.request.URL.absoluteString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    if([strRequest isEqualToString:@&quot;about:blank&quot;]) {//主页面加载内容
-        decisionHandler(WKNavigationActionPolicyAllow);//允许跳转
-    } 
-    else {//截获页面里面的链接点击
-        //do something you want
-        decisionHandler(WKNavigationActionPolicyCancel);//不允许跳转
-    }
-</code></pre>
 
                         
                       </div>
@@ -247,7 +132,7 @@ You may create up to 10 App IDs every 7 days.
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
-                  
+                   <a href="15131274964537.html">Read more</a>&nbsp;&nbsp; 
                     <span class="date">2017/12/13</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -267,24 +152,18 @@ You may create up to 10 App IDs every 7 days.
 			<div class="article">
                 <a class="clearlink" href="15130667105753.html">
                 
-                  <h1>2017.12.12 - 工作总结</h1>
+                  <h1>2017-12-12 - WKwebView 缓存和弹窗处理</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<ul>
-<li><p>WKWebView 缓存问题：</p>
+                        	<!-----
+layout: post
+title: "WKWebView 缓存和弹窗处理"
+date: 2017.12.12
+tag: iOS 总结 
+--- -->
 
-<ul>
-<li><p><a href="http://blog.csdn.net/Deft_MKJing/article/details/78548162">WKWebView的缓存问题以及如何正确清理缓存</a></p></li>
-<li><p><a href="http://blog.csdn.net/txz_gray/article/details/58587316">iOS9 WKWebView清除缓存方法</a></p></li>
-</ul></li>
-<li><p>WKWebView 弹窗处理</p>
-
-<ul>
-<li><a href="http://qiita.com/ShingoFukuyama/items/5d97e6c62e3813d1ae98">ShingoFukuyama - 日本人处理弹窗事件</a></li>
-</ul></li>
-</ul>
 
                         
                       </div>
@@ -292,7 +171,7 @@ You may create up to 10 App IDs every 7 days.
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
-                  
+                   <a href="15130667105753.html">Read more</a>&nbsp;&nbsp; 
                     <span class="date">2017/12/12</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -312,117 +191,34 @@ You may create up to 10 App IDs every 7 days.
 			<div class="article">
                 <a class="clearlink" href="15129622345321.html">
                 
-                  <h1>2017.12.11 - 工作总结</h1>
+                  <h1>2017-12-11 - WKWebView 隐藏状态栏和白名单</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<h2 id="toc_0">隐藏状态栏</h2>
+                        	<!-----
+layout: post
+title: "WKWebView 隐藏状态栏和白名单"
+date: 2017.12.11
+tag: iOS 总结 
+--- -->
 
 <ul>
-<li> A push B 隐藏 B 界面的状态栏
-
-<ul>
-<li>在 viewDidLoad 方法添加以下代码：</li>
-</ul></li>
+<li>
+<a href="#toc_0">隐藏状态栏</a>
+</li>
+<li>
+<a href="#toc_1">禁止WebView滚动</a>
+</li>
+<li>
+<a href="#toc_2">添加支付白名单</a>
+</li>
+<li>
+<a href="#toc_3">OC 简单的调用 Web 网页 基础方法</a>
+</li>
 </ul>
 
-<pre><code>[self prefersStatusBarHidden];  
-[self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];  
-</code></pre>
 
-<pre><code>- (BOOL)prefersStatusBarHidden  
-{  
-    return YES;//隐藏为YES，显示为NO  
-}  
-</code></pre>
-
-<ul>
-<li><p>所有界面全部隐藏状态栏<img src="media/15129622345321/15129636745664.jpg" alt=""/></p>
-
-<ul>
-<li>查看一下有没有这两个 key</li>
-<li>没有添加以下：</li>
-</ul></li>
-</ul>
-
-<pre><code>Status bar is initially hidden   （value：YES)
-
-View controller-based status bar appearance   (value:NO)
-</code></pre>
-
-<h2 id="toc_1">禁止WebView滚动</h2>
-
-<pre><code>UIScrollView *tempView = (UIScrollView *)[self.myWebView.subviews objectAtIndex:0];
-
-tempView.scrollEnabled = NO;
-</code></pre>
-
-<h2 id="toc_2">添加支付白名单</h2>
-
-<ul>
-<li>info.plist 文件右键</li>
-<li>open AS</li>
-<li>Source Code</li>
-<li>添加以下代码</li>
-</ul>
-
-<pre><code> &lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
-    &lt;array&gt;
-        &lt;string&gt;alipays&lt;/string&gt;
-        &lt;string&gt;alipayauth&lt;/string&gt;
-        &lt;string&gt;alipay&lt;/string&gt;
-        &lt;string&gt;alipayqr&lt;/string&gt;
-        &lt;string&gt;alipays&lt;/string&gt;
-        &lt;string&gt;weixin&lt;/string&gt;
-        &lt;string&gt;wechat&lt;/string&gt;
-        &lt;string&gt;sinaweibohd&lt;/string&gt;
-        &lt;string&gt;sinaweibo&lt;/string&gt;
-        &lt;string&gt;sinaweibosso&lt;/string&gt;
-        &lt;string&gt;sinaweibohdsso&lt;/string&gt;
-        &lt;string&gt;weibosdk&lt;/string&gt;
-        &lt;string&gt;weibosdk2.5&lt;/string&gt;
-        &lt;string&gt;mqqapi&lt;/string&gt;
-        &lt;string&gt;mqq&lt;/string&gt;
-        &lt;string&gt;mqqOpensdkSSoLogin&lt;/string&gt;
-        &lt;string&gt;mqqconnect&lt;/string&gt;
-        &lt;string&gt;mqqopensdkdataline&lt;/string&gt;
-        &lt;string&gt;mqqopensdkgrouptribeshare&lt;/string&gt;
-        &lt;string&gt;mqqopensdkfriend&lt;/string&gt;
-        &lt;string&gt;mqqopensdkapi&lt;/string&gt;
-        &lt;string&gt;mqqopensdkapiV2&lt;/string&gt;
-        &lt;string&gt;mqqopensdkapiV3&lt;/string&gt;
-        &lt;string&gt;mqzoneopensdk&lt;/string&gt;
-        &lt;string&gt;wtloginmqq&lt;/string&gt;
-        &lt;string&gt;wtloginmqq2&lt;/string&gt;
-        &lt;string&gt;mqqwpa&lt;/string&gt;
-        &lt;string&gt;mqzone&lt;/string&gt;
-        &lt;string&gt;mqzonev2&lt;/string&gt;
-        &lt;string&gt;mqzoneshare&lt;/string&gt;
-        &lt;string&gt;wtloginqzone&lt;/string&gt;
-        &lt;string&gt;mqzonewx&lt;/string&gt;
-        &lt;string&gt;mqzoneopensdkapiV2&lt;/string&gt;
-        &lt;string&gt;mqzoneopensdkapi19&lt;/string&gt;
-        &lt;string&gt;mqqopensdkapiV4&lt;/string&gt;
-        &lt;string&gt;mqzoneopensdkapi&lt;/string&gt;
-        &lt;string&gt;mqqbrowser&lt;/string&gt;
-        &lt;string&gt;mttbrowser&lt;/string&gt;
-    &lt;/array&gt;
-</code></pre>
-
-<h2 id="toc_3">OC 简单的调用 Web 网页 基础方法</h2>
-
-<ul>
-<li>添加 <mark>WebKit.weFrameWork</mark> 框架</li>
-<li>导入头文件 <code>#import &lt;WebKit/WebKit.h&gt;</code></li>
-<li>创建 WKWebView 并且将其设置成 View</li>
-</ul>
-
-<pre><code>WKWebView *WKWeb = [[WKWebView alloc] initWithFrame:[UIScreen mainScreen].bounds];    
-self.view = WKWeb;
-NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&quot;https://www.baidu.com&quot;]];
-[WKWeb loadRequest:request];
-</code></pre>
 
                         
                       </div>
@@ -430,7 +226,7 @@ NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&quot
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
-                  
+                   <a href="15129622345321.html">Read more</a>&nbsp;&nbsp; 
                     <span class="date">2017/12/11</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -450,12 +246,19 @@ NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&quot
 			<div class="article">
                 <a class="clearlink" href="15128140217961.html">
                 
-                  <h1>2017.12.09 - 工作总结</h1>
+                  <h1>2017-12-09 - 证书打包</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<h2 id="toc_0">证书打包</h2>
+                        	<!-----
+layout: post
+title: "Info.plist 纯代码和证书相关问题"
+date: 2017.12.09
+tag: iOS 总结 
+--- -->
+
+<h2 id="toc_0">证书打包</h2>
 
 <ul>
 <li>为了确保快速开发，自动选择证书一般是不勾选</li>
@@ -491,12 +294,19 @@ NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@&quot
 			<div class="article">
                 <a class="clearlink" href="15126948659559.html">
                 
-                  <h1>2017.12.08 - 工作总结</h1>
+                  <h1>2017-12-08 - Info.plist 纯代码和证书相关问题</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<h2 id="toc_0">Info.plist 文件报错</h2>
+                        	<!-----
+layout: post
+title: "Info.plist 纯代码和证书相关问题"
+date: 2017.12.08
+tag: iOS 总结 
+--- -->
+
+<h2 id="toc_0">Info.plist 文件报错</h2>
 
 <pre><code>could not read data from &#39;/Users/hjz/Desktop/我玩登录/2017-12-7/IPlay/IPlay/Info.plist&#39;: The file “Info.plist” couldn’t be opened because there is no such file.
 
@@ -560,6 +370,86 @@ An updated certificate is required to sign and install the application.
                 </div>
               </div><!-- article -->
         
+			<div class="article">
+                <a class="clearlink" href="15126089650790.html">
+                
+                  <h1>2017-12-07 - 报错 255 和 HTTP 权限问题</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<!-----
+layout: post
+title: "报错 255 和 HTTP 权限问题"
+date: 2017.12.07
+tag: iOS 总结 
+--- --> 
+
+<h2 id="toc_0">报错信息：failed with exit code 255</h2>
+
+<pre><code>Command /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool failed with exit code 255
+</code></pre>
+
+<ul>
+<li><p>clean your project</p></li>
+<li><p>delete the cached data (Organizer-&gt;Projects-&gt;Derived Data tap &#39;Delete...&#39;</p></li>
+<li><p>insure that for this XIB the proper </p></li>
+<li><p>versioning is set (select XIB, 3rd Xcode tab on right, File options:<br/>
+close the project</p></li>
+<li><p>quit Xcode</p></li>
+<li><p>reopen Xcode, then the product</p></li>
+<li><p>try again</p></li>
+</ul>
+
+<h2 id="toc_1">Push 所要做的内容：</h2>
+
+<pre><code>self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+self.window.backgroundColor = [UIColor whiteColor];
+UINavigationController *nav= [[UINavigationController alloc]init];
+self.window.rootViewController = nav;
+    
+ViewController  *rootView = [[ViewController  alloc] init];
+[nav addChildViewController:rootView];
+    
+[self.window makeKeyAndVisible];
+</code></pre>
+
+<h2 id="toc_2">iOS 9 HTTP 请求报错：</h2>
+
+<pre><code>App Transport Security has blocked a cleartext HTTP (http://) resource load since it is insecure. Temporary exceptions can be configured via your app&#39;s Info.plist file.
+</code></pre>
+
+<ul>
+<li>解决方案：</li>
+</ul>
+
+<pre><code>1.在 Info.plist 中添加 NSAppTransportSecurity 类型 Dictionary。
+2.在 NSAppTransportSecurity 下添加 NSAllowsArbitraryLoads 类型 Boolean, 值设为 YES
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/12/7</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
               
 
 
@@ -594,7 +484,7 @@ An updated certificate is required to sign and install the application.
 
 
 <a target="_blank" class="weibo" href="https://weibo.com/HearOtSea" title="weibo">Weibo</a>
-<a target="_blank" class="twitter" target="_blank" href="www.xiaoxinhai.com" title="Twitter">Twitter</a>
+
 <a target="_blank" class="github" target="_blank" href="https://github.com/JiaZhiH" title="GitHub">GitHub</a>
 <a target="_blank" class="email" href="mailto:532289567@qq.com" title="Email">Email</a>
   <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
@@ -643,7 +533,7 @@ An updated certificate is required to sign and install the application.
 		  
 		      
 			      <li class="post">
-			        <a href="15193489395143.html">2018-02-23-内购</a>
+			        <a href="15193489395143.html">2018-02-23-iOS 内购</a>
 			      </li>
 		     
 		  

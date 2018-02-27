@@ -128,31 +128,6 @@ tag: iOS 总结
 </ul>
 
 
-<h2 id="toc_0">SVN 问题</h2>
-
-<ul>
-<li><p>开发项目的时候使用的是别人的包，所以在上传 SVN 的时候“鱿鱼” 操作不当导致两个项目混成一个项目，结果我很慌啊，灰常慌，灰常慌有木有啊，我了个..咳咳，正题</p></li>
-<li><p>严重警告，不看后果自负：</p>
-
-<ul>
-<li>记得备份！！！</li>
-<li>记得备份！！！</li>
-<li>记得备份！！！</li>
-</ul></li>
-</ul>
-
-<pre><code># 1. 打开 SVN 左边会有一栏你的项目，点击你所选的项目，右键 delete
-
-# 2. 然后把项目的 APP ID 更改一下，因为是一款 APP 做成两种不同的效果，所以会有两个 APP ID
-
-# 3. 继续打开项目所在的 SVN 路径下，拖入你正在开发的项目，上传 OK
-
-# 4. emmm  暂时没发现什么问题，如果有问题加群联系：698453193
-
-
-
-</code></pre>
-
 
                         
                       </div>
@@ -200,126 +175,6 @@ tag: iOS 总结
 <li><p><a href="https://www.jianshu.com/p/5cce06c9f33c">iOS 上传图片和上传语音</a></p></li>
 </ul>
 
-<h1 id="toc_1">项目</h1>
-
-<ul>
-<li>在项目中我是使用第二篇稳重中的方法，但是具体我还没实现，需要请教大佬</li>
-</ul>
-
-<pre><code>@implementation WoWUpWallpaperViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.title = @&quot;上传壁纸&quot;;
-    // 点击UIButton AddWallpaper 是打开相册添加图片
-    [_AddWallpaper addTarget:self action:@selector(AddWallpaperClick) forControlEvents:UIControlEventTouchUpInside];
-    
-    // 点击UIButton UpWallPaper 是上传图片
-    [_UpWallpaper addTarget:self action:@selector(UpWallpaperClick) forControlEvents:UIControlEventTouchUpInside];
-}
-
-# pragma mark -- 添加壁纸
-- (void)AddWallpaperClick {
-    
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@&quot;请选择图片&quot; preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *OKAction = [UIAlertAction actionWithTitle:@&quot;打开相册&quot; style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self openPhotoAlbum];
-    }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@&quot;取消&quot; style:UIAlertActionStyleCancel handler:nil];
-    [alertController addAction:OKAction];
-    [alertController addAction:cancelAction];
-    [self presentViewController:alertController animated:YES completion:nil];
-}
-
-
-- (void)UpWallpaperClick {
-    QWLog(@&quot;   上传成功啦~~~~~~~ \n成功了？\n\t好像没有\n\t\t真的没有？\n\t\t\temmmmm。。。。   &quot;);
-    [self postDataWithUrl:@&quot;http://www.qiangwan.com/index.php?tp=up&amp;op=image&quot; params:nil imageDatas:nil success:^(id response) {
-        [QWShowMessage showToastmsg:@&quot;上传壁纸成功&quot;];
-    } failure:^(NSError *error) {
-        [QWShowMessage showToastmsg:@&quot;上传壁纸失败&quot;];
-    }];
-}
-
-- (void)openPhotoAlbum {
-    // 1.判断相册是否可以打开
-    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) return;
-    // 2. 创建图片选择控制器
-    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
-    /**
-     typedef NS_ENUM(NSInteger, UIImagePickerControllerSourceType) {
-     UIImagePickerControllerSourceTypePhotoLibrary, // 相册
-     UIImagePickerControllerSourceTypeCamera, // 用相机拍摄获取
-     UIImagePickerControllerSourceTypeSavedPhotosAlbum // 相簿
-     }
-     */
-    // 3. 设置打开照片相册类型(显示所有相簿)
-    ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    // ipc.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-    // 照相机
-    // ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
-    // 4.设置代理
-    ipc.delegate = self;
-    // 5.modal出这个控制器
-    [self presentViewController:ipc animated:YES completion:nil];
-}
-
-#pragma mark -- &lt;UIImagePickerControllerDelegate&gt;--
-// 获取图片后的操作
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary&lt;NSString *,id&gt; *)info
-{
-    // 销毁控制器
-    [picker dismissViewControllerAnimated:YES completion:nil];
-
-    // 设置图片
-    _UpImage.image = info[UIImagePickerControllerOriginalImage];
-}
-
-
-
-#pragma mark --- 上传图片
-- (void)postDataWithUrl:(NSString *)url params:(NSMutableDictionary *)params imageDatas:(NSArray *)images success:(void (^)(id response))success failure:(void (^)(NSError *error))failure
-{
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    [manager.responseSerializer setAcceptableContentTypes:[NSSet　setWithObjects:@&quot;application/json&quot;,@&quot;text/html&quot;,@&quot;text/javascript&quot;,@&quot;text/xml&quot;,@&quot;text/plain&quot;,nil]];
-    [manager POST:url parameters:params constructingBodyWithBlock:^(id&lt;AFMultipartFormData&gt;  _Nonnull formData) {
-        for (UIImage *image in images) {
-            // 图片太大会上传不到服务器上面去
-            NSData *imageData = UIImageJPEGRepresentation(image, 0.1);;
-            // 在网络开发中，上传文件时，是文件不允许被覆盖，文件重名
-            // 要解决此问题，
-            // 可以在上传时使用当前的系统事件作为文件名
-            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            // 设置时间格式
-            formatter.dateFormat = @&quot;yyyyMMddHHmmss&quot;;
-            NSString *str = [formatter stringFromDate:[NSDate date]];
-            NSString *fileName = [NSString stringWithFormat:@&quot;%@.png&quot;, str];
-            /*
-             此方法参数
-             1. 要上传的[二进制数据]
-             2. 对应网站上[upload.php中]处理文件的[字段&quot;file&quot;]
-             3. 要保存在服务器上的[文件名]
-             4. 上传文件的[mimeType]
-             */
-            NSUInteger index = [images indexOfObject:image];
-            if (index == images.count-1) {
-                // 上传位置图片data
-                [formData appendPartWithFileData:imageData name:@&quot;posfile&quot; fileName:fileName mimeType:@&quot;image/png&quot;];
-            } else {
-                [formData appendPartWithFileData:imageData name:@&quot;file&quot; fileName:fileName mimeType:@&quot;image/png&quot;];
-            }
-        }
-    } progress:^(NSProgress * _Nonnull uploadProgress) {
-        NSLog(@&quot;uploadProgress = %@&quot;,uploadProgress);
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        success(responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        failure(error);
-    }];
-}
-
-</code></pre>
 
                         
                       </div>
@@ -327,7 +182,7 @@ tag: iOS 总结
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
-                  
+                   <a href="15175348012289.html">Read more</a>&nbsp;&nbsp; 
                     <span class="date">2018/2/2</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -395,107 +250,6 @@ tag: iOS 总结
 }
 </code></pre>
 
-<pre><code>- (void)open {
-    // 1.判断相册是否可以打开
-    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) return;
-    // 2. 创建图片选择控制器
-    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
-    /**
-     typedef NS_ENUM(NSInteger, UIImagePickerControllerSourceType) {
-     UIImagePickerControllerSourceTypePhotoLibrary, // 相册
-     UIImagePickerControllerSourceTypeCamera, // 用相机拍摄获取
-     UIImagePickerControllerSourceTypeSavedPhotosAlbum // 相簿
-     }
-     */
-    // 3. 设置打开照片相册类型(显示所有相簿)
-    ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    // ipc.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-    // 照相机
-    // ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
-    // 4.设置代理
-    ipc.delegate = self;
-    // 5.modal出这个控制器
-    [self presentViewController:ipc animated:YES completion:nil];
-}
-</code></pre>
-
-<pre><code>#pragma mark -- &lt;UIImagePickerControllerDelegate&gt;--
-// 获取图片后的操作
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary&lt;NSString *,id&gt; *)info
-{
-    // 销毁控制器
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    
-    // 设置图片
-    _UpImage.image = info[UIImagePickerControllerOriginalImage];
-}
-
-</code></pre>
-
-<pre><code>- (void)UpWallpaperClick {
-    
-}
-</code></pre>
-
-<ul>
-<li>这里是上传到后台数据，但是由于后台暂时没有给数据，就写成这样</li>
-</ul>
-
-<pre><code>+ (void)uploadImageWithImage:(UIImage *)image pid:(NSString *)pid success:(void (^)(id responseObject))success failureHandler:(void(^)(NSError *error)) failure{
-    //加载提示菊花
-    MBProgressHUD *hud;
-    hud.label.text = NSLocalizedString(@&quot;加载中...&quot;, @&quot;HUD loading title&quot;);
-    /*
-     此段代码如果需要修改，可以调整的位置
-     1. 把upload.php改成网站开发人员告知的地址
-     2. 把file改成网站开发人员告知的字段名
-     */
-    
-    //AFN3.0+基于封住HTPPSession的句柄x
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-//    NSDictionary *dict = @{@&quot;username&quot;:@&quot;Saup&quot;};
-    
-    [manager POST:@&quot;&quot; parameters:nil constructingBodyWithBlock:^(id&lt;AFMultipartFormData&gt;  _Nonnull formData) {
-        NSData *data = UIImagePNGRepresentation(image);
-        // 在网络开发中，上传文件时，是文件不允许被覆盖，文件重名
-        // 要解决此问题，
-        // 可以在上传时使用当前的系统事件作为文件名
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        // 设置时间格式
-        formatter.dateFormat = @&quot;yyyyMMddHHmmss&quot;;
-        NSString *str = [formatter stringFromDate:[NSDate date]];
-        NSString *fileName = [NSString stringWithFormat:@&quot;%@.png&quot;, str];
-        
-        //上传
-        /*
-         此方法参数
-         1. 要上传的[二进制数据]
-         2. 对应网站上[upload.php中]处理文件的[字段&quot;file&quot;]
-         3. 要保存在服务器上的[文件名]
-         4. 上传文件的[mimeType]
-         */
-       [formData appendPartWithFileData:data name:@&quot;file&quot; fileName:fileName mimeType:@&quot;image/png&quot;];
-    
-    } progress:^(NSProgress * _Nonnull uploadProgress) {
-
-        //上传进度
-        // @property int64_t totalUnitCount;     需要下载文件的总大小
-        // @property int64_t completedUnitCount; 当前已经下载的大小
-        //
-        // 给Progress添加监听 KVO
-        NSLog(@&quot;%f&quot;,1.0 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);
-
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        //上传成功时的回调
-        [hud hideAnimated:YES];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        //        //失败时的回调
-        [hud hideAnimated:YES];
-    }];
-    
-}
-</code></pre>
 
                         
                       </div>
@@ -503,7 +257,7 @@ tag: iOS 总结
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
-                  
+                   <a href="15173609376252.html">Read more</a>&nbsp;&nbsp; 
                     <span class="date">2018/1/31</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -776,67 +530,6 @@ $ cd myBlog
 <li>在浏览器里输入： <a href="http://localhost:4000">http://localhost:4000</a>，就可以看到你的博客效果了。</li>
 </ul>
 
-<h4 id="toc_2">目录结构</h4>
-
-<ul>
-<li><p>Jekyll 的核心其实是一个文本转换引擎。它的概念其实就是： 你用你最喜欢的标记语言来写文章，可以是 Markdown，也可以是 Textile,或者就是简单的 HTML, 然后 Jekyll 就会帮你套入一个或一系列的布局中。在整个过程中你可以设置URL路径, 你的文本在布局中的显示样式等等。这些都可以通过纯文本编辑来实现，最终生成的静态页面就是你的成品了。</p></li>
-<li><p>一个基本的 Jekyll 网站的目录结构一般是像这样的：</p></li>
-</ul>
-
-<pre><code>.
-├── _config.yml
-├── _includes
-|   ├── footer.html
-|   └── header.html
-├── _layouts
-|   ├── default.html
-|   ├── post.html
-|   └── page.html
-├── _posts
-|   └── 2016-10-08-welcome-to-jekyll.markdown
-├── _sass
-|   ├── _base.scss
-|   ├── _layout.scss
-|   └── _syntax-highlighting.scss
-├── about.md
-├── css
-|   └── main.scss
-├── feed.xml
-└── index.html
-</code></pre>
-
-<ul>
-<li><p>这些目录结构以及具体的作用可以参考 官网文档</p></li>
-<li><p>进入 _config.yml 里面，修改成你想看到的信息，重新 jekyll server ，刷新浏览器就可以看到你刚刚修改的信息了。</p></li>
-<li><p>到此，博客初步搭建算是完成了，</p></li>
-</ul>
-
-<h4 id="toc_3">博客部署到远端</h4>
-
-<ul>
-<li>我这里讲的是部署到 Github Page 创建一个 github 账号，然后创建一个跟你账户名一样的仓库，如我的 github 账户名叫 leopardpan，我的 github 仓库名就叫 leopardpan.github.io，创建好了之后，把刚才建立的 myBlog 项目 push 到 username.github.io仓库里去（username指的是你的github用户名），检查你远端仓库已经跟你本地 myBlog 同步了，然后你在浏览器里输入 username.github.io ，就可以访问你的博客了。</li>
-</ul>
-
-<pre><code>---
-layout: post
-title:  &quot;Welcome to Jekyll!&quot;
-date:   2016-10-16 11:29:08 +0800
-categories: jekyll update
----
-
-正文...
-</code></pre>
-
-<pre><code>title: 显示的文章名， 如：title: 我的第一篇文章 
-
-date: 显示的文章发布日期，如：date: 2016-10-16 
-
-categories: tag标签的分类，如：categories: 随笔
-</code></pre>
-
-<ul>
-<li>我写文章使用的是 Mweb 编辑器</li>
-</ul>
 
                         
                       </div>
@@ -844,7 +537,7 @@ categories: tag标签的分类，如：categories: 随笔
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
-                  
+                   <a href="15167558151468.html">Read more</a>&nbsp;&nbsp; 
                     <span class="date">2018/1/24</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -895,7 +588,7 @@ categories: tag标签的分类，如：categories: 随笔
 
 
 <a target="_blank" class="weibo" href="https://weibo.com/HearOtSea" title="weibo">Weibo</a>
-<a target="_blank" class="twitter" target="_blank" href="www.xiaoxinhai.com" title="Twitter">Twitter</a>
+
 <a target="_blank" class="github" target="_blank" href="https://github.com/JiaZhiH" title="GitHub">GitHub</a>
 <a target="_blank" class="email" href="mailto:532289567@qq.com" title="Email">Email</a>
   <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
@@ -944,7 +637,7 @@ categories: tag标签的分类，如：categories: 随笔
 		  
 		      
 			      <li class="post">
-			        <a href="15193489395143.html">2018-02-23-内购</a>
+			        <a href="15193489395143.html">2018-02-23-iOS 内购</a>
 			      </li>
 		     
 		  

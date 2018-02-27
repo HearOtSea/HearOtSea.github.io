@@ -101,87 +101,21 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
-                <a class="clearlink" href="15126089650790.html">
-                
-                  <h1>2017.12.07 - 报错 255 和 HTTP 权限问题</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h2 id="toc_0">报错信息：failed with exit code 255</h2>
-
-<pre><code>Command /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool failed with exit code 255
-</code></pre>
-
-<ul>
-<li><p>clean your project</p></li>
-<li><p>delete the cached data (Organizer-&gt;Projects-&gt;Derived Data tap &#39;Delete...&#39;</p></li>
-<li><p>insure that for this XIB the proper </p></li>
-<li><p>versioning is set (select XIB, 3rd Xcode tab on right, File options:<br/>
-close the project</p></li>
-<li><p>quit Xcode</p></li>
-<li><p>reopen Xcode, then the product</p></li>
-<li><p>try again</p></li>
-</ul>
-
-<h2 id="toc_1">Push 所要做的内容：</h2>
-
-<pre><code>self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-self.window.backgroundColor = [UIColor whiteColor];
-UINavigationController *nav= [[UINavigationController alloc]init];
-self.window.rootViewController = nav;
-    
-ViewController  *rootView = [[ViewController  alloc] init];
-[nav addChildViewController:rootView];
-    
-[self.window makeKeyAndVisible];
-</code></pre>
-
-<h2 id="toc_2">iOS 9 HTTP 请求报错：</h2>
-
-<pre><code>App Transport Security has blocked a cleartext HTTP (http://) resource load since it is insecure. Temporary exceptions can be configured via your app&#39;s Info.plist file.
-</code></pre>
-
-<ul>
-<li>解决方案：</li>
-</ul>
-
-<pre><code>1.在 Info.plist 中添加 NSAppTransportSecurity 类型 Dictionary。
-2.在 NSAppTransportSecurity 下添加 NSAllowsArbitraryLoads 类型 Boolean, 值设为 YES
-</code></pre>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2017/12/7</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93.html'>工作总结</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
                 <a class="clearlink" href="15125221802822.html">
                 
-                  <h1>2017.12.06 - 重拾 iOS 相关代码</h1>
+                  <h1>2017-12-06 - 重拾 iOS 相关代码</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<h2 id="toc_0">WMPageController</h2>
+                        	<!-----
+layout: post
+title: "重拾 iOS 相关代码"
+date: 2017.12.06
+tag: iOS 总结
+--- --> 
+
+<h2 id="toc_0">WMPageController</h2>
 
 <ul>
 <li><a href="http://www.jianshu.com/p/e2503fb3241b">iOS开发--新闻首页效果WMPageController的使用</a></li>
@@ -283,7 +217,7 @@ ViewController  *rootView = [[ViewController  alloc] init];
 			<div class="article">
                 <a class="clearlink" href="15124419485948.html">
                 
-                  <h1>2017.12.05 - Git 上传代码</h1>
+                  <h1>2017-12-05 - Git 上传代码</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
@@ -486,12 +420,19 @@ baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] bundlePath]]
 			<div class="article">
                 <a class="clearlink" href="15123669187792.html">
                 
-                  <h1>2017.12.04 - Pods里没用过的的第三方</h1>
+                  <h1>2017-12-04 - Pods里没用过的的第三方</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<ul>
+                        	<!-----
+layout: post
+title: "Pods里没用过的的第三方"
+date: 2017.12.04
+tag: iOS 总结 
+--- --> 
+
+<ul>
 <li><p>EDStarRating （星级评价）</p></li>
 <li><p>JPush （极光推送）</p></li>
 <li><p>UMengAnalytics （友盟）</p></li>
@@ -638,7 +579,7 @@ baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] bundlePath]]
 
 
 <a target="_blank" class="weibo" href="https://weibo.com/HearOtSea" title="weibo">Weibo</a>
-<a target="_blank" class="twitter" target="_blank" href="www.xiaoxinhai.com" title="Twitter">Twitter</a>
+
 <a target="_blank" class="github" target="_blank" href="https://github.com/JiaZhiH" title="GitHub">GitHub</a>
 <a target="_blank" class="email" href="mailto:532289567@qq.com" title="Email">Email</a>
   <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
@@ -687,7 +628,7 @@ baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] bundlePath]]
 		  
 		      
 			      <li class="post">
-			        <a href="15193489395143.html">2018-02-23-内购</a>
+			        <a href="15193489395143.html">2018-02-23-iOS 内购</a>
 			      </li>
 		     
 		  

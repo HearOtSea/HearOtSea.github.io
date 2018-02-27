@@ -103,7 +103,7 @@
 			<div class="article">
                 <a class="clearlink" href="15166763998887.html">
                 
-                  <h1>2018.01.23 - hexo 博客搭建</h1>
+                  <h1>2018-01-23 - hexo 博客搭建</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
@@ -147,121 +147,6 @@ tag: hexo
 </ul></li>
 </ul>
 
-<h3 id="toc_3">正式安装HEXO　</h3>
-
-<p>1 - Node 和 Git 都安装好后，可执行如下命令安装 hexo：</p>
-
-<pre><code>$ sudo npm install -g hexo
-</code></pre>
-
-<p>2 - 初始化</p>
-
-<ul>
-<li>创建一个文件夹，如：Blog，cd 到 Blog 里执行 hexo init 的。命令：</li>
-</ul>
-
-<pre><code>hexo init
-</code></pre>
-
-<ul>
-<li>好啦，至此，全部安装工作已经完成！</li>
-</ul>
-
-<p>3 - 生成静态页面</p>
-
-<ul>
-<li>继续再Blog目录下执行如下命令，生成静态页面</li>
-</ul>
-
-<pre><code>hexo generate （hexo g  也可以）   
-</code></pre>
-
-<p>4.本地启动</p>
-
-<ul>
-<li>启动本地服务，进行文章预览调试，命令：</li>
-</ul>
-
-<pre><code>hexo server   
-</code></pre>
-
-<ul>
-<li>浏览器输入 <a href="http://localhost:4000">http://localhost:4000</a> 我不知道你们能不能，反正我不能，因为我还有环境没配置好</li>
-</ul>
-
-<p>vim _config.yml<br/>
-翻到最下面，改成我这样子的，注意： : 后面要有空格</p>
-
-<h2 id="toc_4">配置Github</h2>
-
-<h3 id="toc_5">建立Repository</h3>
-
-<ul>
-<li>建立与你用户名对应的仓库，仓库名必须为<mark>【your_user_name.github.io】</mark>，固定写法 然后建立关联，我的Blog在本地/Users/Desktop/Blog，Blog是我之前建的东西也全在这里面，有：</li>
-</ul>
-
-<pre><code>Blog 
-　｜ 
-　｜－－ _config.yml 
-　｜－－ node_modules 
-　｜－－ public 
-　｜－－ source 
-　｜－－ db.json    
-　｜－－ package.json 
-　｜－－ scaffolds 
-　｜－－ themes 
-</code></pre>
-
-<p>　　　　　　 　　　<br/>
-- 现在我们需要 <mark>_config.yml</mark> 文件，来建立关联，命令：</p>
-
-<pre><code>deploy:
-  type: git
-  repository: https://github.com/leopardpan/leopardpan.github.io.git
-  branch: master
-</code></pre>
-
-<ul>
-<li>执行如下命令才能使用git部署</li>
-</ul>
-
-<pre><code>npm install hexo-deployer-git --save
-</code></pre>
-
-<ul>
-<li>网上会有很多说法，有的type是github, 还有repository 最后面的后缀也不一样，是github.com.git，我也踩了很多坑，我现在的版本是hexo: 3.1.1，执行命令hexo -vsersion就出来了,貌似3.0后全部改成我上面这种格式了。 忘了说了，我没用SSH Keys如果你用了SSH Keys的话直接在github里复制SSH的就行了，总共就两种协议，相信你懂的。 然后，执行配置命令：</li>
-</ul>
-
-<pre><code>hexo deploy
-</code></pre>
-
-<ul>
-<li>然后再浏览器中输入 <mark>http://your_name.github.io/</mark> 就行了，我的 github 的账户叫 <mark>xiaoxinhai</mark> ,把这个改成你 github 的账户名就行了</li>
-</ul>
-
-<h3 id="toc_6">部署步骤</h3>
-
-<ul>
-<li>每次部署的步骤，可按以下三步来进行。</li>
-</ul>
-
-<pre><code>hexo clean
-hexo generate
-hexo deploy
-</code></pre>
-
-<ul>
-<li>一些常用命令：</li>
-</ul>
-
-<pre><code>hexo new &quot;postName&quot;         # 新建文章
-hexo new page &quot;pageName&quot;    # 新建页面
-hexo generate               # 生成静态页面至public目录
-hexo server                 # 开启预览访问端口（默认端口4000，&#39;ctrl + c&#39;关闭server）
-hexo deploy                 # 将.deploy目录部署到GitHub
-hexo help                   # 查看帮助
-hexo version                # 查看Hexo的版本
-</code></pre>
 
                         
                       </div>
@@ -269,7 +154,7 @@ hexo version                # 查看Hexo的版本
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
-                  
+                   <a href="15166763998887.html">Read more</a>&nbsp;&nbsp; 
                     <span class="date">2018/1/23</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -289,12 +174,21 @@ hexo version                # 查看Hexo的版本
 			<div class="article">
                 <a class="clearlink" href="15165828761245.html">
                 
-                  <h1>2018.01.22 - SDK 相关</h1>
+                  <h1>2018-01-22 - SDK 相关</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<ul>
+                        	<!-----
+
+layout: post
+title: "SDK 相关"
+date: 2018.01.22
+tag: iOS 总结
+
+--- --> 
+
+<ul>
 <li>接入 初始化</li>
 <li>YourAppToken 是后台创建的 iOS 端只需要调用就行
 <img src="media/15165828761245/15165881950052.jpg" alt=""/></li>
@@ -460,12 +354,21 @@ hexo version                # 查看Hexo的版本
 			<div class="article">
                 <a class="clearlink" href="15164111244478.html">
                 
-                  <h1>2018.01.20 - iPad 问题和简单问题</h1>
+                  <h1>2018-01-20 - iPad 问题和简单问题</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<h2 id="toc_0">暖暖娃娃机</h2>
+                        	<!-----
+
+layout: post
+title: "iPad 问题和简单问题"
+date: 2018.01.20
+tag: iOS 总结
+
+--- --> 
+
+<h2 id="toc_0">暖暖娃娃机</h2>
 
 <ul>
 <li><p>登录界面问题<br/>
@@ -525,12 +428,21 @@ UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@&quot;确定&quot;
 			<div class="article">
                 <a class="clearlink" href="15162375572647.html">
                 
-                  <h1>2018.01.18 - SVN 使用</h1>
+                  <h1>2018-01-18 - SVN 使用</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<ul>
+                        	<!-----
+
+layout: post
+title: "SVN 使用"
+date: 2018.01.18
+tag: iOS 总结
+
+--- --> 
+
+<ul>
 <li><p>SVN 库</p>
 
 <p><img src="media/15162375572647/15164141617700.jpg" alt=""/></p></li>
@@ -580,12 +492,21 @@ UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@&quot;确定&quot;
 			<div class="article">
                 <a class="clearlink" href="15161529183966.html">
                 
-                  <h1>2018.01.17 - Swift 入坑</h1>
+                  <h1>2018-01-17 - Swift 4.0 入坑</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<h2 id="toc_0">while 循环</h2>
+                        	<!-----
+
+layout: post
+title: "Swift 4.0 入坑"
+date: 2018.01.17
+tag: iOS 总结
+
+--- --> 
+
+<h2 id="toc_0">while 循环</h2>
 
 <ul>
 <li><p>While 循环执行一个合集的语句指导条件变成 False。</p></li>
@@ -670,12 +591,21 @@ default:
 			<div class="article">
                 <a class="clearlink" href="15160726556143.html">
                 
-                  <h1>2018.01.16 - 相册的功能</h1>
+                  <h1>2018-01-16 - 相册的功能</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<h2 id="toc_0">保存图片到相册的功能</h2>
+                        	<!-----
+
+layout: post
+title: "相册的功能"
+date: 2018.01.16
+tag: iOS 总结
+
+--- -->
+
+<h2 id="toc_0">保存图片到相册的功能</h2>
 
 <p><img src="media/15160726556143/15160729834398.jpg" alt=""/></p>
 
@@ -744,7 +674,7 @@ default:
 
 
 <a target="_blank" class="weibo" href="https://weibo.com/HearOtSea" title="weibo">Weibo</a>
-<a target="_blank" class="twitter" target="_blank" href="www.xiaoxinhai.com" title="Twitter">Twitter</a>
+
 <a target="_blank" class="github" target="_blank" href="https://github.com/JiaZhiH" title="GitHub">GitHub</a>
 <a target="_blank" class="email" href="mailto:532289567@qq.com" title="Email">Email</a>
   <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
@@ -793,7 +723,7 @@ default:
 		  
 		      
 			      <li class="post">
-			        <a href="15193489395143.html">2018-02-23-内购</a>
+			        <a href="15193489395143.html">2018-02-23-iOS 内购</a>
 			      </li>
 		     
 		  
